@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import EcosystemContainer from '../components/EcosystemContainer';
+
+const listings = await getCollection('listings');
+const validSlugs = listings.map((l) => l.data.slug);
+const websiteMap: Record<string, string> = {};
+listings.forEach((l) => {
+  if (l.data.website) {
+    try {
+      const domain = new URL(l.data.website).hostname;
+      websiteMap[l.data.slug] = domain;
+    } catch {}
+  }
+});
+
+const gridListings = listings.map((l) => ({
+  name: l.data.name,
+  slug: l.data.slug,
+  category: l.data.category,
+  subcategory: l.data.subcategory,
+  website: l.data.website ?? null,
+  status: l.data.status,
+}));
+---
+
+<Layout title="Ecosystem Map — TMS" description="Interactive visualization of how tools connect across AI, Bitcoin, Ethereum, Solana, RWA, and Infrastructure ecosystems.">
+  <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="mb-8">
+      <p class="mb-2 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600">
+        // ecosystem map
+      </p>
+      <h1 class="font-mono text-2xl font-black tracking-tight text-white sm:text-3xl">
+        How everything connects
+      </h1>
+      <p class="mt-2 max-w-2xl font-mono text-xs leading-relaxed text-slate-500">
+        Explore the full ecosystem — switch between an interactive graph of tool relationships
+        and a structured grid view organized by category.
+      </p>
+    </div>
+
+    <!-- Map / Grid -->
+    <EcosystemContainer
+      client:load
+      validSlugs={validSlugs}
+      domainMap={websiteMap}
+      gridListings={gridListings}
+    />
+  </div>
+</Layout>

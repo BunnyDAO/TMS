@@ -1,0 +1,323 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ListingCard from '../components/ListingCard.astro';
+import { categories, categoryKeys, type CategoryKey } from '../data/categories';
+import CategoryIcon from '../components/CategoryIcon.astro';
+import { getCollection } from 'astro:content';
+
+const allListings = await getCollection('listings');
+
+const categoryCounts = {} as Record<string, number>;
+for (const key of categoryKeys) {
+  categoryCounts[key] = allListings.filter((l) => l.data.category === key).length;
+}
+
+const totalCount = allListings.length;
+
+const hotListings = allListings
+  .filter((l) => l.data.status === 'hot')
+  .slice(0, 6);
+
+const trendingListings = allListings
+  .filter((l) => l.data.status === 'trending')
+  .slice(0, 6);
+
+const featuredListings = allListings.filter((l) => l.data.featured);
+
+// All hot + trending for the ticker
+const tickerListings = allListings
+  .filter((l) => l.data.status === 'hot' || l.data.status === 'trending');
+
+const cardStyles = {
+  violet: {
+    border: 'border-violet-500/20',
+    borderHover: 'hover:border-violet-500/50',
+    bg: 'bg-violet-500/[0.03]',
+    text: 'text-violet-400',
+    shadow: 'hover:shadow-violet-500/20',
+    glow: 'bg-violet-500',
+    ring: 'ring-violet-500/20',
+  },
+  orange: {
+    border: 'border-orange-500/20',
+    borderHover: 'hover:border-orange-500/50',
+    bg: 'bg-orange-500/[0.03]',
+    text: 'text-orange-400',
+    shadow: 'hover:shadow-orange-500/20',
+    glow: 'bg-orange-500',
+    ring: 'ring-orange-500/20',
+  },
+  blue: {
+    border: 'border-blue-500/20',
+    borderHover: 'hover:border-blue-500/50',
+    bg: 'bg-blue-500/[0.03]',
+    text: 'text-blue-400',
+    shadow: 'hover:shadow-blue-500/20',
+    glow: 'bg-blue-500',
+    ring: 'ring-blue-500/20',
+  },
+  teal: {
+    border: 'border-teal-400/20',
+    borderHover: 'hover:border-teal-400/50',
+    bg: 'bg-teal-400/[0.03]',
+    text: 'text-teal-400',
+    shadow: 'hover:shadow-teal-400/20',
+    glow: 'bg-teal-400',
+    ring: 'ring-teal-400/20',
+  },
+  emerald: {
+    border: 'border-emerald-500/20',
+    borderHover: 'hover:border-emerald-500/50',
+    bg: 'bg-emerald-500/[0.03]',
+    text: 'text-emerald-400',
+    shadow: 'hover:shadow-emerald-500/20',
+    glow: 'bg-emerald-500',
+    ring: 'ring-emerald-500/20',
+  },
+  cyan: {
+    border: 'border-cyan-500/20',
+    borderHover: 'hover:border-cyan-500/50',
+    bg: 'bg-cyan-500/[0.03]',
+    text: 'text-cyan-400',
+    shadow: 'hover:shadow-cyan-500/20',
+    glow: 'bg-cyan-500',
+    ring: 'ring-cyan-500/20',
+  },
+} as Record<string, Record<string, string>>;
+---
+
+<Layout>
+  <!-- Hero -->
+  <section class="relative overflow-hidden border-b border-slate-800/50">
+    <!-- Animated gradient orbs -->
+    <div class="absolute top-1/4 -left-32 h-64 w-64 rounded-full bg-violet-600/10 blur-[100px]"></div>
+    <div class="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-cyan-600/10 blur-[100px]"></div>
+    <div class="absolute top-1/2 left-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-600/5 blur-[80px]"></div>
+
+    <div class="relative mx-auto max-w-5xl px-4 py-24 sm:px-6 sm:py-32 lg:py-40">
+      <div class="flex flex-col items-center text-center">
+        <!-- Mono label -->
+        <div class="fade-up mb-6 inline-flex items-center gap-2 rounded-full border border-slate-700/50 bg-slate-900/50 px-4 py-1.5 font-mono text-xs text-slate-500 backdrop-blur-sm">
+          <span class="glow-dot inline-block h-1.5 w-1.5 rounded-full bg-green-500"></span>
+          {totalCount} tools indexed &mdash; updated daily
+        </div>
+
+        <!-- Main heading with glitch -->
+        <h1
+          class="glitch fade-up text-5xl font-black tracking-tighter text-white sm:text-7xl lg:text-8xl"
+          data-text="TOO MUCH SHIT."
+          style="animation-delay: 100ms"
+        >
+          TOO MUCH SHIT.
+        </h1>
+
+        <p class="fade-up mt-4 font-mono text-lg font-medium text-slate-500 sm:text-xl" style="animation-delay: 200ms">
+          We sort it out.
+        </p>
+
+        <p class="fade-up mx-auto mt-6 max-w-xl text-sm leading-relaxed text-slate-500 sm:text-base" style="animation-delay: 300ms">
+          AI tools, crypto ecosystems, and RWA protocols &mdash; curated so you can stop doom-scrolling and start building.
+        </p>
+
+        <!-- Search bar -->
+        <div class="fade-up mx-auto mt-10 w-full max-w-md" style="animation-delay: 400ms">
+          <a
+            href="/search"
+            class="group flex items-center gap-3 rounded-xl border border-slate-700/50 bg-slate-900/80 px-5 py-3.5 text-slate-600 backdrop-blur-sm transition-all hover:border-slate-600 hover:bg-slate-800/80 hover:text-slate-400"
+          >
+            <svg class="h-4 w-4 shrink-0 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <span class="font-mono text-sm">search {totalCount}+ tools...</span>
+          </a>
+        </div>
+
+        <!-- Stats -->
+        <div class="fade-up mt-8 flex items-center gap-8 font-mono text-xs text-slate-600" style="animation-delay: 500ms">
+          <div class="flex items-center gap-2">
+            <span class="text-white">{totalCount}</span> tools
+          </div>
+          <div class="h-3 w-px bg-slate-800"></div>
+          <div class="flex items-center gap-2">
+            <span class="text-white">{categoryKeys.length}</span> ecosystems
+          </div>
+          <div class="h-3 w-px bg-slate-800"></div>
+          <div class="flex items-center gap-2">
+            <span class="text-white">0</span> bullshit
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scrolling Ticker -->
+  <div class="overflow-hidden border-b border-slate-800/50 bg-slate-900/30">
+    <div class="ticker-scroll flex whitespace-nowrap py-2.5">
+      {[...tickerListings, ...tickerListings].map((l) => {
+        const cat = categories[l.data.category as CategoryKey];
+        const isHot = l.data.status === 'hot';
+        return (
+          <a href={`/listings/${l.data.slug}`} class="mx-4 inline-flex shrink-0 items-center gap-2 font-mono text-xs text-slate-500 transition-colors hover:text-white">
+            <span class:list={[isHot ? 'text-red-500' : 'text-amber-400']}>
+              {isHot ? '>>>' : '>>'}
+            </span>
+            <span class="text-slate-400">{l.data.name}</span>
+            <span class:list={['text-[10px]', cardStyles[cat.color]?.text || 'text-slate-600']}>
+              {cat.name}
+            </span>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+
+  <!-- Category Grid -->
+  <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="mb-10 flex items-center gap-4">
+      <h2 class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-slate-600">
+        // explore the ecosystem
+      </h2>
+      <div class="h-px flex-1 bg-gradient-to-r from-slate-800 to-transparent"></div>
+    </div>
+
+    <div class="stagger grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {categoryKeys.map((key) => {
+        const cat = categories[key];
+        const count = categoryCounts[key] || 0;
+        const style = cardStyles[cat.color];
+        const subNames = Object.values(cat.subcategories).slice(0, 3);
+        return (
+          <a
+            href={`/category/${key}`}
+            class:list={[
+              'card-hover group relative overflow-hidden rounded-xl border p-5 backdrop-blur-sm',
+              style.border,
+              style.borderHover,
+              style.bg,
+              style.shadow,
+              'hover:shadow-lg',
+            ]}
+          >
+            {/* Corner glow */}
+            <div class:list={['absolute -right-8 -top-8 h-24 w-24 rounded-full opacity-10 blur-2xl transition-opacity group-hover:opacity-25', style.glow]}></div>
+
+            <div class="relative">
+              <div class="mb-3 flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <span class:list={[style.text]}><CategoryIcon category={key} class="w-5 h-5" /></span>
+                  <h3 class:list={['font-mono text-sm font-bold tracking-tight', style.text]}>{cat.name}</h3>
+                </div>
+                <span class="font-mono text-[10px] text-slate-600">
+                  {count}
+                </span>
+              </div>
+
+              <p class="mb-3 text-xs italic text-slate-600">{cat.tagline}</p>
+
+              <div class="flex flex-wrap gap-1.5">
+                {subNames.map((name) => (
+                  <span class="rounded border border-slate-800 bg-slate-900/50 px-1.5 py-0.5 font-mono text-[10px] text-slate-600">
+                    {name}
+                  </span>
+                ))}
+                {Object.keys(cat.subcategories).length > 3 && (
+                  <span class="rounded px-1.5 py-0.5 font-mono text-[10px] text-slate-700">
+                    +{Object.keys(cat.subcategories).length - 3}
+                  </span>
+                )}
+              </div>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- Hot Section -->
+  {hotListings.length > 0 && (
+    <section class="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+      <div class="mb-10 flex items-center gap-4">
+        <h2 class="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-red-500/80">
+          <span class="inline-block h-1.5 w-1.5 rounded-full bg-red-500 badge-hot"></span>
+          // what's hot
+        </h2>
+        <div class="h-px flex-1 bg-gradient-to-r from-red-500/20 to-transparent"></div>
+      </div>
+
+      <div class="stagger grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {hotListings.map((listing) => (
+          <ListingCard
+            name={listing.data.name}
+            slug={listing.data.slug}
+            tagline={listing.data.tagline}
+            category={listing.data.category as CategoryKey}
+            subcategory={listing.data.subcategory}
+            pricing={listing.data.pricing}
+            status={listing.data.status}
+            website={listing.data.website}
+            github={listing.data.github}
+          />
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- Trending Section -->
+  {trendingListings.length > 0 && (
+    <section class="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+      <div class="mb-10 flex items-center gap-4">
+        <h2 class="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-amber-400/80">
+          <span class="inline-block h-1.5 w-1.5 rounded-full bg-amber-400"></span>
+          // trending
+        </h2>
+        <div class="h-px flex-1 bg-gradient-to-r from-amber-400/20 to-transparent"></div>
+      </div>
+
+      <div class="stagger grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {trendingListings.map((listing) => (
+          <ListingCard
+            name={listing.data.name}
+            slug={listing.data.slug}
+            tagline={listing.data.tagline}
+            category={listing.data.category as CategoryKey}
+            subcategory={listing.data.subcategory}
+            pricing={listing.data.pricing}
+            status={listing.data.status}
+            website={listing.data.website}
+            github={listing.data.github}
+          />
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- Featured Section -->
+  {featuredListings.length > 0 && (
+    <section class="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+      <div class="mb-10 flex items-center gap-4">
+        <h2 class="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-amber-500/60">
+          // featured
+          <span class="rounded border border-slate-800 bg-slate-900 px-1.5 py-0.5 text-[9px] font-normal normal-case tracking-normal text-slate-600">promoted</span>
+        </h2>
+        <div class="h-px flex-1 bg-gradient-to-r from-amber-500/10 to-transparent"></div>
+      </div>
+
+      {featuredListings.map((listing) => (
+        <a
+          href={`/listings/${listing.data.slug}`}
+          class="card-hover block rounded-xl border border-amber-500/10 bg-amber-500/[0.02] p-6 transition-all hover:border-amber-500/30 hover:shadow-lg hover:shadow-amber-500/5"
+        >
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-mono text-sm font-bold text-white">{listing.data.name}</h3>
+              <p class="mt-1 text-xs text-slate-500">{listing.data.tagline}</p>
+            </div>
+            <span class="rounded border border-amber-500/20 bg-amber-500/10 px-2 py-0.5 font-mono text-[10px] text-amber-400">
+              FEATURED
+            </span>
+          </div>
+        </a>
+      ))}
+    </section>
+  )}
+</Layout>

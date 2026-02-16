@@ -1,0 +1,85 @@
+---
+import { categories, categoryKeys } from '../data/categories';
+
+const dotColors = {
+  violet: 'bg-violet-500',
+  orange: 'bg-orange-500',
+  blue: 'bg-blue-500',
+  teal: 'bg-teal-400',
+  emerald: 'bg-emerald-500',
+  cyan: 'bg-cyan-500',
+} as Record<string, string>;
+---
+
+<footer class="border-t border-slate-800/50 bg-slate-950">
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <!-- Brand -->
+      <div class="sm:col-span-2 lg:col-span-1">
+        <a href="/" class="font-mono text-lg font-black tracking-tighter text-white">TMS</a>
+        <p class="mt-2 font-mono text-xs leading-relaxed text-slate-700">
+          // too much shit<br />
+          // curating the AI, crypto,<br />
+          // and RWA landscape so<br />
+          // you don't have to.
+        </p>
+      </div>
+
+      <!-- Categories -->
+      <div>
+        <h3 class="mb-4 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600">
+          // categories
+        </h3>
+        <ul class="space-y-1.5">
+          {categoryKeys.map((key) => (
+            <li>
+              <a href={`/category/${key}`} class="group flex items-center gap-2 font-mono text-xs text-slate-600 transition-colors hover:text-white">
+                <span class:list={['inline-block h-1 w-1 rounded-full transition-opacity group-hover:opacity-100 opacity-50', dotColors[categories[key].color]]}></span>
+                {categories[key].name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Navigation -->
+      <div>
+        <h3 class="mb-4 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600">
+          // navigation
+        </h3>
+        <ul class="space-y-1.5">
+          <li>
+            <a href="/submit" class="font-mono text-xs text-slate-600 transition-colors hover:text-white">submit a tool</a>
+          </li>
+          <li>
+            <a href="/ecosystem" class="font-mono text-xs text-slate-600 transition-colors hover:text-white">ecosystem map</a>
+          </li>
+          <li>
+            <a href="/search" class="font-mono text-xs text-slate-600 transition-colors hover:text-white">search</a>
+          </li>
+          <li>
+            <a href="/" class="font-mono text-xs text-slate-600 transition-colors hover:text-white">home</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Meta -->
+      <div>
+        <h3 class="mb-4 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600">
+          // meta
+        </h3>
+        <div class="space-y-1.5 font-mono text-xs text-slate-700">
+          <p>built with astro</p>
+          <p>styled with tailwind</p>
+          <p>no tracking. no cookies.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-slate-800/50 pt-6 text-center">
+      <p class="font-mono text-[10px] text-slate-800">
+        &copy; 2026 TMS &mdash; TOO MUCH SHIT. ALL RIGHTS RESERVED.
+      </p>
+    </div>
+  </div>
+</footer>

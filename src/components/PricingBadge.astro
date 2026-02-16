@@ -1,0 +1,20 @@
+---
+interface Props {
+  pricing: 'free' | 'freemium' | 'paid' | 'open-source';
+}
+
+const { pricing } = Astro.props;
+
+const badges: Record<string, { label: string; class: string }> = {
+  free: { label: 'free', class: 'border-green-500/20 text-green-500/60' },
+  freemium: { label: 'freemium', class: 'border-blue-500/20 text-blue-500/60' },
+  paid: { label: 'paid', class: 'border-orange-500/20 text-orange-500/60' },
+  'open-source': { label: 'oss', class: 'border-purple-500/20 text-purple-500/60' },
+};
+
+const badge = badges[pricing];
+---
+
+<span class:list={['rounded border px-1.5 py-0.5 font-mono text-[10px]', badge.class]}>
+  {badge.label}
+</span>

@@ -1,0 +1,93 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CategoryFilter from '../../components/CategoryFilter';
+import { categories, categoryKeys, type CategoryKey } from '../../data/categories';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  return categoryKeys.map((key) => ({
+    params: { category: key },
+    props: { categoryKey: key },
+  }));
+}
+
+const { categoryKey } = Astro.props;
+const cat = categories[categoryKey as CategoryKey];
+
+const allListings = await getCollection('listings');
+const categoryListings = allListings
+  .filter((l) => l.data.category === categoryKey)
+  .sort((a, b) => {
+    const statusOrder = { hot: 0, trending: 1, new: 2, stable: 3 };
+    return (statusOrder[a.data.status] ?? 3) - (statusOrder[b.data.status] ?? 3);
+  });
+
+const listingsData = categoryListings.map((l) => ({
+  name: l.data.name,
+  slug: l.data.slug,
+  tagline: l.data.tagline,
+  category: l.data.category,
+  subcategory: l.data.subcategory,
+  pricing: l.data.pricing,
+  status: l.data.status,
+  website: l.data.website,
+  github: l.data.github,
+}));
+
+const dotColors = {
+  violet: 'bg-violet-500',
+  orange: 'bg-orange-500',
+  blue: 'bg-blue-500',
+  teal: 'bg-teal-400',
+  emerald: 'bg-emerald-500',
+  cyan: 'bg-cyan-500',
+} as Record<string, string>;
+
+const textColors = {
+  violet: 'text-violet-400',
+  orange: 'text-orange-400',
+  blue: 'text-blue-400',
+  teal: 'text-teal-400',
+  emerald: 'text-emerald-400',
+  cyan: 'text-cyan-400',
+} as Record<string, string>;
+
+const gradientColors = {
+  violet: 'from-violet-500/20',
+  orange: 'from-orange-500/20',
+  blue: 'from-blue-500/20',
+  teal: 'from-teal-400/20',
+  emerald: 'from-emerald-500/20',
+  cyan: 'from-cyan-500/20',
+} as Record<string, string>;
+---
+
+<Layout title={`${cat.name} — TMS`} description={cat.description}>
+  <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="mb-10">
+      <div class="mb-1 flex items-center gap-3">
+        <span class:list={['inline-block h-2 w-2 rounded-full', dotColors[cat.color]]}></span>
+        <h1 class:list={['font-mono text-2xl font-black tracking-tighter', textColors[cat.color]]}>
+          {cat.name}
+        </h1>
+        <span class="font-mono text-xs text-slate-700">{categoryListings.length}</span>
+      </div>
+      <p class="ml-5 font-mono text-sm italic text-slate-600">{cat.tagline}</p>
+      <p class="ml-5 mt-2 max-w-2xl text-xs leading-relaxed text-slate-500">{cat.description}</p>
+    </div>
+
+    <div class="mb-8 flex items-center gap-4">
+      <div class:list={['h-px flex-1 bg-gradient-to-r to-transparent', gradientColors[cat.color]]}></div>
+    </div>
+
+    <!-- Interactive filter + grid -->
+    <CategoryFilter
+      client:load
+      listings={listingsData}
+      subcategories={cat.subcategories}
+      categoryColor={cat.color}
+      categoryKey={categoryKey}
+    />
+  </div>
+</Layout>

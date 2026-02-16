@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SearchApp from '../components/SearchApp';
+import { categories, categoryKeys } from '../data/categories';
+import { getCollection } from 'astro:content';
+
+const allListings = await getCollection('listings');
+
+const listingsData = allListings.map((l) => ({
+  name: l.data.name,
+  slug: l.data.slug,
+  tagline: l.data.tagline,
+  description: l.data.description,
+  category: l.data.category,
+  subcategory: l.data.subcategory,
+  pricing: l.data.pricing,
+  status: l.data.status,
+  tags: l.data.tags,
+  website: l.data.website,
+  github: l.data.github,
+}));
+
+const categoryInfo: Record<string, { name: string; icon: string; color: string }> = {};
+for (const key of categoryKeys) {
+  categoryInfo[key] = {
+    name: categories[key].name,
+    icon: categories[key].icon,
+    color: categories[key].color,
+  };
+}
+---
+
+<Layout title="Search — TMS" description="Search all tools across AI, crypto, and RWA ecosystems">
+  <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+    <div class="mb-8 flex items-center gap-4">
+      <h1 class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-slate-600">
+        // search
+      </h1>
+      <div class="h-px flex-1 bg-gradient-to-r from-slate-800 to-transparent"></div>
+    </div>
+
+    <SearchApp client:load listings={listingsData} categories={categoryInfo} />
+  </div>
+</Layout>

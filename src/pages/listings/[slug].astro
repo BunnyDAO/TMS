@@ -1,0 +1,248 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StatusBadge from '../../components/StatusBadge.astro';
+import PricingBadge from '../../components/PricingBadge.astro';
+import ListingCard from '../../components/ListingCard.astro';
+import { categories, type CategoryKey } from '../../data/categories';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const listings = await getCollection('listings');
+  return listings.map((listing) => ({
+    params: { slug: listing.data.slug },
+    props: { listing },
+  }));
+}
+
+const { listing } = Astro.props;
+const { data } = listing;
+const { Content } = await render(listing);
+
+const cat = categories[data.category as CategoryKey];
+const subName = cat.subcategories[data.subcategory] || data.subcategory;
+
+// Extract domain for favicon
+let domain = '';
+if (data.website) {
+  try { domain = new URL(data.website).hostname; } catch {}
+}
+const faviconUrl = domain ? `https://www.google.com/s2/favicons?domain=${domain}&sz=128` : '';
+
+// Related tools: same category, excluding current
+const allListings = await getCollection('listings');
+const related = allListings
+  .filter(
+    (l) =>
+      l.data.slug !== data.slug &&
+      l.data.category === data.category
+  )
+  .sort((a, b) => {
+    if (a.data.subcategory === data.subcategory && b.data.subcategory !== data.subcategory) return -1;
+    if (b.data.subcategory === data.subcategory && a.data.subcategory !== data.subcategory) return 1;
+    return 0;
+  })
+  .slice(0, 3);
+
+const dotColors = {
+  violet: 'bg-violet-500',
+  orange: 'bg-orange-500',
+  blue: 'bg-blue-500',
+  teal: 'bg-teal-400',
+  emerald: 'bg-emerald-500',
+  cyan: 'bg-cyan-500',
+} as Record<string, string>;
+
+const textColors = {
+  violet: 'text-violet-400',
+  orange: 'text-orange-400',
+  blue: 'text-blue-400',
+  teal: 'text-teal-400',
+  emerald: 'text-emerald-400',
+  cyan: 'text-cyan-400',
+} as Record<string, string>;
+
+const borderColors = {
+  violet: 'border-violet-500/20',
+  orange: 'border-orange-500/20',
+  blue: 'border-blue-500/20',
+  teal: 'border-teal-400/20',
+  emerald: 'border-emerald-500/20',
+  cyan: 'border-cyan-500/20',
+} as Record<string, string>;
+
+const gradientColors = {
+  violet: 'from-violet-500/20',
+  orange: 'from-orange-500/20',
+  blue: 'from-blue-500/20',
+  teal: 'from-teal-400/20',
+  emerald: 'from-emerald-500/20',
+  cyan: 'from-cyan-500/20',
+} as Record<string, string>;
+
+const glowColors = {
+  violet: 'bg-violet-500',
+  orange: 'bg-orange-500',
+  blue: 'bg-blue-500',
+  teal: 'bg-teal-400',
+  emerald: 'bg-emerald-500',
+  cyan: 'bg-cyan-500',
+} as Record<string, string>;
+
+const initBgColors = {
+  violet: 'bg-violet-500/20 text-violet-400',
+  orange: 'bg-orange-500/20 text-orange-400',
+  blue: 'bg-blue-500/20 text-blue-400',
+  teal: 'bg-teal-400/20 text-teal-400',
+  emerald: 'bg-emerald-500/20 text-emerald-400',
+  cyan: 'bg-cyan-500/20 text-cyan-400',
+} as Record<string, string>;
+---
+
+<Layout title={`${data.name} — TMS`} description={data.tagline}>
+  <div class="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
+    <!-- Back link -->
+    <a
+      href={`/category/${data.category}`}
+      class:list={['mb-8 inline-flex items-center gap-2 font-mono text-xs transition-colors hover:text-white', textColors[cat.color]]}
+    >
+      <span>&lt;-</span>
+      back to {cat.name.toLowerCase()}
+    </a>
+
+    <!-- Main card -->
+    <div class:list={['relative overflow-hidden rounded-xl border p-6 sm:p-8', borderColors[cat.color], 'bg-slate-900/50 backdrop-blur-sm']}>
+      {/* Corner glow */}
+      <div class:list={['absolute -right-16 -top-16 h-48 w-48 rounded-full opacity-10 blur-3xl', glowColors[cat.color]]}></div>
+
+      <div class="relative">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+          <div class="flex items-start gap-4">
+            {/* Logo */}
+            {faviconUrl ? (
+              <div class="shrink-0">
+                <img
+                  src={faviconUrl}
+                  alt=""
+                  class="h-10 w-10 rounded-lg"
+                  loading="lazy"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+                />
+                <span class:list={['hidden h-10 w-10 items-center justify-center rounded-lg font-mono text-lg font-bold', initBgColors[cat.color]]}>
+                  {data.name.charAt(0)}
+                </span>
+              </div>
+            ) : (
+              <span class:list={['flex h-10 w-10 shrink-0 items-center justify-center rounded-lg font-mono text-lg font-bold', initBgColors[cat.color]]}>
+                {data.name.charAt(0)}
+              </span>
+            )}
+            <div>
+              <h1 class="font-mono text-xl font-black tracking-tight text-white sm:text-2xl">{data.name}</h1>
+              <p class="mt-1 text-sm text-slate-500">{data.tagline}</p>
+            </div>
+          </div>
+          <StatusBadge status={data.status} />
+        </div>
+
+        <!-- Links -->
+        <div class="mt-6 flex flex-wrap gap-2">
+          {data.website && (
+            <a
+              href={data.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 rounded-lg border border-slate-800 bg-slate-900/80 px-3 py-1.5 font-mono text-xs text-slate-400 transition-all hover:border-slate-700 hover:text-white"
+            >
+              <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+              website
+            </a>
+          )}
+          {data.docs && (
+            <a
+              href={data.docs}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 rounded-lg border border-slate-800 bg-slate-900/80 px-3 py-1.5 font-mono text-xs text-slate-400 transition-all hover:border-slate-700 hover:text-white"
+            >
+              <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              docs
+            </a>
+          )}
+          {data.github && (
+            <a
+              href={data.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 rounded-lg border border-slate-800 bg-slate-900/80 px-3 py-1.5 font-mono text-xs text-slate-400 transition-all hover:border-slate-700 hover:text-white"
+            >
+              <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+              </svg>
+              github
+            </a>
+          )}
+        </div>
+
+        <!-- Metadata row -->
+        <div class="mt-6 flex flex-wrap items-center gap-3">
+          <div class="flex items-center gap-1.5">
+            <span class:list={['inline-block h-1.5 w-1.5 rounded-full', dotColors[cat.color]]}></span>
+            <a href={`/category/${data.category}`} class:list={['font-mono text-[10px] transition-colors hover:text-white', textColors[cat.color]]}>
+              {cat.name}
+            </a>
+          </div>
+          <span class="font-mono text-[10px] text-slate-800">/</span>
+          <span class="font-mono text-[10px] text-slate-600">{subName}</span>
+          <span class="font-mono text-[10px] text-slate-800">|</span>
+          <PricingBadge pricing={data.pricing} />
+        </div>
+
+        <!-- Tags -->
+        {data.tags.length > 0 && (
+          <div class="mt-4 flex flex-wrap gap-1.5">
+            {data.tags.map((tag: string) => (
+              <span class="rounded border border-slate-800/50 bg-slate-900 px-1.5 py-0.5 font-mono text-[10px] text-slate-700">#{tag}</span>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="prose prose-invert prose-slate mt-10 max-w-none prose-p:text-sm prose-p:leading-relaxed prose-p:text-slate-500 prose-li:text-sm prose-li:text-slate-500 prose-a:text-violet-400 prose-code:text-xs prose-code:rounded prose-code:border prose-code:border-slate-800 prose-code:bg-slate-900 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-slate-400">
+      <Content />
+    </div>
+
+    <!-- Related -->
+    {related.length > 0 && (
+      <section class="mt-16">
+        <div class="mb-8 flex items-center gap-4">
+          <h2 class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-slate-600">
+            // related tools
+          </h2>
+          <div class:list={['h-px flex-1 bg-gradient-to-r to-transparent', gradientColors[cat.color]]}></div>
+        </div>
+
+        <div class="stagger grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {related.map((r) => (
+            <ListingCard
+              name={r.data.name}
+              slug={r.data.slug}
+              tagline={r.data.tagline}
+              category={r.data.category as CategoryKey}
+              subcategory={r.data.subcategory}
+              pricing={r.data.pricing}
+              status={r.data.status}
+              website={r.data.website}
+              github={r.data.github}
+            />
+          ))}
+        </div>
+      </section>
+    )}
+  </div>
+</Layout>

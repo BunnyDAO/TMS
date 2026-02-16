@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import SubmitToolForm from '../components/SubmitToolForm';
+
+const listings = await getCollection('listings');
+const existingTools = listings
+  .map((l) => ({
+    slug: l.data.slug,
+    name: l.data.name,
+    category: l.data.category,
+  }))
+  .sort((a, b) => a.name.localeCompare(b.name));
+---
+
+<Layout title="Submit a Tool — TMS" description="Submit a tool to be listed on TMS. Tell us what it does and how it connects to the ecosystem.">
+  <div class="mx-auto max-w-2xl px-4 py-8 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="mb-8">
+      <p class="mb-2 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600">
+        // submit a tool
+      </p>
+      <h1 class="font-mono text-2xl font-black tracking-tight text-white sm:text-3xl">
+        Know something we don't?
+      </h1>
+      <p class="mt-2 font-mono text-xs leading-relaxed text-slate-500">
+        Submit a tool to be listed on TMS. Tell us what it does, which category it belongs to,
+        and what other tools it connects to. Submissions open as GitHub issues for review.
+      </p>
+    </div>
+
+    <!-- Form -->
+    <SubmitToolForm
+      client:load
+      existingTools={existingTools}
+      repoOwner="BunnyDAO"
+      repoName="toomuchshit"
+    />
+  </div>
+</Layout>
