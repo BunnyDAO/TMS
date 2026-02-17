@@ -9,7 +9,7 @@ tags: ["gpu-cloud", "inference", "training", "serverless", "infrastructure"]
 website: "https://runpod.io"
 docs: "https://docs.runpod.io"
 pricing: "paid"
-status: "hot"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

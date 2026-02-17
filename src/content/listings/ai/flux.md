@@ -9,7 +9,7 @@ tags: ["image-generation", "open-source", "text-to-image", "diffusion", "creativ
 website: "https://blackforestlabs.ai"
 github: "https://github.com/black-forest-labs/flux"
 pricing: "open-source"
-status: "hot"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

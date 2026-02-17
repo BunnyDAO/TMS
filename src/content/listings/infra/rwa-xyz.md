@@ -8,7 +8,7 @@ subcategory: "analytics"
 tags: ["analytics", "rwa", "tokenization", "dashboard", "market-data"]
 website: "https://rwa.xyz"
 pricing: "free"
-status: "trending"
+status: "hot"
 dateAdded: 2026-01-15
 featured: false
 ---

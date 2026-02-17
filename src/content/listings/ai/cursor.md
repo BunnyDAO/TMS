@@ -9,7 +9,7 @@ tags: ["code-editor", "ide", "autocomplete", "ai-coding", "vscode", "composer", 
 website: "https://cursor.com"
 docs: "https://docs.cursor.com"
 pricing: "freemium"
-status: "hot"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

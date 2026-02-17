@@ -9,7 +9,7 @@ tags: ["ide", "agentic", "autocomplete", "cascade", "openai", "vscode-fork", "mu
 website: "https://windsurf.com"
 docs: "https://docs.windsurf.com"
 pricing: "freemium"
-status: "trending"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

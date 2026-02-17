@@ -10,7 +10,7 @@ website: "https://dify.ai"
 github: "https://github.com/langgenius/dify"
 docs: "https://docs.dify.ai"
 pricing: "open-source"
-status: "hot"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

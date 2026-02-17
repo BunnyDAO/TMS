@@ -9,7 +9,7 @@ tags: ["text-to-speech", "voice-cloning", "audio", "dubbing", "speech-synthesis"
 website: "https://elevenlabs.io"
 docs: "https://docs.elevenlabs.io"
 pricing: "freemium"
-status: "hot"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

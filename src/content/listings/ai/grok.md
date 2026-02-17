@@ -9,7 +9,7 @@ tags: ["llm", "xai", "grok-4", "real-time", "twitter", "reasoning", "coding", "e
 website: "https://grok.com"
 docs: "https://docs.x.ai"
 pricing: "freemium"
-status: "hot"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

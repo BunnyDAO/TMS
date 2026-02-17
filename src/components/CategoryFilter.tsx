@@ -173,10 +173,10 @@ export default function CategoryFilter({ listings, subcategories, categoryColor,
   return (
     <div>
       {/* Subcategory pills */}
-      <div className="mb-4 flex flex-wrap gap-1.5">
+      <div className="mb-4 flex gap-1.5 overflow-x-auto pb-2 scrollbar-hide sm:flex-wrap">
         <button
           onClick={() => setActiveSub(null)}
-          className={`rounded border px-2.5 py-1 font-mono text-[10px] font-medium transition-colors ${
+          className={`shrink-0 rounded border px-2.5 py-1 font-mono text-[10px] font-medium transition-colors ${
             activeSub === null ? colors.pillActive : colors.pill
           }`}
         >
@@ -186,7 +186,7 @@ export default function CategoryFilter({ listings, subcategories, categoryColor,
           <button
             key={key}
             onClick={() => setActiveSub(activeSub === key ? null : key)}
-            className={`rounded border px-2.5 py-1 font-mono text-[10px] font-medium transition-colors ${
+            className={`shrink-0 rounded border px-2.5 py-1 font-mono text-[10px] font-medium transition-colors ${
               activeSub === key ? colors.pillActive : colors.pill
             }`}
           >

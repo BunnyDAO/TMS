@@ -9,7 +9,7 @@ tags: ["search", "research", "citations", "answer-engine", "web-search"]
 website: "https://perplexity.ai"
 docs: "https://docs.perplexity.ai"
 pricing: "freemium"
-status: "hot"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

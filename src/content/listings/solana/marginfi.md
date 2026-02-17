@@ -10,7 +10,7 @@ website: "https://marginfi.com"
 github: "https://github.com/mrgnlabs"
 docs: "https://docs.marginfi.com"
 pricing: "open-source"
-status: "trending"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

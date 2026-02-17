@@ -10,7 +10,7 @@ website: "https://bolt.new"
 github: "https://github.com/stackblitz/bolt.new"
 docs: "https://docs.bolt.new"
 pricing: "freemium"
-status: "hot"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

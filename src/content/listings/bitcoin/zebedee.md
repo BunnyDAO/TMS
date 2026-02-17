@@ -9,7 +9,7 @@ tags: ["lightning", "gaming", "payments", "api", "microtransactions"]
 website: "https://zebedee.io"
 docs: "https://docs.zebedee.io"
 pricing: "freemium"
-status: "trending"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

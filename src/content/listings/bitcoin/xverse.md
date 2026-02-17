@@ -9,7 +9,7 @@ tags: ["wallet", "ordinals", "brc-20", "stacks", "lightning"]
 website: "https://xverse.app"
 docs: "https://docs.xverse.app"
 pricing: "free"
-status: "trending"
+status: "hot"
 dateAdded: 2026-01-15
 featured: false
 ---

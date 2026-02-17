@@ -10,7 +10,7 @@ website: "https://deepseek.com"
 github: "https://github.com/deepseek-ai"
 docs: "https://platform.deepseek.com/docs"
 pricing: "open-source"
-status: "hot"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

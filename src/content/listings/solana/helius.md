@@ -9,7 +9,7 @@ tags: ["rpc", "api", "infrastructure", "developer-tools", "webhooks", "das", "pr
 website: "https://helius.dev"
 docs: "https://docs.helius.dev"
 pricing: "freemium"
-status: "trending"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

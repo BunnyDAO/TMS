@@ -9,7 +9,7 @@ tags: ["research", "documents", "podcast", "google", "knowledge-management"]
 website: "https://notebooklm.google.com"
 docs: "https://support.google.com/notebooklm"
 pricing: "free"
-status: "hot"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

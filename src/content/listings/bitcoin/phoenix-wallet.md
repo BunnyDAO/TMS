@@ -9,7 +9,7 @@ tags: ["lightning", "wallet", "non-custodial", "mobile", "payments"]
 website: "https://phoenix.acinq.co"
 github: "https://github.com/ACINQ/phoenix"
 pricing: "free"
-status: "hot"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

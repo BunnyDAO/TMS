@@ -8,7 +8,7 @@ subcategory: "video"
 tags: ["video-generation", "text-to-video", "motion", "chinese-ai", "creative"]
 website: "https://klingai.com"
 pricing: "freemium"
-status: "hot"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

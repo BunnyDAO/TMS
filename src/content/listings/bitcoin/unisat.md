@@ -9,7 +9,7 @@ tags: ["ordinals", "brc-20", "marketplace", "inscriptions", "wallet"]
 website: "https://unisat.io"
 github: "https://github.com/nickarashiofficial/unisat-wallet"
 pricing: "open-source"
-status: "hot"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

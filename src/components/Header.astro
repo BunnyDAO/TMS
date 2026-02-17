@@ -118,7 +118,9 @@ const dotColors = {
       <button
         id="mobile-menu-btn"
         class="rounded-lg border border-slate-800/50 p-1.5 text-slate-600 transition-colors hover:border-slate-700 hover:text-white md:hidden"
-        aria-label="Open menu"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
       >
         <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
@@ -128,7 +130,7 @@ const dotColors = {
   </div>
 
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="hidden border-t border-slate-800/50 bg-slate-950/95 backdrop-blur-xl md:hidden">
+  <div id="mobile-menu" class="max-h-0 overflow-hidden border-t border-slate-800/50 bg-slate-950/95 backdrop-blur-xl transition-[max-height] duration-300 ease-in-out md:hidden">
     <nav class="mx-auto max-w-7xl space-y-0.5 px-4 py-3 sm:px-6">
       {categoryKeys.map((key) => {
         const cat = categories[key];
@@ -187,7 +189,35 @@ const dotColors = {
 <script>
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
+
+  function openMenu() {
+    menu?.classList.remove('max-h-0');
+    menu?.classList.add('max-h-screen');
+    btn?.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeMenu() {
+    menu?.classList.add('max-h-0');
+    menu?.classList.remove('max-h-screen');
+    btn?.setAttribute('aria-expanded', 'false');
+  }
+
+  function isOpen() {
+    return menu?.classList.contains('max-h-screen');
+  }
+
   btn?.addEventListener('click', () => {
-    menu?.classList.toggle('hidden');
+    isOpen() ? closeMenu() : openMenu();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isOpen()) closeMenu();
+  });
+
+  document.addEventListener('click', (e) => {
+    const target = e.target as Node;
+    if (isOpen() && !menu?.contains(target) && !btn?.contains(target)) {
+      closeMenu();
+    }
   });
 </script>

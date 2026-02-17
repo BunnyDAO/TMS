@@ -10,7 +10,7 @@ website: "https://bittensor.com"
 github: "https://github.com/opentensor/bittensor"
 docs: "https://docs.bittensor.com"
 pricing: "open-source"
-status: "hot"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

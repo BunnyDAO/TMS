@@ -9,7 +9,7 @@ tags: ["video-generation", "google", "deepmind", "text-to-video", "cinematic"]
 website: "https://deepmind.google/technologies/veo"
 docs: "https://cloud.google.com/vertex-ai/docs/generative-ai/video/overview"
 pricing: "freemium"
-status: "hot"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

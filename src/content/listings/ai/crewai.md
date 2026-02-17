@@ -10,7 +10,7 @@ website: "https://crewai.com"
 github: "https://github.com/crewAIInc/crewAI"
 docs: "https://docs.crewai.com"
 pricing: "open-source"
-status: "hot"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

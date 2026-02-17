@@ -9,7 +9,7 @@ tags: ["nft", "trading", "pro-tools", "amm", "analytics"]
 website: "https://tensor.trade"
 docs: "https://docs.tensor.trade"
 pricing: "freemium"
-status: "hot"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

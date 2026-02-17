@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(npm run build:*)",
+      "Bash(source:*)",
+      "Bash(nvm ls:*)",
+      "Bash(export N_PREFIX=$HOME/.n)",
+      "Bash(export PATH=$N_PREFIX/bin:$PATH)",
+      "Bash(npx:*)",
+      "Bash(hash -r)",
+      "Bash(node:*)",
+      "Bash(npm:*)",
+      "Bash(curl:*)",
+      "Bash(export:*)",
+      "WebFetch(domain:wenrwa.com)",
+      "Bash(pkill:*)",
+      "Bash(ss:*)",
+      "Bash(find:*)",
+      "Bash(ls:*)",
+      "Bash(bash -c '. \"\"$NVM_DIR/nvm.sh\"\" 2>&1 && nvm install 20 2>&1')",
+      "Bash(bash:*)",
+      "Bash(. \"$NVM_DIR/nvm.sh\")",
+      "Bash(nvm use:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "Bash(wc:*)"
+    ]
+  }
+}

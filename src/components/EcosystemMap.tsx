@@ -56,7 +56,7 @@ export default function EcosystemMap({ validSlugs, domainMap }: Props) {
       setIsMobile(mobile);
       setDimensions({
         width: container.clientWidth,
-        height: mobile ? 500 : 800,
+        height: mobile ? 600 : 800,
       });
     };
 

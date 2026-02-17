@@ -9,7 +9,7 @@ tags: ["video-generation", "text-to-video", "openai", "creative", "cinematic"]
 website: "https://openai.com/sora"
 docs: "https://platform.openai.com/docs/guides/video"
 pricing: "freemium"
-status: "hot"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

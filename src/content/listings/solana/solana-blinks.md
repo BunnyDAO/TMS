@@ -10,7 +10,7 @@ website: "https://solana.com/solutions/actions"
 github: "https://github.com/solana-developers/solana-actions"
 docs: "https://solana.com/docs/advanced/actions"
 pricing: "open-source"
-status: "trending"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

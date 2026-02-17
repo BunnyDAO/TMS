@@ -10,7 +10,7 @@ website: "https://meteora.ag"
 github: "https://github.com/nickarashiofficial/meteora-dlmm-sdk"
 docs: "https://docs.meteora.ag"
 pricing: "open-source"
-status: "trending"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

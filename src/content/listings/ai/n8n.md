@@ -10,7 +10,7 @@ website: "https://n8n.io"
 github: "https://github.com/n8n-io/n8n"
 docs: "https://docs.n8n.io"
 pricing: "open-source"
-status: "trending"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

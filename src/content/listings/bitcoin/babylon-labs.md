@@ -10,7 +10,7 @@ website: "https://babylonlabs.io"
 github: "https://github.com/babylonlabs-io"
 docs: "https://docs.babylonlabs.io"
 pricing: "open-source"
-status: "hot"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

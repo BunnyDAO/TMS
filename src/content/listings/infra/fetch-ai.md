@@ -10,7 +10,7 @@ website: "https://fetch.ai"
 github: "https://github.com/fetchai"
 docs: "https://docs.fetch.ai"
 pricing: "open-source"
-status: "trending"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

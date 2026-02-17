@@ -10,7 +10,7 @@ website: "https://qwen.ai"
 github: "https://github.com/QwenLM/Qwen"
 docs: "https://qwen.readthedocs.io"
 pricing: "open-source"
-status: "hot"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

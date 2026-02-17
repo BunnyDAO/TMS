@@ -104,7 +104,7 @@ const cardStyles = {
 
         <!-- Main heading with glitch -->
         <h1
-          class="glitch fade-up text-5xl font-black tracking-tighter text-white sm:text-7xl lg:text-8xl"
+          class="glitch fade-up text-4xl font-black tracking-tighter text-white sm:text-7xl lg:text-8xl"
           data-text="TOO MUCH SHIT."
           style="animation-delay: 100ms"
         >
@@ -133,15 +133,15 @@ const cardStyles = {
         </div>
 
         <!-- Stats -->
-        <div class="fade-up mt-8 flex items-center gap-8 font-mono text-xs text-slate-600" style="animation-delay: 500ms">
+        <div class="fade-up mt-8 flex flex-wrap items-center justify-center gap-4 sm:gap-8 font-mono text-xs text-slate-600" style="animation-delay: 500ms">
           <div class="flex items-center gap-2">
             <span class="text-white">{totalCount}</span> tools
           </div>
-          <div class="h-3 w-px bg-slate-800"></div>
+          <div class="hidden sm:block h-3 w-px bg-slate-800"></div>
           <div class="flex items-center gap-2">
             <span class="text-white">{categoryKeys.length}</span> ecosystems
           </div>
-          <div class="h-3 w-px bg-slate-800"></div>
+          <div class="hidden sm:block h-3 w-px bg-slate-800"></div>
           <div class="flex items-center gap-2">
             <span class="text-white">0</span> bullshit
           </div>
