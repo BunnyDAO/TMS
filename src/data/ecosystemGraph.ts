@@ -116,7 +116,7 @@ export const edges: EcosystemEdge[] = [
   { source: 'pyth',      target: 'raydium',       type: 'oracle',      label: 'price feeds' },
   { source: 'chainlink', target: 'aave',          type: 'oracle',      label: 'price feeds' },
   { source: 'chainlink', target: 'maker',         type: 'oracle',      label: 'price feeds' },
-  { source: 'chainlink', target: 'uniswap',       type: 'oracle',      label: 'price feeds' },
+  { source: 'chainlink', target: 'ens',            type: 'oracle',      label: 'price feeds' },
   { source: 'chainlink', target: 'ondo',          type: 'oracle',      label: 'NAV feeds' },
 
   // ── MEV ─────────────────────────────────────────
@@ -151,7 +151,7 @@ export const edges: EcosystemEdge[] = [
 
   // ── Composability (DeFi Legos) ──────────────────
   { source: 'jito',      target: 'marginfi',      type: 'composability', label: 'jitoSOL as collateral' },
-  { source: 'jito',      target: 'marinade',      type: 'composability', label: 'liquid staking' },
+  { source: 'jito',      target: 'raydium',       type: 'composability', label: 'jitoSOL liquidity' },
   { source: 'marinade',  target: 'marginfi',      type: 'composability', label: 'mSOL as collateral' },
   { source: 'lido',      target: 'aave',          type: 'composability', label: 'stETH as collateral' },
   { source: 'lido',      target: 'eigenlayer',    type: 'composability', label: 'stETH restaking' },
@@ -183,7 +183,7 @@ export const edges: EcosystemEdge[] = [
   { source: 'claude',     target: 'aider',         type: 'powers',      label: 'powers' },
   { source: 'claude',     target: 'windsurf',      type: 'powers',      label: 'powers' },
   { source: 'chatgpt',    target: 'dall-e',        type: 'powers',      label: 'powers' },
-  { source: 'chatgpt',    target: 'github-copilot', type: 'powers',    label: 'powers' },
+  { source: 'chatgpt',    target: 'github-copilot', type: 'powers',    label: 'same model family' },
   { source: 'gemini',     target: 'notebooklm',    type: 'powers',      label: 'powers' },
   { source: 'deepseek',   target: 'cursor',        type: 'powers',      label: 'powers' },
   { source: 'llama',      target: 'ollama',        type: 'powers',      label: 'runs on' },
@@ -201,7 +201,7 @@ export const edges: EcosystemEdge[] = [
   { source: 'optimism',   target: 'aave',          type: 'composability', label: 'hosts Aave' },
 
   // ── Cross-ecosystem ─────────────────────────────
-  { source: 'magic-eden', target: 'tensor',        type: 'composability', label: 'NFT competition' },
+  { source: 'magic-eden', target: 'tensor',        type: 'competes',      label: 'NFT marketplace' },
   { source: 'defillama',  target: 'aave',          type: 'infrastructure', label: 'tracks TVL' },
   { source: 'defillama',  target: 'jupiter',       type: 'infrastructure', label: 'tracks TVL' },
   { source: 'defillama',  target: 'uniswap',       type: 'infrastructure', label: 'tracks TVL' },
@@ -214,13 +214,13 @@ export const edges: EcosystemEdge[] = [
   { source: 'snapshot',   target: 'ens',           type: 'composability', label: 'governance voting' },
 
   // ── RWA connections ─────────────────────────────
-  { source: 'ondo',       target: 'aave',          type: 'composability', label: 'OUSG in DeFi' },
+  { source: 'ondo',       target: 'blackrock-buidl', type: 'composability', label: 'OUSG backed by BUIDL' },
   { source: 'centrifuge', target: 'maker',         type: 'composability', label: 'RWA vaults' },
-  { source: 'maple',      target: 'aave',          type: 'composability', label: 'institutional lending' },
+  { source: 'maple',      target: 'usdc',          type: 'composability', label: 'USDC lending pools' },
 
   // ── AI x Crypto ─────────────────────────────────
   { source: 'render',     target: 'stable-diffusion', type: 'infrastructure', label: 'GPU rendering' },
-  { source: 'bittensor',  target: 'ollama',        type: 'infrastructure', label: 'decentralized inference' },
+  { source: 'bittensor',  target: 'render',        type: 'infrastructure', label: 'decentralized compute' },
   { source: 'fetch-ai',   target: 'chainlink',     type: 'composability', label: 'AI oracle agents' },
 
   // ── Lightning ecosystem ─────────────────────────
@@ -239,13 +239,13 @@ export const edges: EcosystemEdge[] = [
 
   // ── More AI tool relationships ──────────────────
   { source: 'bolt-new',   target: 'claude',        type: 'powers',      label: 'uses Claude' },
-  { source: 'v0',         target: 'chatgpt',       type: 'powers',      label: 'uses GPT' },
+  { source: 'v0',         target: 'claude',        type: 'powers',      label: 'uses Claude' },
 
   // ── Seedance ────────────────────────────────────
-  { source: 'seedance',   target: 'runway',          type: 'composability', label: 'competes with' },
-  { source: 'seedance',   target: 'sora',            type: 'composability', label: 'competes with' },
-  { source: 'seedance',   target: 'kling',           type: 'composability', label: 'competes with' },
-  { source: 'seedance',   target: 'veo',             type: 'composability', label: 'competes with' },
+  { source: 'seedance',   target: 'runway',          type: 'competes',      label: 'AI video' },
+  { source: 'seedance',   target: 'sora',            type: 'competes',      label: 'AI video' },
+  { source: 'seedance',   target: 'kling',           type: 'competes',      label: 'AI video' },
+  { source: 'seedance',   target: 'veo',             type: 'competes',      label: 'AI video' },
 
   // ── OpenClaw ───────────────────────────────────
   { source: 'claude',     target: 'openclaw',        type: 'powers',        label: 'powers' },
@@ -263,5 +263,5 @@ export const edges: EcosystemEdge[] = [
   { source: 'rwa-xyz',   target: 'wenrwa',          type: 'infrastructure', label: 'tracks RWA' },
   { source: 'helius',    target: 'wenrwa',          type: 'infrastructure', label: 'RPC provider' },
   { source: 'phantom',   target: 'wenrwa',          type: 'wallet',        label: 'connects to' },
-  { source: 'metamask',  target: 'wenrwa',          type: 'wallet',        label: 'connects to' },
+  { source: 'backpack',  target: 'wenrwa',          type: 'wallet',        label: 'connects to' },
 ];

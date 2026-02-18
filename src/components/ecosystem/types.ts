@@ -12,7 +12,8 @@ export type ConnectionType =
   | 'composability'
   | 'bridge'
   | 'staking'
-  | 'powers';
+  | 'powers'
+  | 'competes';
 
 export interface EcosystemNode {
   id: string;           // matches listing slug
@@ -70,6 +71,7 @@ export const CONNECTION_STYLES: Record<ConnectionType, ConnectionStyle> = {
   bridge:          { color: '#f472b6', stroke: 'solid',  animated: true,  label: 'Bridge' },
   staking:         { color: '#818cf8', stroke: 'solid',  animated: false, label: 'Staking' },
   powers:          { color: '#6b7280', stroke: 'dashed', animated: false, label: 'Powers' },
+  competes:        { color: '#ef4444', stroke: 'dashed', animated: false, label: 'Competes' },
 };
 
 export const CATEGORY_COLORS: Record<CategoryKey, string> = {
