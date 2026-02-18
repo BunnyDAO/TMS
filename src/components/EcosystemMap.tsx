@@ -645,6 +645,9 @@ export default function EcosystemMap({ validSlugs, domainMap }: Props) {
           node={simNodes.find((n) => n.id === hoveredNode) ?? null}
           edges={simEdges}
           position={tooltipPos}
+          isMobile={isMobile}
+          containerHeight={dimensions.height}
+          containerWidth={dimensions.width}
         />
       </div>
     </div>

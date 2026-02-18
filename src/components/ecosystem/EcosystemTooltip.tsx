@@ -1,3 +1,4 @@
+import { useRef, useLayoutEffect, useState } from 'react';
 import type { SimNode, SimEdge } from './types';
 import { CONNECTION_STYLES, CATEGORY_COLORS } from './types';
 
@@ -5,9 +6,40 @@ interface Props {
   node: SimNode | null;
   edges: SimEdge[];
   position: { x: number; y: number };
+  isMobile: boolean;
+  containerHeight: number;
+  containerWidth: number;
 }
 
-export function EcosystemTooltip({ node, edges, position }: Props) {
+export function EcosystemTooltip({ node, edges, position, isMobile, containerHeight, containerWidth }: Props) {
+  const tooltipRef = useRef<HTMLDivElement>(null);
+  const [adjustedPos, setAdjustedPos] = useState(position);
+
+  useLayoutEffect(() => {
+    if (!node || !tooltipRef.current) return;
+    const el = tooltipRef.current;
+    const w = el.offsetWidth;
+    const h = el.offsetHeight;
+    const pad = 8;
+
+    if (isMobile) {
+      // Mobile: center horizontally at the top of the container
+      setAdjustedPos({
+        x: Math.max(pad, (containerWidth - w) / 2),
+        y: pad,
+      });
+    } else {
+      // Desktop: position near cursor, clamped to container bounds
+      let x = position.x;
+      let y = position.y;
+      if (x + w > containerWidth - pad) x = containerWidth - w - pad;
+      if (x < pad) x = pad;
+      if (y + h > containerHeight - pad) y = containerHeight - h - pad;
+      if (y < pad) y = pad;
+      setAdjustedPos({ x, y });
+    }
+  }, [node, position, isMobile, containerHeight, containerWidth]);
+
   if (!node) return null;
 
   const connections = edges.filter(
@@ -16,10 +48,11 @@ export function EcosystemTooltip({ node, edges, position }: Props) {
 
   return (
     <div
+      ref={tooltipRef}
       className="pointer-events-none absolute z-50 w-64 rounded-lg border border-slate-700/50 bg-slate-900/95 p-3 shadow-xl backdrop-blur-sm"
       style={{
-        left: position.x,
-        top: position.y,
+        left: adjustedPos.x,
+        top: adjustedPos.y,
       }}
     >
       <div className="mb-2 flex items-center gap-2">
@@ -67,7 +100,9 @@ export function EcosystemTooltip({ node, edges, position }: Props) {
         </div>
       )}
 
-      <p className="mt-2 font-mono text-[9px] text-slate-700">tap again to view listing →</p>
+      <p className="mt-2 font-mono text-[9px] text-slate-700">
+        {isMobile ? 'tap again to view listing →' : 'click to view listing →'}
+      </p>
     </div>
   );
 }
