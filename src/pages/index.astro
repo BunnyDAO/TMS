@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ListingCard from '../components/ListingCard.astro';
+import MiniEcosystemMap from '../components/MiniEcosystemMap.tsx';
 import { categories, categoryKeys, type CategoryKey } from '../data/categories';
 import { categoryCardStyles } from '../data/cardStyles';
 import CategoryIcon from '../components/CategoryIcon.astro';
@@ -122,6 +123,17 @@ const cardStyles = categoryCardStyles;
       })}
     </div>
   </div>
+
+  <!-- Mini Ecosystem Map -->
+  <section class="mx-auto max-w-7xl px-4 pt-12 sm:px-6 lg:px-8">
+    <div class="mb-6 flex items-center gap-4">
+      <h2 class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-slate-600">
+        // ecosystem map
+      </h2>
+      <div class="h-px flex-1 bg-gradient-to-r from-slate-800 to-transparent"></div>
+    </div>
+    <MiniEcosystemMap client:visible />
+  </section>
 
   <!-- Category Grid -->
   <section class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">

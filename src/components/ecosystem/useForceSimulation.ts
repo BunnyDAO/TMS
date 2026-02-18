@@ -11,6 +11,7 @@ import {
 import type { Simulation, SimulationNodeDatum, SimulationLinkDatum } from 'd3-force';
 import type { EcosystemNode, EcosystemEdge, SimNode, SimEdge } from './types';
 import { TIER_SIZES, CATEGORY_CLUSTER_POSITIONS } from './types';
+import { hashString } from './hullUtils';
 
 interface UseForceSimulationOptions {
   nodes: EcosystemNode[];
@@ -201,13 +202,4 @@ export function useForceSimulation({
   }, []);
 
   return { simNodes, simEdges, isSettled, onDragStart, onDrag, onDragEnd, reheat };
-}
-
-/** Simple deterministic hash for a string → 0..0xFFFF */
-function hashString(str: string): number {
-  let hash = 5381;
-  for (let i = 0; i < str.length; i++) {
-    hash = ((hash << 5) + hash + str.charCodeAt(i)) & 0xFFFF;
-  }
-  return hash;
 }
