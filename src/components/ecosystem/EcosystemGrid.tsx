@@ -92,12 +92,11 @@ export function EcosystemGrid({ listings }: Props) {
             {/* Panel header */}
             <div className={`${style.headerBg} px-4 py-3`}>
               <div className="flex items-center justify-between">
-                <p className={`font-mono text-[10px] font-bold uppercase tracking-[0.2em] ${style.text}`}>
-                  // {catKey}
+                <p className={`font-mono text-xs font-bold uppercase tracking-[0.2em] ${style.text}`}>
+                  // {cat.name}
                 </p>
                 <span className="font-mono text-[10px] text-slate-600">{totalCount}</span>
               </div>
-              <h3 className="mt-1 font-mono text-sm font-bold text-white">{cat.name}</h3>
               <p className="font-mono text-[10px] italic text-slate-500">{cat.tagline}</p>
             </div>
 

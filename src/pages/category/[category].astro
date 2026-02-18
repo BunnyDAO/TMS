@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import CategoryFilter from '../../components/CategoryFilter';
+import { ErrorBoundary } from '../../components/ErrorBoundary';
 import { categories, categoryKeys, type CategoryKey } from '../../data/categories';
 import { getCollection } from 'astro:content';
 
@@ -82,12 +83,14 @@ const gradientColors = {
     </div>
 
     <!-- Interactive filter + grid -->
-    <CategoryFilter
-      client:idle
-      listings={listingsData}
-      subcategories={cat.subcategories}
-      categoryColor={cat.color}
-      categoryKey={categoryKey}
-    />
+    <ErrorBoundary client:idle>
+      <CategoryFilter
+        client:idle
+        listings={listingsData}
+        subcategories={cat.subcategories}
+        categoryColor={cat.color}
+        categoryKey={categoryKey}
+      />
+    </ErrorBoundary>
   </div>
 </Layout>

@@ -15,8 +15,14 @@ for (const key of categoryKeys) {
 
 const totalCount = allListings.length;
 
+const hotOrder = ['openclaw', 'seedance', 'claude-code', 'chatgpt', 'claude'];
 const hotListings = allListings
   .filter((l) => l.data.status === 'hot')
+  .sort((a, b) => {
+    const ai = hotOrder.indexOf(a.data.slug);
+    const bi = hotOrder.indexOf(b.data.slug);
+    return (ai === -1 ? hotOrder.length : ai) - (bi === -1 ? hotOrder.length : bi);
+  })
   .slice(0, 6);
 
 const trendingListings = allListings

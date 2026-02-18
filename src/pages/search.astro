@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SearchApp from '../components/SearchApp';
+import { ErrorBoundary } from '../components/ErrorBoundary';
 import { categories, categoryKeys } from '../data/categories';
 import { getCollection } from 'astro:content';
 
@@ -39,6 +40,8 @@ for (const key of categoryKeys) {
       <div class="h-px flex-1 bg-gradient-to-r from-slate-800 to-transparent"></div>
     </div>
 
-    <SearchApp client:load listings={listingsData} categories={categoryInfo} />
+    <ErrorBoundary client:load>
+      <SearchApp client:load listings={listingsData} categories={categoryInfo} />
+    </ErrorBoundary>
   </div>
 </Layout>

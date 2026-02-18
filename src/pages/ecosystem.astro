@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import EcosystemContainer from '../components/EcosystemContainer';
+import { ErrorBoundary } from '../components/ErrorBoundary';
 
 const listings = await getCollection('listings');
 const validSlugs = listings.map((l) => l.data.slug);
@@ -42,11 +43,13 @@ const gridListings = listings.map((l) => ({
     </div>
 
     <!-- Map / Grid -->
-    <EcosystemContainer
-      client:idle
-      validSlugs={validSlugs}
-      domainMap={websiteMap}
-      gridListings={gridListings}
-    />
+    <ErrorBoundary client:idle>
+      <EcosystemContainer
+        client:idle
+        validSlugs={validSlugs}
+        domainMap={websiteMap}
+        gridListings={gridListings}
+      />
+    </ErrorBoundary>
   </div>
 </Layout>
