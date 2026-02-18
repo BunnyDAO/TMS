@@ -10,7 +10,7 @@ website: "https://openclaw.ai"
 github: "https://github.com/openclaw"
 docs: "https://openclaw.ai/blog/introducing-openclaw"
 pricing: "open-source"
-status: "new"
+status: "trending"
 dateAdded: 2026-02-15
 featured: false
 ---
