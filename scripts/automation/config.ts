@@ -94,6 +94,30 @@ export const APIS = {
     // /point/last-week/{package}
     // /range/last-week/{package}
   },
+  hackerNews: {
+    base: 'https://hacker-news.firebaseio.com/v0',
+    topStories: '/topstories.json',
+    newStories: '/newstories.json',
+    showStories: '/showstories.json',
+    item: '/item', // /{id}.json
+  },
+  huggingFace: {
+    base: 'https://huggingface.co/api',
+    trendingModels: '/models?sort=trending&direction=-1&limit=30',
+    trendingSpaces: '/spaces?sort=trending&direction=-1&limit=30',
+  },
+  reddit: {
+    authUrl: 'https://www.reddit.com/api/v1/access_token',
+    base: 'https://oauth.reddit.com',
+    // /r/{subreddit}/hot.json?limit=25
+    // /r/{subreddit}/top.json?t=week&limit=25
+  },
+  geckoTerminal: {
+    base: 'https://api.geckoterminal.com/api/v2',
+    trendingPools: '/networks/{network}/trending_pools',
+    newPools: '/networks/{network}/new_pools',
+    // Networks: solana, eth, base, arbitrum
+  },
 };
 
 // ─── RSS Feed Sources ───────────────────────────────────────────────
@@ -204,6 +228,65 @@ export const SLUG_TO_NPM: Record<string, string> = {
   'dify': 'dify',
 };
 
+// ─── Reddit Config ───────────────────────────────────────────────────
+
+export const REDDIT_SUBREDDITS: { name: string; categories: CategoryKey[] }[] = [
+  { name: 'MachineLearning', categories: ['ai'] },
+  { name: 'LocalLLaMA', categories: ['ai'] },
+  { name: 'cryptocurrency', categories: ['bitcoin', 'ethereum', 'solana', 'infra'] },
+  { name: 'solana', categories: ['solana'] },
+  { name: 'ethereum', categories: ['ethereum'] },
+  { name: 'defi', categories: ['ethereum', 'solana', 'infra'] },
+];
+
+// ─── GeckoTerminal Config ────────────────────────────────────────────
+
+export const GECKO_TERMINAL_NETWORKS: { id: string; category: CategoryKey }[] = [
+  { id: 'solana', category: 'solana' },
+  { id: 'eth', category: 'ethereum' },
+  { id: 'base', category: 'ethereum' },
+  { id: 'arbitrum', category: 'ethereum' },
+];
+
+// ─── Auto-Add Thresholds ────────────────────────────────────────────
+
+export const AUTO_ADD_THRESHOLDS = {
+  /** Minimum Claude score to auto-add (skipping human review) */
+  minScoreForAutoAdd: 80,
+  /** Minimum score for human review issue */
+  minScoreForIssue: 60,
+  /** Max listings to auto-generate per run */
+  maxAutoAddPerRun: 5,
+};
+
+// ─── Content Freshness Thresholds ────────────────────────────────────
+
+export const FRESHNESS_THRESHOLDS = {
+  /** Days since listing was last updated before it's considered stale */
+  maxAgeDays: 90,
+  /** Minimum TVL % change to trigger a content refresh */
+  tvlChangePercent: 50,
+  /** Days to look back for GitHub releases */
+  releaseWindowDays: 7,
+  /** Max stale listings to send to Claude per batch */
+  maxBatchSize: 10,
+};
+
+// ─── Hacker News Config ─────────────────────────────────────────────
+
+export const HN_KEYWORDS = [
+  // AI
+  'llm', 'gpt', 'claude', 'ai', 'machine learning', 'deep learning',
+  'stable diffusion', 'midjourney', 'copilot', 'hugging face', 'ollama',
+  'langchain', 'vector database', 'rag', 'fine-tuning', 'transformer',
+  'open source ai', 'local llm', 'ai agent',
+  // Crypto
+  'bitcoin', 'ethereum', 'solana', 'defi', 'dex', 'blockchain',
+  'smart contract', 'web3', 'nft', 'token', 'crypto', 'wallet',
+  'staking', 'bridge', 'layer 2', 'l2', 'rollup', 'zk',
+  'rwa', 'tokenization', 'tvl',
+];
+
 // ─── Output Config ──────────────────────────────────────────────────
 
 export const OUTPUT = {
@@ -213,6 +296,10 @@ export const OUTPUT = {
   discoveryIssueLabel: 'discovery',
   /** Label for update PRs */
   updatePrLabel: 'content-update',
+  /** Label for new listing PRs */
+  newListingPrLabel: 'new-listing',
   /** Max candidates to include in a single discovery issue */
   maxCandidatesPerIssue: 15,
+  /** Path for generated listings output */
+  generatedListingsOutput: 'scripts/automation/generated-listings.json',
 };

@@ -25,6 +25,7 @@ import { loadExistingListings } from './listings.js';
 import { loadState, saveState } from './state.js';
 import { computeStatus, computeStarDelta, computeTvlWoW } from './status-engine.js';
 import { extractGitHubRepo, SLUG_TO_NPM } from './config.js';
+import { updateStaleContent } from './content-updater.js';
 import type { ExistingListing, ProjectMetrics, ListingUpdate, Status } from './types.js';
 
 async function main() {
@@ -157,7 +158,28 @@ async function main() {
   state.githubStars = { ...state.githubStars, ...newStarCounts };
   state.protocolTvl = { ...state.protocolTvl, ...newTvlValues };
 
-  // ── 4. Output results ──────────────────────────────────────────
+  // ── 4. Content freshness check ──────────────────────────────────
+
+  console.log('\n📝 Checking content freshness...');
+  try {
+    const contentRewrites = await updateStaleContent(listings, state);
+
+    if (contentRewrites.length > 0) {
+      console.log(`\n✏️  ${contentRewrites.length} content rewrites:`);
+      for (const rewrite of contentRewrites) {
+        if (process.env.APPLY_CHANGES === 'true') {
+          writeFileSync(rewrite.filePath, rewrite.newContent);
+          console.log(`  ✓ ${rewrite.slug}: ${rewrite.changesSummary}`);
+        } else {
+          console.log(`  ${rewrite.slug}: ${rewrite.changesSummary}`);
+        }
+      }
+    }
+  } catch (err) {
+    console.warn('  Content freshness check failed:', err);
+  }
+
+  // ── 5. Output results ──────────────────────────────────────────
 
   console.log(`\n📝 ${updates.length} status changes recommended:\n`);
 
@@ -208,7 +230,7 @@ async function main() {
 
   console.log(`\n📄 Update summary written to ${outputPath}`);
 
-  // ── 5. Apply changes to files (when run in CI) ─────────────────
+  // ── 6. Apply changes to files (when run in CI) ─────────────────
 
   if (process.env.APPLY_CHANGES === 'true') {
     console.log('\n✏️  Applying status changes to files...');

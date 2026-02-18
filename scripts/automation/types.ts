@@ -57,7 +57,7 @@ export interface ExistingListing {
 /** A discovered candidate for a new listing */
 export interface DiscoveryCandidate {
   name: string;
-  source: 'github-trending' | 'defillama' | 'coingecko' | 'rss' | 'npm';
+  source: DiscoverySource;
   url: string;
   description: string;
   category: CategoryKey;
@@ -65,6 +65,84 @@ export interface DiscoveryCandidate {
   metrics: ProjectMetrics;
   relevanceScore: number; // 0-100, computed by AI analysis
   reasoning: string; // why this candidate is worth listing
+  autoAdd?: boolean; // Claude decides: true = auto-generate listing, false = human review
+}
+
+export type DiscoverySource =
+  | 'github-trending'
+  | 'defillama'
+  | 'coingecko'
+  | 'rss'
+  | 'npm'
+  | 'hackernews'
+  | 'huggingface'
+  | 'reddit'
+  | 'geckoterminal';
+
+/** A candidate that Claude flagged for auto-addition (score 80+, enough info) */
+export interface AutoAddCandidate extends DiscoveryCandidate {
+  autoAdd: true;
+  suggestedSubcategory: string;
+  suggestedTags: string[];
+  suggestedPricing: Pricing;
+}
+
+/** A candidate enriched with README + website metadata for listing generation */
+export interface EnrichedCandidate extends AutoAddCandidate {
+  readme?: string; // first 3000 chars of GitHub README
+  websiteMeta?: {
+    title?: string;
+    description?: string;
+    ogImage?: string;
+  };
+}
+
+/** A complete generated listing ready to write as .md */
+export interface GeneratedListing {
+  name: string;
+  slug: string;
+  tagline: string;
+  description: string;
+  category: CategoryKey;
+  subcategory: string;
+  tags: string[];
+  website?: string;
+  github?: string;
+  docs?: string;
+  pricing: Pricing;
+  status: Status;
+  dateAdded: string; // YYYY-MM-DD
+  featured: boolean;
+  bodyContent: string; // markdown body below frontmatter
+}
+
+/** Output of the generator — file path + content */
+export interface GeneratedFile {
+  filePath: string; // relative path e.g. src/content/listings/ai/my-tool.md
+  content: string; // full .md file content (frontmatter + body)
+  candidate: AutoAddCandidate; // original candidate for reference
+}
+
+/** Stale listing detected by the content updater */
+export interface StaleDetection {
+  listing: ExistingListing;
+  reasons: StaleReason[];
+  currentContent: string; // full file content
+  context: {
+    latestRelease?: string;
+    tvlChange?: number;
+    daysSinceUpdate: number;
+  };
+}
+
+export type StaleReason = 'recent-release' | 'tvl-shift' | 'age';
+
+/** A content rewrite produced by Claude for a stale listing */
+export interface ContentRewrite {
+  slug: string;
+  filePath: string;
+  newContent: string; // full rewritten .md file
+  changesSummary: string; // what was updated
 }
 
 /** A suggested update to an existing listing */

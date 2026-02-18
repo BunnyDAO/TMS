@@ -127,9 +127,13 @@ const dotColors = {
 
   <!-- Mobile pill bar -->
   <div class="relative border-t border-slate-800/50 bg-slate-900/50 md:hidden">
-    <!-- Right fade hint -->
-    <div class="pointer-events-none absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-slate-950 to-transparent"></div>
-  <nav class="scrollbar-hide flex items-center gap-1.5 overflow-x-auto px-4 py-2" aria-label="Mobile navigation">
+    <!-- Right fade + scroll hint -->
+    <div id="pill-fade" class="pointer-events-none absolute right-0 top-0 z-10 flex h-full w-16 items-center justify-end bg-gradient-to-l from-slate-900 via-slate-900/80 to-transparent pr-2 transition-opacity duration-200">
+      <svg id="scroll-hint" class="h-4 w-4 animate-bounce-x text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </div>
+  <nav id="mobile-pill-nav" class="scrollbar-hide flex items-center gap-1.5 overflow-x-auto px-4 py-2" aria-label="Mobile navigation">
     <!-- Bubble Maps pill -->
     <a
       href="/ecosystem"
@@ -200,4 +204,30 @@ const dotColors = {
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+  @keyframes bounce-x {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(4px); }
+  }
+  .animate-bounce-x {
+    animation: bounce-x 1.2s ease-in-out infinite;
+  }
 </style>
+
+<script>
+  const pillNav = document.querySelector('#mobile-pill-nav') as HTMLElement | null;
+  const scrollHint = document.querySelector('#scroll-hint') as HTMLElement | null;
+  const fadeOverlay = document.querySelector('#pill-fade') as HTMLElement | null;
+
+  function updateFade() {
+    if (!pillNav || !fadeOverlay) return;
+    const atEnd = pillNav.scrollLeft + pillNav.clientWidth >= pillNav.scrollWidth - 2;
+    fadeOverlay.style.opacity = atEnd ? '0' : '1';
+    if (scrollHint && pillNav.scrollLeft > 0) {
+      scrollHint.classList.add('opacity-0');
+      scrollHint.classList.remove('animate-bounce-x');
+    }
+  }
+
+  pillNav?.addEventListener('scroll', updateFade);
+  updateFade();
+</script>
