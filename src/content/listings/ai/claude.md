@@ -9,7 +9,7 @@ tags: ["llm", "opus", "sonnet", "haiku", "reasoning", "long-context", "safety", 
 website: "https://claude.ai"
 docs: "https://docs.anthropic.com"
 pricing: "freemium"
-status: "hot"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

@@ -9,7 +9,7 @@ tags: ["llm", "gpt-4", "o3", "codex", "reasoning", "multimodal", "openai", "conv
 website: "https://chatgpt.com"
 docs: "https://platform.openai.com/docs"
 pricing: "freemium"
-status: "hot"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---
