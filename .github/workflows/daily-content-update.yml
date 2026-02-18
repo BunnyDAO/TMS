@@ -89,7 +89,8 @@ jobs:
         if: steps.changes.outputs.has_changes == 'true'
         run: |
           DATE=$(date +%Y-%m-%d)
-          BRANCH="automation/status-update-$DATE"
+          RUN_ID="${{ github.run_number }}"
+          BRANCH="automation/status-update-${DATE}-${RUN_ID}"
           git checkout -b "$BRANCH"
           git add src/content/listings/
           git commit -m "content: update listing statuses — $DATE
