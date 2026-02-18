@@ -345,14 +345,17 @@ Only include candidates scoring 60+ relevance. Be selective — quality over qua
 
   const response = await client.messages.create({
     model: 'claude-sonnet-4-6',
-    max_tokens: 4096,
+    max_tokens: 8192,
     messages: [{ role: 'user', content: prompt }],
   });
 
   const text = response.content[0].type === 'text' ? response.content[0].text : '';
 
   try {
-    const parsed = JSON.parse(text);
+    // Extract JSON from response — Claude may include extra text before/after
+    const jsonMatch = text.match(/\{[\s\S]*\}/);
+    if (!jsonMatch) throw new Error('No JSON object found in response');
+    const parsed = JSON.parse(jsonMatch[0]);
     return {
       date: new Date().toISOString().split('T')[0],
       candidates: (parsed.candidates || []).map((c: any) => ({
