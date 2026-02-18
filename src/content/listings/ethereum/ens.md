@@ -10,7 +10,7 @@ website: "https://ens.domains"
 github: "https://github.com/ensdomains"
 docs: "https://docs.ens.domains"
 pricing: "paid"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
