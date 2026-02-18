@@ -164,9 +164,18 @@ export default function EcosystemMap({ validSlugs, domainMap }: Props) {
     return regions;
   }, [simNodes, activeCategories, dimensions.width]);
 
-  // Dynamic label positions: find the spot inside each hull farthest from all nodes
-  const regionLabels = useMemo(() => {
-    if (simNodes.length === 0 || dimensions.width === 0) return [];
+  // Region labels: compute ONCE when simulation settles, then lock in place
+  const [regionLabels, setRegionLabels] = useState<{ category: string; x: number; y: number }[]>([]);
+
+  useEffect(() => {
+    // Clear labels when simulation is active (unsettled)
+    if (!isSettled) {
+      setRegionLabels([]);
+      return;
+    }
+
+    // Compute label positions once at settle time
+    if (simNodes.length === 0 || dimensions.width === 0) return;
 
     const grouped = new Map<string, SimNode[]>();
     for (const node of simNodes) {
@@ -185,7 +194,6 @@ export default function EcosystemMap({ validSlugs, domainMap }: Props) {
       const hull = convexHull(points);
       if (hull.length < 3) continue;
 
-      // Hull centroid
       const hcx = hull.reduce((s, p) => s + p[0], 0) / hull.length;
       const hcy = hull.reduce((s, p) => s + p[1], 0) / hull.length;
 
@@ -199,7 +207,6 @@ export default function EcosystemMap({ validSlugs, domainMap }: Props) {
         return [hcx + dx * scale, hcy + dy * scale] as [number, number];
       });
 
-      // Bounding box of expanded hull
       let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
       for (const [px, py] of expanded) {
         if (px < minX) minX = px;
@@ -208,7 +215,6 @@ export default function EcosystemMap({ validSlugs, domainMap }: Props) {
         if (py > maxY) maxY = py;
       }
 
-      // Sample grid points inside the hull (step ~25px)
       const step = 25;
       const candidates: [number, number][] = [];
       for (let gx = minX; gx <= maxX; gx += step) {
@@ -225,27 +231,21 @@ export default function EcosystemMap({ validSlugs, domainMap }: Props) {
       const obstacles: { x: number; y: number; hw: number; hh: number }[] = [];
       for (const node of simNodes) {
         const r = TIER_SIZES[node.tier] / 2;
-        // The node circle itself
         obstacles.push({ x: node.x, y: node.y, hw: r + 6, hh: r + 6 });
-        // The text label below the node (at y + r + 12)
-        // At ~9px font, monospace chars are ~6px wide each
         const nodeLabelHW = node.name.length * 3 + 6;
         obstacles.push({ x: node.x, y: node.y + r + 12, hw: nodeLabelHW, hh: 8 });
       }
 
-      // Region label dimensions: 16px mono font with 0.15em letter-spacing ≈ 11.5px per char
       const labelText = CATEGORY_LABELS[category] || category;
-      const regionLabelHW = labelText.length * 5.8 + 4; // half-width
-      const regionLabelHH = 11; // half-height
+      const regionLabelHW = labelText.length * 5.8 + 4;
+      const regionLabelHH = 11;
 
-      // Pick the candidate with max minimum distance to ALL obstacles
       let bestCandidate = candidates[0];
       let bestMinDist = -Infinity;
 
       for (const [cx, cy] of candidates) {
         let minDist = Infinity;
         for (const obs of obstacles) {
-          // Box-to-box gap: region label box vs obstacle box
           const gapX = Math.max(0, Math.abs(cx - obs.x) - obs.hw - regionLabelHW);
           const gapY = Math.max(0, Math.abs(cy - obs.y) - obs.hh - regionLabelHH);
           const dist = Math.sqrt(gapX * gapX + gapY * gapY);
@@ -260,8 +260,10 @@ export default function EcosystemMap({ validSlugs, domainMap }: Props) {
       labels.push({ category, x: bestCandidate[0], y: bestCandidate[1] });
     }
 
-    return labels;
-  }, [simNodes, activeCategories, dimensions.width]);
+    setRegionLabels(labels);
+  // Only run when isSettled changes — NOT on every simNodes tick
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSettled]);
 
   // Compute highlight sets
   const connectedNodes = useMemo(() => {

@@ -131,12 +131,14 @@ export function useForceSimulation({
           })
           .strength((d) => CENTER_NODES.has(d.id) ? 0.5 : 0.15)
       )
-      .alphaDecay(0.02)
-      .velocityDecay(0.3)
+      .alphaDecay(0.035)
+      .velocityDecay(0.4)
       .on('tick', () => {
         setSimNodes([...nodesRef.current]);
         setSimEdges([...edgesRef.current]);
-        if (sim.alpha() < 0.08) setIsSettled(true);
+      })
+      .on('end', () => {
+        setIsSettled(true);
       });
 
     simRef.current = sim;

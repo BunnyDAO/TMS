@@ -212,7 +212,7 @@ body {
 }
 
 .region-label-enter {
-  animation: region-label-fade-in 0.8s ease-out forwards;
+  animation: region-label-fade-in 0.4s ease-out forwards;
   opacity: 0;
 }
 
