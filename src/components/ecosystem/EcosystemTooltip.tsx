@@ -23,10 +23,10 @@ export function EcosystemTooltip({ node, edges, position, isMobile, containerHei
     const pad = 8;
 
     if (isMobile) {
-      // Mobile: center horizontally at the top of the container
+      // Mobile: center horizontally, comfortably below the top edge
       setAdjustedPos({
         x: Math.max(pad, (containerWidth - w) / 2),
-        y: pad,
+        y: 24,
       });
     } else {
       // Desktop: position near cursor, clamped to container bounds
