@@ -261,8 +261,9 @@ export default function EcosystemMap({ validSlugs, domainMap }: Props) {
       }
 
       const labelText = CATEGORY_LABELS[category] || category;
-      const regionLabelHW = labelText.length * 5.8 + 4;
-      const regionLabelHH = 11;
+      const mobile = dimensions.width < 768;
+      const regionLabelHW = labelText.length * (mobile ? 4 : 5.8) + 4;
+      const regionLabelHH = mobile ? 8 : 11;
 
       // Viewport bounds: keep labels fully visible within the expected visible area
       // The zoom fits expectedBounds into the viewport, so clamp to that range
@@ -470,7 +471,7 @@ export default function EcosystemMap({ validSlugs, domainMap }: Props) {
                     textAnchor="middle"
                     className="pointer-events-none select-none region-label-enter"
                     style={{
-                      fontSize: '16px',
+                      fontSize: isMobile ? '11px' : '16px',
                       fontFamily: 'var(--font-mono)',
                       fontWeight: 800,
                       fill: color,

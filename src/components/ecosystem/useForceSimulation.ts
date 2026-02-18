@@ -99,19 +99,27 @@ export function useForceSimulation({
       simRef.current.stop();
     }
 
+    // Scale forces for mobile: tighter clusters, less repulsion
+    const isMobile = width < 768;
+    const linkDist = isMobile ? 60 : 120;
+    const chargeStr = isMobile ? -120 : -300;
+    const chargeDist = isMobile ? 200 : 400;
+    const clusterStr = isMobile ? 0.25 : 0.15;
+    const collideExtra = isMobile ? 2 : 6;
+
     const sim = forceSimulation<SimNode>(simNodeData)
       .force(
         'link',
         forceLink<SimNode, SimEdge>(simEdgeData)
           .id((d) => d.id)
-          .distance(120)
+          .distance(linkDist)
           .strength(0.3)
       )
-      .force('charge', forceManyBody<SimNode>().strength(-300).distanceMax(400))
+      .force('charge', forceManyBody<SimNode>().strength(chargeStr).distanceMax(chargeDist))
       .force('center', forceCenter(width / 2, height / 2).strength(0.05))
       .force(
         'collide',
-        forceCollide<SimNode>().radius((d) => TIER_SIZES[d.tier] + 6).strength(0.7)
+        forceCollide<SimNode>().radius((d) => TIER_SIZES[d.tier] + collideExtra).strength(0.7)
       )
       .force(
         'clusterX',
@@ -120,7 +128,7 @@ export function useForceSimulation({
             if (CENTER_NODES.has(d.id)) return width / 2;
             return width / 2 + CATEGORY_CLUSTER_POSITIONS[d.category].x * width * 0.35;
           })
-          .strength((d) => CENTER_NODES.has(d.id) ? 0.5 : 0.15)
+          .strength((d) => CENTER_NODES.has(d.id) ? 0.5 : clusterStr)
       )
       .force(
         'clusterY',
@@ -129,7 +137,7 @@ export function useForceSimulation({
             if (CENTER_NODES.has(d.id)) return height / 2;
             return height / 2 + CATEGORY_CLUSTER_POSITIONS[d.category].y * height * 0.35;
           })
-          .strength((d) => CENTER_NODES.has(d.id) ? 0.5 : 0.15)
+          .strength((d) => CENTER_NODES.has(d.id) ? 0.5 : clusterStr)
       )
       .alphaDecay(0.035)
       .velocityDecay(0.4)
