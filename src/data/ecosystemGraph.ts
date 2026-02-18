@@ -48,6 +48,7 @@ export const nodes: EcosystemNode[] = [
   { id: 'zebedee',          name: 'Zebedee',           category: 'bitcoin', tier: 'minor',    tagline: 'Bitcoin gaming payments' },
   { id: 'phoenix-wallet',   name: 'Phoenix Wallet',    category: 'bitcoin', tier: 'minor',    tagline: 'Non-custodial Lightning wallet' },
   { id: 'magic-eden',       name: 'Magic Eden',        category: 'bitcoin', tier: 'major',    tagline: 'Multi-chain NFT marketplace' },
+  { id: 'opensea',           name: 'OpenSea',           category: 'ethereum', tier: 'major',   tagline: 'Largest NFT marketplace' },
 
   // ── Ethereum ────────────────────────────────────
   { id: 'uniswap',      name: 'Uniswap',        category: 'ethereum', tier: 'core',     tagline: 'Leading decentralized exchange' },
@@ -202,6 +203,9 @@ export const edges: EcosystemEdge[] = [
 
   // ── Cross-ecosystem ─────────────────────────────
   { source: 'magic-eden', target: 'tensor',        type: 'competes',      label: 'NFT marketplace' },
+  { source: 'opensea',    target: 'magic-eden',    type: 'competes',      label: 'NFT marketplace' },
+  { source: 'opensea',    target: 'tensor',        type: 'competes',      label: 'NFT marketplace' },
+  { source: 'metamask',   target: 'opensea',       type: 'wallet',        label: 'connects to' },
   { source: 'defillama',  target: 'aave',          type: 'infrastructure', label: 'tracks TVL' },
   { source: 'defillama',  target: 'jupiter',       type: 'infrastructure', label: 'tracks TVL' },
   { source: 'defillama',  target: 'uniswap',       type: 'infrastructure', label: 'tracks TVL' },
