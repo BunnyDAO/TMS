@@ -130,9 +130,15 @@ export default function EcosystemMap({ validSlugs, domainMap }: Props) {
       setHoveredNode(nodeId);
       if (event && containerRef.current) {
         const rect = containerRef.current.getBoundingClientRect();
-        let x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-        if (x + 280 > rect.width) x = x - 280;
+        const tooltipW = 260; // w-64 = 256px
+        const tooltipH = 200; // approximate max height
+        let x = event.clientX - rect.left + 16;
+        let y = event.clientY - rect.top - 8;
+        // Clamp to keep tooltip fully within the container
+        if (x + tooltipW > rect.width) x = rect.width - tooltipW - 8;
+        if (x < 8) x = 8;
+        if (y + tooltipH > rect.height) y = rect.height - tooltipH - 8;
+        if (y < 8) y = 8;
         setTooltipPos({ x, y });
       }
     },
@@ -391,10 +397,21 @@ export default function EcosystemMap({ validSlugs, domainMap }: Props) {
       if (!drag) return;
       (e.target as Element).releasePointerCapture(e.pointerId);
       onDragEnd(drag.nodeId);
-      if (!drag.hasMoved) handleClickNode(drag.nodeId);
+      if (!drag.hasMoved) {
+        if (isMobile) {
+          // Mobile: first tap shows tooltip, second tap (same node) navigates
+          if (hoveredNode === drag.nodeId) {
+            handleClickNode(drag.nodeId);
+          } else {
+            handleHoverNode(drag.nodeId, { clientX: e.clientX, clientY: e.clientY });
+          }
+        } else {
+          handleClickNode(drag.nodeId);
+        }
+      }
       dragRef.current = null;
     },
-    [onDragEnd, handleClickNode]
+    [onDragEnd, handleClickNode, handleHoverNode, hoveredNode, isMobile]
   );
 
   return (

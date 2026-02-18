@@ -18,8 +18,8 @@ export function EcosystemTooltip({ node, edges, position }: Props) {
     <div
       className="pointer-events-none absolute z-50 w-64 rounded-lg border border-slate-700/50 bg-slate-900/95 p-3 shadow-xl backdrop-blur-sm"
       style={{
-        left: position.x + 16,
-        top: position.y - 8,
+        left: position.x,
+        top: position.y,
       }}
     >
       <div className="mb-2 flex items-center gap-2">
@@ -67,7 +67,7 @@ export function EcosystemTooltip({ node, edges, position }: Props) {
         </div>
       )}
 
-      <p className="mt-2 font-mono text-[9px] text-slate-700">click to view listing →</p>
+      <p className="mt-2 font-mono text-[9px] text-slate-700">tap again to view listing →</p>
     </div>
   );
 }
