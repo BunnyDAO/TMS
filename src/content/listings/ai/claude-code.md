@@ -7,7 +7,7 @@ category: "ai"
 subcategory: "coding"
 tags: ["coding-assistant", "terminal", "agentic", "anthropic", "cli", "opus", "mcp", "hooks", "agent-sdk", "developer-tools"]
 website: "https://docs.anthropic.com/en/docs/claude-code"
-docs: "https://docs.anthropic.com/en/docs/claude-code"
+docs: "https://code.claude.com/docs/en/setup"
 github: "https://github.com/anthropics/claude-code"
 pricing: "paid"
 status: "stable"
