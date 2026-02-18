@@ -264,10 +264,23 @@ export default function EcosystemMap({ validSlugs, domainMap }: Props) {
       const regionLabelHW = labelText.length * 5.8 + 4;
       const regionLabelHH = 11;
 
+      // Viewport bounds: keep labels fully visible within the expected visible area
+      // The zoom fits expectedBounds into the viewport, so clamp to that range
+      const { width: vw, height: vh } = dimensions;
+      const viewMargin = 250; // matches expectedBounds margin
+      const viewMinX = vw / 2 - Math.max(...Object.values(CATEGORY_CLUSTER_POSITIONS).map(p => Math.abs(p.x))) * vw * 0.35 - viewMargin;
+      const viewMaxX = vw / 2 + Math.max(...Object.values(CATEGORY_CLUSTER_POSITIONS).map(p => Math.abs(p.x))) * vw * 0.35 + viewMargin;
+      const viewMinY = vh / 2 - Math.max(...Object.values(CATEGORY_CLUSTER_POSITIONS).map(p => Math.abs(p.y))) * vh * 0.35 - viewMargin;
+      const viewMaxY = vh / 2 + Math.max(...Object.values(CATEGORY_CLUSTER_POSITIONS).map(p => Math.abs(p.y))) * vh * 0.35 + viewMargin;
+
       let bestCandidate = candidates[0];
       let bestMinDist = -Infinity;
 
       for (const [cx, cy] of candidates) {
+        // Skip candidates where the label would extend outside the visible area
+        if (cx - regionLabelHW < viewMinX || cx + regionLabelHW > viewMaxX) continue;
+        if (cy - regionLabelHH < viewMinY || cy + regionLabelHH > viewMaxY) continue;
+
         let minDist = Infinity;
         for (const obs of obstacles) {
           const gapX = Math.max(0, Math.abs(cx - obs.x) - obs.hw - regionLabelHW);
@@ -280,6 +293,12 @@ export default function EcosystemMap({ validSlugs, domainMap }: Props) {
           bestCandidate = [cx, cy];
         }
       }
+
+      // Final clamp: ensure the label text stays within visible bounds
+      bestCandidate = [
+        Math.max(viewMinX + regionLabelHW, Math.min(viewMaxX - regionLabelHW, bestCandidate[0])),
+        Math.max(viewMinY + regionLabelHH, Math.min(viewMaxY - regionLabelHH, bestCandidate[1])),
+      ];
 
       labels.push({ category, x: bestCandidate[0], y: bestCandidate[1] });
     }
