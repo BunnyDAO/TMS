@@ -64,7 +64,7 @@ export const categories: Record<CategoryKey, Category> = {
   solana: {
     name: 'Solana',
     tagline: 'Speed meets scale',
-    color: 'teal',
+    color: 'green',
     icon: '◎',
     description: 'The fastest blockchain ecosystem — DEXs, DeFi, NFTs, and the meme coin capital of crypto.',
     subcategories: {
@@ -81,7 +81,7 @@ export const categories: Record<CategoryKey, Category> = {
   rwa: {
     name: 'Real World Assets',
     tagline: 'Bringing TradFi on-chain',
-    color: 'emerald',
+    color: 'rose',
     icon: '🏛',
     description: 'Tokenized treasuries, private credit, real estate, and commodities bridging traditional and decentralized finance.',
     subcategories: {
@@ -95,7 +95,7 @@ export const categories: Record<CategoryKey, Category> = {
   infra: {
     name: 'Infrastructure',
     tagline: 'The connective tissue',
-    color: 'cyan',
+    color: 'slate',
     icon: '🔗',
     description: 'Bridges, oracles, analytics dashboards, and the AI x Crypto crossover powering everything.',
     subcategories: {
@@ -115,9 +115,9 @@ export function getCategoryColor(category: CategoryKey): string {
     ai: 'violet',
     bitcoin: 'orange',
     ethereum: 'blue',
-    solana: 'teal',
-    rwa: 'emerald',
-    infra: 'cyan',
+    solana: 'green',
+    rwa: 'rose',
+    infra: 'slate',
   };
   return colorMap[category];
 }

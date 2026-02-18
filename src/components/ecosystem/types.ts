@@ -5,10 +5,8 @@ export type NodeTier = 'core' | 'major' | 'standard' | 'minor';
 export type ConnectionType =
   | 'aggregates'
   | 'oracle'
-  | 'mev'
-  | 'graduation'
-  | 'wallet'
   | 'infrastructure'
+  | 'graduation'
   | 'composability'
   | 'bridge'
   | 'staking'
@@ -63,10 +61,8 @@ export const TIER_SIZES: Record<NodeTier, number> = {
 export const CONNECTION_STYLES: Record<ConnectionType, ConnectionStyle> = {
   aggregates:      { color: '#2dd4bf', stroke: 'solid',  animated: true,  label: 'Aggregates' },
   oracle:          { color: '#a78bfa', stroke: 'dashed', animated: false, label: 'Oracle Feed' },
-  mev:             { color: '#f87171', stroke: 'dashed', animated: true,  label: 'MEV Protection' },
-  graduation:      { color: '#fbbf24', stroke: 'solid',  animated: true,  label: 'Graduation' },
-  wallet:          { color: '#6b7280', stroke: 'dashed', animated: false, label: 'Wallet Access' },
   infrastructure:  { color: '#22d3ee', stroke: 'dashed', animated: false, label: 'Infrastructure' },
+  graduation:      { color: '#fbbf24', stroke: 'solid',  animated: true,  label: 'Graduation' },
   composability:   { color: '#34d399', stroke: 'solid',  animated: false, label: 'Composability' },
   bridge:          { color: '#f472b6', stroke: 'solid',  animated: true,  label: 'Bridge' },
   staking:         { color: '#818cf8', stroke: 'solid',  animated: false, label: 'Staking' },
@@ -78,9 +74,9 @@ export const CATEGORY_COLORS: Record<CategoryKey, string> = {
   ai: '#8b5cf6',
   bitcoin: '#f97316',
   ethereum: '#3b82f6',
-  solana: '#2dd4bf',
-  rwa: '#10b981',
-  infra: '#06b6d4',
+  solana: '#14F195',
+  rwa: '#f43f5e',
+  infra: '#94a3b8',
 };
 
 export const CATEGORY_CLUSTER_POSITIONS: Record<CategoryKey, { x: number; y: number }> = {

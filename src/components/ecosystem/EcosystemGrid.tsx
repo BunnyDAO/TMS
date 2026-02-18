@@ -26,9 +26,9 @@ const PANEL_STYLES: Record<string, { border: string; headerBg: string; text: str
   violet: { border: 'border-violet-500/20', headerBg: 'bg-violet-500/10', text: 'text-violet-400' },
   orange: { border: 'border-orange-500/20', headerBg: 'bg-orange-500/10', text: 'text-orange-400' },
   blue: { border: 'border-blue-500/20', headerBg: 'bg-blue-500/10', text: 'text-blue-400' },
-  teal: { border: 'border-teal-400/20', headerBg: 'bg-teal-400/10', text: 'text-teal-400' },
-  emerald: { border: 'border-emerald-500/20', headerBg: 'bg-emerald-500/10', text: 'text-emerald-400' },
-  cyan: { border: 'border-cyan-500/20', headerBg: 'bg-cyan-500/10', text: 'text-cyan-400' },
+  green: { border: 'border-green-400/20', headerBg: 'bg-green-400/10', text: 'text-green-400' },
+  rose: { border: 'border-rose-500/20', headerBg: 'bg-rose-500/10', text: 'text-rose-400' },
+  slate: { border: 'border-slate-400/20', headerBg: 'bg-slate-400/10', text: 'text-slate-400' },
 };
 
 function getDomain(website: string | null): string | null {

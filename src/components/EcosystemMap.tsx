@@ -18,9 +18,9 @@ const CATEGORIES: { key: CategoryKey; name: string; color: string }[] = [
   { key: 'ai', name: 'AI', color: 'violet' },
   { key: 'bitcoin', name: 'Bitcoin', color: 'orange' },
   { key: 'ethereum', name: 'Ethereum', color: 'blue' },
-  { key: 'solana', name: 'Solana', color: 'teal' },
-  { key: 'rwa', name: 'RWA', color: 'emerald' },
-  { key: 'infra', name: 'Infra', color: 'cyan' },
+  { key: 'solana', name: 'Solana', color: 'green' },
+  { key: 'rwa', name: 'RWA', color: 'rose' },
+  { key: 'infra', name: 'Infra', color: 'slate' },
 ];
 
 export default function EcosystemMap({ validSlugs, domainMap }: Props) {
@@ -67,7 +67,7 @@ export default function EcosystemMap({ validSlugs, domainMap }: Props) {
   }, []);
 
   // Force simulation
-  const { simNodes, simEdges, onDragStart, onDrag, onDragEnd, reheat } =
+  const { simNodes, simEdges, isSettled, onDragStart, onDrag, onDragEnd, reheat } =
     useForceSimulation({
       nodes,
       edges,
@@ -123,6 +123,145 @@ export default function EcosystemMap({ validSlugs, domainMap }: Props) {
     },
     [validSlugSet]
   );
+
+  // Compute category region hulls (smooth boundary around each cluster)
+  const categoryRegions = useMemo(() => {
+    if (simNodes.length === 0 || dimensions.width === 0) return [];
+
+    const grouped = new Map<string, SimNode[]>();
+    for (const node of simNodes) {
+      if (!activeCategories.has(node.category)) continue;
+      const list = grouped.get(node.category) || [];
+      list.push(node);
+      grouped.set(node.category, list);
+    }
+
+    const regions: { category: string; path: string }[] = [];
+
+    for (const [category, catNodes] of grouped) {
+      if (catNodes.length < 3) continue;
+
+      const points: [number, number][] = catNodes.map(n => [n.x, n.y]);
+      const hull = convexHull(points);
+      if (hull.length < 3) continue;
+
+      const padding = 45;
+      const cx = hull.reduce((s, p) => s + p[0], 0) / hull.length;
+      const cy = hull.reduce((s, p) => s + p[1], 0) / hull.length;
+
+      const expanded = hull.map(([px, py]) => {
+        const dx = px - cx;
+        const dy = py - cy;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const scale = (dist + padding) / dist;
+        return [cx + dx * scale, cy + dy * scale] as [number, number];
+      });
+
+      const path = smoothHullPath(expanded);
+      regions.push({ category, path });
+    }
+
+    return regions;
+  }, [simNodes, activeCategories, dimensions.width]);
+
+  // Dynamic label positions: find the spot inside each hull farthest from all nodes
+  const regionLabels = useMemo(() => {
+    if (simNodes.length === 0 || dimensions.width === 0) return [];
+
+    const grouped = new Map<string, SimNode[]>();
+    for (const node of simNodes) {
+      if (!activeCategories.has(node.category)) continue;
+      const list = grouped.get(node.category) || [];
+      list.push(node);
+      grouped.set(node.category, list);
+    }
+
+    const labels: { category: string; x: number; y: number }[] = [];
+
+    for (const [category, catNodes] of grouped) {
+      if (catNodes.length < 3) continue;
+
+      const points: [number, number][] = catNodes.map(n => [n.x, n.y]);
+      const hull = convexHull(points);
+      if (hull.length < 3) continue;
+
+      // Hull centroid
+      const hcx = hull.reduce((s, p) => s + p[0], 0) / hull.length;
+      const hcy = hull.reduce((s, p) => s + p[1], 0) / hull.length;
+
+      // Grid-sample candidate positions inside the expanded hull
+      const padding = 45;
+      const expanded = hull.map(([px, py]) => {
+        const dx = px - hcx;
+        const dy = py - hcy;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const scale = (dist + padding) / dist;
+        return [hcx + dx * scale, hcy + dy * scale] as [number, number];
+      });
+
+      // Bounding box of expanded hull
+      let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+      for (const [px, py] of expanded) {
+        if (px < minX) minX = px;
+        if (px > maxX) maxX = px;
+        if (py < minY) minY = py;
+        if (py > maxY) maxY = py;
+      }
+
+      // Sample grid points inside the hull (step ~25px)
+      const step = 25;
+      const candidates: [number, number][] = [];
+      for (let gx = minX; gx <= maxX; gx += step) {
+        for (let gy = minY; gy <= maxY; gy += step) {
+          if (pointInPolygon(gx, gy, expanded)) {
+            candidates.push([gx, gy]);
+          }
+        }
+      }
+      candidates.push([hcx, hcy]);
+      if (candidates.length === 0) continue;
+
+      // Build obstacle list: each node's circle AND its text label below
+      const obstacles: { x: number; y: number; hw: number; hh: number }[] = [];
+      for (const node of simNodes) {
+        const r = TIER_SIZES[node.tier] / 2;
+        // The node circle itself
+        obstacles.push({ x: node.x, y: node.y, hw: r + 6, hh: r + 6 });
+        // The text label below the node (at y + r + 12)
+        // At ~9px font, monospace chars are ~6px wide each
+        const nodeLabelHW = node.name.length * 3 + 6;
+        obstacles.push({ x: node.x, y: node.y + r + 12, hw: nodeLabelHW, hh: 8 });
+      }
+
+      // Region label dimensions: 16px mono font with 0.15em letter-spacing ≈ 11.5px per char
+      const labelText = CATEGORY_LABELS[category] || category;
+      const regionLabelHW = labelText.length * 5.8 + 4; // half-width
+      const regionLabelHH = 11; // half-height
+
+      // Pick the candidate with max minimum distance to ALL obstacles
+      let bestCandidate = candidates[0];
+      let bestMinDist = -Infinity;
+
+      for (const [cx, cy] of candidates) {
+        let minDist = Infinity;
+        for (const obs of obstacles) {
+          // Box-to-box gap: region label box vs obstacle box
+          const gapX = Math.max(0, Math.abs(cx - obs.x) - obs.hw - regionLabelHW);
+          const gapY = Math.max(0, Math.abs(cy - obs.y) - obs.hh - regionLabelHH);
+          const dist = Math.sqrt(gapX * gapX + gapY * gapY);
+          if (dist < minDist) minDist = dist;
+        }
+        if (minDist > bestMinDist) {
+          bestMinDist = minDist;
+          bestCandidate = [cx, cy];
+        }
+      }
+
+      labels.push({ category, x: bestCandidate[0], y: bestCandidate[1] });
+    }
+
+    return labels;
+  }, [simNodes, activeCategories, dimensions.width]);
 
   // Compute highlight sets
   const connectedNodes = useMemo(() => {
@@ -259,6 +398,46 @@ export default function EcosystemMap({ validSlugs, domainMap }: Props) {
               })}
             </defs>
             <g transform={`translate(${tx},${ty}) scale(${tk})`}>
+              {/* Category Region Boundaries */}
+              {categoryRegions.map(({ category, path }) => {
+                const color = CATEGORY_COLORS[category as CategoryKey];
+                return (
+                  <path
+                    key={`region-${category}`}
+                    d={path}
+                    fill={`${color}0a`}
+                    stroke={color}
+                    strokeWidth={1}
+                    strokeOpacity={0.2}
+                    className="pointer-events-none"
+                  />
+                );
+              })}
+
+              {/* Category Region Labels — fade in after simulation settles */}
+              {isSettled && regionLabels.map(({ category, x, y }) => {
+                const color = CATEGORY_COLORS[category as CategoryKey];
+                return (
+                  <text
+                    key={`label-${category}`}
+                    x={x}
+                    y={y}
+                    textAnchor="middle"
+                    className="pointer-events-none select-none region-label-enter"
+                    style={{
+                      fontSize: '16px',
+                      fontFamily: 'var(--font-mono)',
+                      fontWeight: 800,
+                      fill: color,
+                      letterSpacing: '0.15em',
+                      textTransform: 'uppercase',
+                    }}
+                  >
+                    {CATEGORY_LABELS[category] || category}
+                  </text>
+                );
+              })}
+
               {/* Edges */}
               {simEdges.map((edge, i) => {
                 const style = CONNECTION_STYLES[edge.type];
@@ -408,3 +587,83 @@ export default function EcosystemMap({ validSlugs, domainMap }: Props) {
     </div>
   );
 }
+
+// ─── Convex Hull (Andrew's monotone chain) ───────────────────
+
+function convexHull(points: [number, number][]): [number, number][] {
+  const pts = [...points].sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+  if (pts.length <= 2) return pts;
+
+  const cross = (o: [number, number], a: [number, number], b: [number, number]) =>
+    (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
+
+  const lower: [number, number][] = [];
+  for (const p of pts) {
+    while (lower.length >= 2 && cross(lower[lower.length - 2], lower[lower.length - 1], p) <= 0)
+      lower.pop();
+    lower.push(p);
+  }
+
+  const upper: [number, number][] = [];
+  for (const p of pts.reverse()) {
+    while (upper.length >= 2 && cross(upper[upper.length - 2], upper[upper.length - 1], p) <= 0)
+      upper.pop();
+    upper.push(p);
+  }
+
+  lower.pop();
+  upper.pop();
+  return lower.concat(upper);
+}
+
+// ─── Smooth hull path using cubic Catmull-Rom → Bezier ───────
+
+function smoothHullPath(hull: [number, number][]): string {
+  const n = hull.length;
+  if (n < 3) return '';
+
+  const parts: string[] = [];
+  parts.push(`M ${hull[0][0]},${hull[0][1]}`);
+
+  for (let i = 0; i < n; i++) {
+    const p0 = hull[(i - 1 + n) % n];
+    const p1 = hull[i];
+    const p2 = hull[(i + 1) % n];
+    const p3 = hull[(i + 2) % n];
+
+    // Catmull-Rom to cubic bezier control points
+    const tension = 6; // higher = smoother
+    const cp1x = p1[0] + (p2[0] - p0[0]) / tension;
+    const cp1y = p1[1] + (p2[1] - p0[1]) / tension;
+    const cp2x = p2[0] - (p3[0] - p1[0]) / tension;
+    const cp2y = p2[1] - (p3[1] - p1[1]) / tension;
+
+    parts.push(`C ${cp1x},${cp1y} ${cp2x},${cp2y} ${p2[0]},${p2[1]}`);
+  }
+
+  parts.push('Z');
+  return parts.join(' ');
+}
+
+// ─── Point-in-polygon (ray casting) ──────────────────────────
+
+function pointInPolygon(x: number, y: number, polygon: [number, number][]): boolean {
+  let inside = false;
+  for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+    const [xi, yi] = polygon[i];
+    const [xj, yj] = polygon[j];
+    if ((yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) {
+      inside = !inside;
+    }
+  }
+  return inside;
+}
+
+const CATEGORY_LABELS: Record<string, string> = {
+  ai: 'AI',
+  bitcoin: 'Bitcoin',
+  ethereum: 'Ethereum',
+  solana: 'Solana',
+  rwa: 'RWA',
+  infra: 'Infrastructure',
+};

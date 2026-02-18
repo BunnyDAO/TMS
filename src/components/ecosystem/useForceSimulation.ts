@@ -23,6 +23,7 @@ interface UseForceSimulationOptions {
 interface UseForceSimulationResult {
   simNodes: SimNode[];
   simEdges: SimEdge[];
+  isSettled: boolean;
   onDragStart: (nodeId: string) => void;
   onDrag: (nodeId: string, x: number, y: number) => void;
   onDragEnd: (nodeId: string) => void;
@@ -38,6 +39,7 @@ export function useForceSimulation({
 }: UseForceSimulationOptions): UseForceSimulationResult {
   const [simNodes, setSimNodes] = useState<SimNode[]>([]);
   const [simEdges, setSimEdges] = useState<SimEdge[]>([]);
+  const [isSettled, setIsSettled] = useState(false);
   const simRef = useRef<Simulation<SimNode, SimEdge> | null>(null);
   const nodesRef = useRef<SimNode[]>([]);
   const edgesRef = useRef<SimEdge[]>([]);
@@ -53,14 +55,25 @@ export function useForceSimulation({
 
     const CENTER_NODES = new Set(['wenrwa']);
 
+    // Sort nodes within each category deterministically for consistent spread
+    const categoryIndices = new Map<string, number>();
+
     const simNodeData: SimNode[] = filteredNodes.map((n) => {
       const existing = nodesRef.current.find((sn) => sn.id === n.id);
       const isCenter = CENTER_NODES.has(n.id);
       const cluster = isCenter ? { x: 0, y: 0 } : CATEGORY_CLUSTER_POSITIONS[n.category];
+
+      // Deterministic offset based on node ID hash
+      const idx = categoryIndices.get(n.category) ?? 0;
+      categoryIndices.set(n.category, idx + 1);
+      const hash = hashString(n.id);
+      const angle = (hash / 0xFFFF) * Math.PI * 2;
+      const radius = 20 + (idx * 8) % 50;
+
       return {
         ...n,
-        x: existing?.x ?? width / 2 + cluster.x * width * 0.35 + (Math.random() - 0.5) * (isCenter ? 10 : 60),
-        y: existing?.y ?? height / 2 + cluster.y * height * 0.35 + (Math.random() - 0.5) * (isCenter ? 10 : 60),
+        x: existing?.x ?? width / 2 + cluster.x * width * 0.35 + Math.cos(angle) * radius,
+        y: existing?.y ?? height / 2 + cluster.y * height * 0.35 + Math.sin(angle) * radius,
         vx: existing?.vx ?? 0,
         vy: existing?.vy ?? 0,
         fx: isCenter ? width / 2 : (existing?.fx ?? null),
@@ -80,6 +93,7 @@ export function useForceSimulation({
 
     nodesRef.current = simNodeData;
     edgesRef.current = simEdgeData;
+    setIsSettled(false);
 
     if (simRef.current) {
       simRef.current.stop();
@@ -122,6 +136,7 @@ export function useForceSimulation({
       .on('tick', () => {
         setSimNodes([...nodesRef.current]);
         setSimEdges([...edgesRef.current]);
+        if (sim.alpha() < 0.08) setIsSettled(true);
       });
 
     simRef.current = sim;
@@ -171,8 +186,18 @@ export function useForceSimulation({
   const reheat = useCallback(() => {
     const sim = simRef.current;
     if (!sim) return;
+    setIsSettled(false);
     sim.alpha(0.5).restart();
   }, []);
 
-  return { simNodes, simEdges, onDragStart, onDrag, onDragEnd, reheat };
+  return { simNodes, simEdges, isSettled, onDragStart, onDrag, onDragEnd, reheat };
+}
+
+/** Simple deterministic hash for a string → 0..0xFFFF */
+function hashString(str: string): number {
+  let hash = 5381;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) + hash + str.charCodeAt(i)) & 0xFFFF;
+  }
+  return hash;
 }

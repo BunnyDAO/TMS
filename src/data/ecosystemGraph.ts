@@ -120,26 +120,26 @@ export const edges: EcosystemEdge[] = [
   { source: 'chainlink', target: 'ens',            type: 'oracle',      label: 'price feeds' },
   { source: 'chainlink', target: 'ondo',          type: 'oracle',      label: 'NAV feeds' },
 
-  // ── MEV ─────────────────────────────────────────
-  { source: 'jito',      target: 'jupiter',       type: 'mev',         label: 'MEV protection' },
-  { source: 'jito',      target: 'raydium',       type: 'mev',         label: 'MEV protection' },
+  // ── MEV Protection ─────────────────────────────────────────
+  { source: 'jito',      target: 'jupiter',       type: 'infrastructure', label: 'MEV protection' },
+  { source: 'jito',      target: 'raydium',       type: 'infrastructure', label: 'MEV protection' },
 
   // ── Token Graduation ────────────────────────────
   { source: 'pump-fun',  target: 'raydium',       type: 'graduation',  label: 'graduates to' },
   { source: 'pump-fun',  target: 'meteora',       type: 'graduation',  label: 'graduates to' },
 
-  // ── Wallet Access ───────────────────────────────
-  { source: 'phantom',   target: 'jupiter',       type: 'wallet',      label: 'connects to' },
-  { source: 'phantom',   target: 'raydium',       type: 'wallet',      label: 'connects to' },
-  { source: 'phantom',   target: 'marginfi',      type: 'wallet',      label: 'connects to' },
-  { source: 'phantom',   target: 'tensor',        type: 'wallet',      label: 'connects to' },
-  { source: 'backpack',  target: 'jupiter',       type: 'wallet',      label: 'connects to' },
-  { source: 'metamask',  target: 'uniswap',       type: 'wallet',      label: 'connects to' },
-  { source: 'metamask',  target: 'aave',          type: 'wallet',      label: 'connects to' },
-  { source: 'metamask',  target: 'lido',          type: 'wallet',      label: 'connects to' },
-  { source: 'metamask',  target: 'eigenlayer',    type: 'wallet',      label: 'connects to' },
-  { source: 'xverse',    target: 'stacks',        type: 'wallet',      label: 'connects to' },
-  { source: 'unisat',    target: 'magic-eden',    type: 'wallet',      label: 'connects to' },
+  // ── Wallet Access (infrastructure) ──────────────
+  { source: 'phantom',   target: 'jupiter',       type: 'infrastructure',      label: 'connects to' },
+  { source: 'phantom',   target: 'raydium',       type: 'infrastructure',      label: 'connects to' },
+  { source: 'phantom',   target: 'marginfi',      type: 'infrastructure',      label: 'connects to' },
+  { source: 'phantom',   target: 'tensor',        type: 'infrastructure',      label: 'connects to' },
+  { source: 'backpack',  target: 'jupiter',       type: 'infrastructure',      label: 'connects to' },
+  { source: 'metamask',  target: 'uniswap',       type: 'infrastructure',      label: 'connects to' },
+  { source: 'metamask',  target: 'aave',          type: 'infrastructure',      label: 'connects to' },
+  { source: 'metamask',  target: 'lido',          type: 'infrastructure',      label: 'connects to' },
+  { source: 'metamask',  target: 'eigenlayer',    type: 'infrastructure',      label: 'connects to' },
+  { source: 'xverse',    target: 'stacks',        type: 'infrastructure',      label: 'connects to' },
+  { source: 'unisat',    target: 'magic-eden',    type: 'infrastructure',      label: 'connects to' },
 
   // ── Infrastructure ──────────────────────────────
   { source: 'helius',    target: 'jupiter',       type: 'infrastructure', label: 'RPC provider' },
@@ -205,7 +205,7 @@ export const edges: EcosystemEdge[] = [
   { source: 'magic-eden', target: 'tensor',        type: 'competes',      label: 'NFT marketplace' },
   { source: 'opensea',    target: 'magic-eden',    type: 'competes',      label: 'NFT marketplace' },
   { source: 'opensea',    target: 'tensor',        type: 'competes',      label: 'NFT marketplace' },
-  { source: 'metamask',   target: 'opensea',       type: 'wallet',        label: 'connects to' },
+  { source: 'metamask',   target: 'opensea',       type: 'infrastructure',        label: 'connects to' },
   { source: 'defillama',  target: 'aave',          type: 'infrastructure', label: 'tracks TVL' },
   { source: 'defillama',  target: 'jupiter',       type: 'infrastructure', label: 'tracks TVL' },
   { source: 'defillama',  target: 'uniswap',       type: 'infrastructure', label: 'tracks TVL' },
@@ -260,12 +260,14 @@ export const edges: EcosystemEdge[] = [
   { source: 'ollama',     target: 'openclaw',        type: 'powers',        label: 'local inference' },
 
   // ── WenRWA ecosystem ──────────────────────────
+  { source: 'claude',    target: 'wenrwa',          type: 'powers',        label: 'powers' },
+  { source: 'chatgpt',   target: 'wenrwa',          type: 'powers',        label: 'powers' },
   { source: 'wenrwa',    target: 'raydium',        type: 'aggregates',    label: 'swaps via' },
   { source: 'wenrwa',    target: 'orca',            type: 'aggregates',    label: 'swaps via' },
   { source: 'wenrwa',    target: 'jupiter',         type: 'aggregates',    label: 'routes through' },
   { source: 'pyth',      target: 'wenrwa',          type: 'oracle',        label: 'price feeds' },
   { source: 'rwa-xyz',   target: 'wenrwa',          type: 'infrastructure', label: 'tracks RWA' },
   { source: 'helius',    target: 'wenrwa',          type: 'infrastructure', label: 'RPC provider' },
-  { source: 'phantom',   target: 'wenrwa',          type: 'wallet',        label: 'connects to' },
-  { source: 'backpack',  target: 'wenrwa',          type: 'wallet',        label: 'connects to' },
+  { source: 'phantom',   target: 'wenrwa',          type: 'infrastructure',        label: 'connects to' },
+  { source: 'backpack',  target: 'wenrwa',          type: 'infrastructure',        label: 'connects to' },
 ];

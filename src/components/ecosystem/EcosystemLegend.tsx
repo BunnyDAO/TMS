@@ -5,14 +5,13 @@ import type { ConnectionType } from './types';
 const legendEntries: { type: ConnectionType; description: string }[] = [
   { type: 'aggregates',      description: 'Routes through / aggregates liquidity' },
   { type: 'oracle',          description: 'Provides price or data feeds' },
-  { type: 'mev',             description: 'MEV protection or extraction' },
+  { type: 'infrastructure',  description: 'Wallets, RPCs, dev tools, MEV, analytics' },
   { type: 'graduation',      description: 'Token launches graduate to' },
-  { type: 'wallet',          description: 'Wallet connects to protocol' },
-  { type: 'infrastructure',  description: 'Powers, tracks, or provides tooling' },
   { type: 'composability',   description: 'DeFi composability (collateral, pairs)' },
   { type: 'bridge',          description: 'Cross-chain bridging' },
   { type: 'staking',         description: 'Staking / restaking relationship' },
   { type: 'powers',          description: 'AI model powers a tool' },
+  { type: 'competes',        description: 'Direct competitors in same space' },
 ];
 
 export function EcosystemLegend() {

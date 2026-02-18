@@ -6,9 +6,9 @@
   --color-brand-ai: var(--color-violet-500);
   --color-brand-bitcoin: var(--color-orange-500);
   --color-brand-ethereum: var(--color-blue-500);
-  --color-brand-solana: var(--color-teal-400);
-  --color-brand-rwa: var(--color-emerald-500);
-  --color-brand-infra: var(--color-cyan-500);
+  --color-brand-solana: var(--color-green-400);
+  --color-brand-rwa: var(--color-rose-500);
+  --color-brand-infra: var(--color-slate-400);
 }
 
 html {
@@ -95,7 +95,7 @@ body {
   opacity: 0.5;
 }
 .glitch::after {
-  color: #2dd4bf;          /* teal-400 — Solana category */
+  color: #14F195;          /* Solana brand green */
   animation: glitch-2 3s infinite linear;
   opacity: 0.5;
 }
@@ -204,6 +204,16 @@ body {
 
 .node-pulse {
   animation: glow-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes region-label-fade-in {
+  0% { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 0.6; transform: translateY(0); }
+}
+
+.region-label-enter {
+  animation: region-label-fade-in 0.8s ease-out forwards;
+  opacity: 0;
 }
 
 .prose h2 {

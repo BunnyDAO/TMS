@@ -45,13 +45,13 @@ const svg = `
   <circle cx="280" cy="480" r="5" fill="#3b82f6" opacity="0.6"/>
   <text x="296" y="484" font-family="monospace" font-size="13" fill="#64748b">Ethereum</text>
 
-  <circle cx="420" cy="480" r="5" fill="#2dd4bf" opacity="0.6"/>
+  <circle cx="420" cy="480" r="5" fill="#14F195" opacity="0.6"/>
   <text x="436" y="484" font-family="monospace" font-size="13" fill="#64748b">Solana</text>
 
-  <circle cx="540" cy="480" r="5" fill="#10b981" opacity="0.6"/>
+  <circle cx="540" cy="480" r="5" fill="#f43f5e" opacity="0.6"/>
   <text x="556" y="484" font-family="monospace" font-size="13" fill="#64748b">RWA</text>
 
-  <circle cx="640" cy="480" r="5" fill="#06b6d4" opacity="0.6"/>
+  <circle cx="640" cy="480" r="5" fill="#94a3b8" opacity="0.6"/>
   <text x="656" y="484" font-family="monospace" font-size="13" fill="#64748b">Infra</text>
 
   <!-- Main title -->
