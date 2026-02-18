@@ -30,3 +30,4 @@ featured: false
 - **Agent mode** builds autonomous agents with tool access, code execution, and web browsing capabilities.
 - **One-click deployment** publishes apps as web interfaces, chat widgets, or API endpoints instantly.
 - **Self-hostable** with full Docker support and enterprise features for data privacy and access control.
+- **Latest release** — Updated February 2026 with continued platform improvements and expanded model integrations.

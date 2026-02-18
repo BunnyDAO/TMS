@@ -31,3 +31,4 @@ featured: false
 - **Terminal command execution** — Runs builds, tests, installations, linters, and any CLI tools within your VS Code terminal.
 - **Custom instructions** — Configure project-specific instructions that guide Cline's behavior, coding style, and preferences.
 - **Fully open-source** — MIT licensed with a large active community contributing features, providers, and MCP tool integrations.
+- **Latest release** — Updated February 2026 with ongoing improvements to agent reliability, provider support, and MCP integrations.

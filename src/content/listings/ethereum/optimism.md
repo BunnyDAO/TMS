@@ -10,7 +10,7 @@ website: "https://optimism.io"
 github: "https://github.com/ethereum-optimism/optimism"
 docs: "https://docs.optimism.io"
 pricing: "open-source"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
