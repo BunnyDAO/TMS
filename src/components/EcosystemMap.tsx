@@ -348,6 +348,9 @@ export default function EcosystemMap({ validSlugs, domainMap }: Props) {
     hasMoved: boolean;
   } | null>(null);
 
+  // Mobile: track which node has its tooltip showing from a previous tap
+  const mobileSelectedRef = useRef<string | null>(null);
+
   const { x: tx, y: ty, k: tk } = zoomTransform;
 
   const screenToSvg = useCallback(
@@ -400,9 +403,13 @@ export default function EcosystemMap({ validSlugs, domainMap }: Props) {
       if (!drag.hasMoved) {
         if (isMobile) {
           // Mobile: first tap shows tooltip, second tap (same node) navigates
-          if (hoveredNode === drag.nodeId) {
+          if (mobileSelectedRef.current === drag.nodeId) {
+            // Second tap on same node — navigate
+            mobileSelectedRef.current = null;
             handleClickNode(drag.nodeId);
           } else {
+            // First tap — show tooltip, remember this node
+            mobileSelectedRef.current = drag.nodeId;
             handleHoverNode(drag.nodeId, { clientX: e.clientX, clientY: e.clientY });
           }
         } else {
@@ -411,7 +418,7 @@ export default function EcosystemMap({ validSlugs, domainMap }: Props) {
       }
       dragRef.current = null;
     },
-    [onDragEnd, handleClickNode, handleHoverNode, hoveredNode, isMobile]
+    [onDragEnd, handleClickNode, handleHoverNode, isMobile]
   );
 
   return (
