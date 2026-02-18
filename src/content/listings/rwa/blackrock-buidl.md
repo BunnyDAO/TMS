@@ -9,7 +9,7 @@ tags: ["treasuries", "blackrock", "institutional", "money-market", "tokenization
 website: "https://securitize.io/blackrock"
 docs: "https://securitize.io/learn"
 pricing: "paid"
-status: "hot"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

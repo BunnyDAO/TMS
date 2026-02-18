@@ -8,7 +8,7 @@ subcategory: "meme"
 tags: ["meme-coins", "launchpad", "bonding-curve", "tokens", "culture", "raydium-graduation"]
 website: "https://pump.fun"
 pricing: "paid"
-status: "hot"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

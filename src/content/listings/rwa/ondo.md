@@ -10,7 +10,7 @@ website: "https://ondo.finance"
 github: "https://github.com/ondoprotocol"
 docs: "https://docs.ondo.finance"
 pricing: "paid"
-status: "hot"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

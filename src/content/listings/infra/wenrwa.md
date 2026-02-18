@@ -8,7 +8,7 @@ subcategory: "bridges"
 tags: ["rwa", "infrastructure", "solana", "tokenization", "real-world-assets", "bridges", "defi"]
 website: "https://wenrwa.com"
 pricing: "free"
-status: "hot"
+status: "new"
 dateAdded: 2026-02-15
 featured: true
 ---

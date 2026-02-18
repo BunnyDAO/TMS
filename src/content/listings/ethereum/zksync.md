@@ -10,7 +10,7 @@ website: "https://zksync.io"
 github: "https://github.com/matter-labs/zksync-era"
 docs: "https://docs.zksync.io"
 pricing: "open-source"
-status: "trending"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

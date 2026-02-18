@@ -8,7 +8,7 @@ subcategory: "treasuries"
 tags: ["rwa", "solana", "tokenization", "real-world-assets", "swap", "defi", "tradfi"]
 website: "https://wenrwa.com"
 pricing: "free"
-status: "hot"
+status: "new"
 dateAdded: 2026-02-15
 featured: true
 ---
