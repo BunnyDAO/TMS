@@ -1,5 +1,5 @@
 {
-  "lastRun": "2026-02-18T00:08:38.507Z",
+  "lastRun": "2026-02-18T00:17:40.158Z",
   "githubStars": {
     "paul-gauthier/aider": 40703,
     "stackblitz/bolt.new": 16194,
@@ -9,10 +9,10 @@
     "langgenius/dify": 129739,
     "black-forest-labs/flux": 25211,
     "janhq/jan": 40466,
-    "langchain-ai/langchain": 126823,
+    "langchain-ai/langchain": 126824,
     "meta-llama/llama": 59153,
     "n8n-io/n8n": 174964,
-    "ollama/ollama": 162784,
+    "ollama/ollama": 162785,
     "QwenLM/Qwen": 20394,
     "openai/whisper": 94749,
     "btcpayserver/btcpayserver": 7400,
@@ -32,7 +32,27 @@
     "coral-xyz/anchor": 4956,
     "solana-developers/solana-actions": 147
   },
-  "protocolTvl": {},
+  "protocolTvl": {
+    "flux": 3034.8852658058618,
+    "gemini": 5209188792.1445,
+    "lightning-network": 346617040.8267356,
+    "arbitrum": 0,
+    "ens": 0,
+    "lido": 18877675342.790825,
+    "snapshot": 0,
+    "zksync": 0,
+    "bittensor": 0,
+    "pyth": 0,
+    "stargate": 10093340.664793078,
+    "blackrock-buidl": 2412823898.470449,
+    "maple": 2089358469.8185148,
+    "paxos-gold": 2246083629.521181,
+    "anchor": 0,
+    "backpack": 321796060.4304417,
+    "magic-eden": 117012.75092677228,
+    "pump-fun": 0,
+    "tensor": 0
+  },
   "coingeckoTrendingStreak": {},
   "knownProtocolSlugs": []
 }
