@@ -10,7 +10,7 @@ website: "https://docs.anthropic.com/en/docs/claude-code"
 docs: "https://docs.anthropic.com/en/docs/claude-code"
 github: "https://github.com/anthropics/claude-code"
 pricing: "paid"
-status: "hot"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

@@ -10,7 +10,7 @@ website: "https://base.org"
 github: "https://github.com/base-org"
 docs: "https://docs.base.org"
 pricing: "open-source"
-status: "hot"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
