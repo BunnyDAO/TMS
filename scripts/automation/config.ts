@@ -78,10 +78,10 @@ export const APIS = {
   },
   defiLlama: {
     base: 'https://api.llama.fi',
-    protocols: '/api/protocols',
-    protocol: '/api/protocol', // /{slug}
-    tvl: '/api/tvl',           // /{protocol}
-    dexOverview: '/api/overview/dexs',
+    protocols: '/protocols',
+    protocol: '/protocol', // /{slug}
+    tvl: '/tvl',           // /{protocol}
+    dexOverview: '/overview/dexs',
   },
   coingecko: {
     base: 'https://api.coingecko.com/api/v3',
@@ -100,8 +100,7 @@ export const APIS = {
 
 export const RSS_FEEDS: { url: string; name: string; categories: CategoryKey[] }[] = [
   // AI
-  { url: 'https://blog.anthropic.com/rss.xml', name: 'Anthropic Blog', categories: ['ai'] },
-  { url: 'https://openai.com/blog/rss.xml', name: 'OpenAI Blog', categories: ['ai'] },
+  { url: 'https://openai.com/news/rss.xml', name: 'OpenAI Blog', categories: ['ai'] },
   { url: 'https://blog.google/technology/ai/rss/', name: 'Google AI Blog', categories: ['ai'] },
   { url: 'https://huggingface.co/blog/feed.xml', name: 'HuggingFace Blog', categories: ['ai'] },
 

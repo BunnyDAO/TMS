@@ -344,7 +344,7 @@ Respond with valid JSON only (no markdown code fences), using this schema:
 Only include candidates scoring 60+ relevance. Be selective — quality over quantity.`;
 
   const response = await client.messages.create({
-    model: 'claude-sonnet-4-5-20250929',
+    model: 'claude-sonnet-4-6',
     max_tokens: 4096,
     messages: [{ role: 'user', content: prompt }],
   });
