@@ -103,8 +103,8 @@ export default function MiniEcosystemMap() {
     >
       <svg
         viewBox={`0 0 ${VW} ${VH}`}
-        className="w-full"
-        preserveAspectRatio="xMidYMid meet"
+        className="w-full min-h-[280px] sm:min-h-0"
+        preserveAspectRatio="xMidYMid slice"
         aria-hidden="true"
       >
         {/* Region hulls */}
@@ -174,8 +174,8 @@ export default function MiniEcosystemMap() {
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-slate-950/60 via-transparent to-slate-950/90" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-slate-950/40 via-transparent to-slate-950/40" />
 
-      {/* CTA overlay */}
-      <div className="absolute inset-0 flex items-end justify-center pb-5">
+      {/* CTA overlay — below content on mobile, overlaid on desktop */}
+      <div className="relative flex justify-center py-3 sm:absolute sm:inset-0 sm:items-end sm:py-0 sm:pb-5">
         <span className="inline-flex items-center gap-2 rounded-lg border border-slate-700/50 bg-slate-900/80 px-4 py-2 font-mono text-xs font-medium text-slate-400 backdrop-blur-sm transition-all group-hover:border-violet-500/30 group-hover:text-white group-hover:shadow-lg group-hover:shadow-violet-500/10">
           <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <circle cx="12" cy="12" r="3" />
