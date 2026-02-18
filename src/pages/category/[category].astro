@@ -62,7 +62,7 @@ const gradientColors = {
 } as Record<string, string>;
 ---
 
-<Layout title={`${cat.name} — TMS`} description={cat.description}>
+<Layout title={`${cat.name} — toomuch.sh`} description={cat.description}>
   <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="mb-10">
@@ -83,7 +83,7 @@ const gradientColors = {
 
     <!-- Interactive filter + grid -->
     <CategoryFilter
-      client:load
+      client:idle
       listings={listingsData}
       subcategories={cat.subcategories}
       categoryColor={cat.color}

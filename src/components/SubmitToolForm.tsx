@@ -105,7 +105,7 @@ ${description}
 ${connectionLines}
 
 ---
-_Submitted via toomuchshit.ai/submit_`;
+_Submitted via toomuch.sh/submit_`;
 
     const params = new URLSearchParams({
       title,

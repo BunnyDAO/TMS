@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://toomuchshit.com',
+  site: 'https://toomuch.sh',
   integrations: [react(), sitemap()],
   vite: {
     plugins: [tailwindcss()],

@@ -2,6 +2,7 @@
 import StatusBadge from './StatusBadge.astro';
 import PricingBadge from './PricingBadge.astro';
 import { categories, type CategoryKey } from '../data/categories';
+import { cardColors, initBgMap } from '../data/cardStyles';
 
 interface Props {
   name: string;
@@ -26,64 +27,8 @@ if (website) {
   try { domain = new URL(website).hostname; } catch {}
 }
 
-const cardStyles = {
-  violet: {
-    border: 'border-violet-500/10',
-    borderHover: 'hover:border-violet-500/30',
-    shadow: 'hover:shadow-violet-500/10',
-    glow: 'bg-violet-500',
-    text: 'text-violet-400',
-    dot: 'bg-violet-500',
-    initBg: 'bg-violet-500/20 text-violet-400',
-  },
-  orange: {
-    border: 'border-orange-500/10',
-    borderHover: 'hover:border-orange-500/30',
-    shadow: 'hover:shadow-orange-500/10',
-    glow: 'bg-orange-500',
-    text: 'text-orange-400',
-    dot: 'bg-orange-500',
-    initBg: 'bg-orange-500/20 text-orange-400',
-  },
-  blue: {
-    border: 'border-blue-500/10',
-    borderHover: 'hover:border-blue-500/30',
-    shadow: 'hover:shadow-blue-500/10',
-    glow: 'bg-blue-500',
-    text: 'text-blue-400',
-    dot: 'bg-blue-500',
-    initBg: 'bg-blue-500/20 text-blue-400',
-  },
-  teal: {
-    border: 'border-teal-400/10',
-    borderHover: 'hover:border-teal-400/30',
-    shadow: 'hover:shadow-teal-400/10',
-    glow: 'bg-teal-400',
-    text: 'text-teal-400',
-    dot: 'bg-teal-400',
-    initBg: 'bg-teal-400/20 text-teal-400',
-  },
-  emerald: {
-    border: 'border-emerald-500/10',
-    borderHover: 'hover:border-emerald-500/30',
-    shadow: 'hover:shadow-emerald-500/10',
-    glow: 'bg-emerald-500',
-    text: 'text-emerald-400',
-    dot: 'bg-emerald-500',
-    initBg: 'bg-emerald-500/20 text-emerald-400',
-  },
-  cyan: {
-    border: 'border-cyan-500/10',
-    borderHover: 'hover:border-cyan-500/30',
-    shadow: 'hover:shadow-cyan-500/10',
-    glow: 'bg-cyan-500',
-    text: 'text-cyan-400',
-    dot: 'bg-cyan-500',
-    initBg: 'bg-cyan-500/20 text-cyan-400',
-  },
-} as Record<string, Record<string, string>>;
-
-const style = cardStyles[cat.color] || cardStyles.violet;
+const style = cardColors[cat.color] || cardColors.violet;
+const initBg = initBgMap[cat.color] || initBgMap.violet;
 const faviconUrl = domain ? `https://www.google.com/s2/favicons?domain=${domain}&sz=128` : '';
 ---
 
@@ -107,16 +52,16 @@ const faviconUrl = domain ? `https://www.google.com/s2/favicons?domain=${domain}
         {faviconUrl ? (
           <img
             src={faviconUrl}
-            alt=""
+            alt={`${name} logo`}
             class="h-5 w-5 rounded"
             loading="lazy"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
           />
-          <span class:list={['hidden h-5 w-5 items-center justify-center rounded font-mono text-[10px] font-bold', style.initBg]}>
+          <span class:list={['hidden h-5 w-5 items-center justify-center rounded font-mono text-[10px] font-bold', initBg]}>
             {name.charAt(0)}
           </span>
         ) : (
-          <span class:list={['flex h-5 w-5 items-center justify-center rounded font-mono text-[10px] font-bold', style.initBg]}>
+          <span class:list={['flex h-5 w-5 items-center justify-center rounded font-mono text-[10px] font-bold', initBg]}>
             {name.charAt(0)}
           </span>
         )}

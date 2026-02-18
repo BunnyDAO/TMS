@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import ListingCard from '../components/ListingCard.astro';
 import { categories, categoryKeys, type CategoryKey } from '../data/categories';
+import { categoryCardStyles } from '../data/cardStyles';
 import CategoryIcon from '../components/CategoryIcon.astro';
 import { getCollection } from 'astro:content';
 
@@ -28,62 +29,7 @@ const featuredListings = allListings.filter((l) => l.data.featured);
 const tickerListings = allListings
   .filter((l) => l.data.status === 'hot' || l.data.status === 'trending');
 
-const cardStyles = {
-  violet: {
-    border: 'border-violet-500/20',
-    borderHover: 'hover:border-violet-500/50',
-    bg: 'bg-violet-500/[0.03]',
-    text: 'text-violet-400',
-    shadow: 'hover:shadow-violet-500/20',
-    glow: 'bg-violet-500',
-    ring: 'ring-violet-500/20',
-  },
-  orange: {
-    border: 'border-orange-500/20',
-    borderHover: 'hover:border-orange-500/50',
-    bg: 'bg-orange-500/[0.03]',
-    text: 'text-orange-400',
-    shadow: 'hover:shadow-orange-500/20',
-    glow: 'bg-orange-500',
-    ring: 'ring-orange-500/20',
-  },
-  blue: {
-    border: 'border-blue-500/20',
-    borderHover: 'hover:border-blue-500/50',
-    bg: 'bg-blue-500/[0.03]',
-    text: 'text-blue-400',
-    shadow: 'hover:shadow-blue-500/20',
-    glow: 'bg-blue-500',
-    ring: 'ring-blue-500/20',
-  },
-  teal: {
-    border: 'border-teal-400/20',
-    borderHover: 'hover:border-teal-400/50',
-    bg: 'bg-teal-400/[0.03]',
-    text: 'text-teal-400',
-    shadow: 'hover:shadow-teal-400/20',
-    glow: 'bg-teal-400',
-    ring: 'ring-teal-400/20',
-  },
-  emerald: {
-    border: 'border-emerald-500/20',
-    borderHover: 'hover:border-emerald-500/50',
-    bg: 'bg-emerald-500/[0.03]',
-    text: 'text-emerald-400',
-    shadow: 'hover:shadow-emerald-500/20',
-    glow: 'bg-emerald-500',
-    ring: 'ring-emerald-500/20',
-  },
-  cyan: {
-    border: 'border-cyan-500/20',
-    borderHover: 'hover:border-cyan-500/50',
-    bg: 'bg-cyan-500/[0.03]',
-    text: 'text-cyan-400',
-    shadow: 'hover:shadow-cyan-500/20',
-    glow: 'bg-cyan-500',
-    ring: 'ring-cyan-500/20',
-  },
-} as Record<string, Record<string, string>>;
+const cardStyles = categoryCardStyles;
 ---
 
 <Layout>
@@ -99,16 +45,16 @@ const cardStyles = {
         <!-- Mono label -->
         <div class="fade-up mb-6 inline-flex items-center gap-2 rounded-full border border-slate-700/50 bg-slate-900/50 px-4 py-1.5 font-mono text-xs text-slate-500 backdrop-blur-sm">
           <span class="glow-dot inline-block h-1.5 w-1.5 rounded-full bg-green-500"></span>
-          {totalCount} tools indexed &mdash; updated daily
+          {totalCount} tools indexed &mdash; updated regularly
         </div>
 
         <!-- Main heading with glitch -->
         <h1
           class="glitch fade-up text-4xl font-black tracking-tighter text-white sm:text-7xl lg:text-8xl"
-          data-text="TOO MUCH SHIT."
+          data-text="TOO MUCH .SH"
           style="animation-delay: 100ms"
         >
-          TOO MUCH SHIT.
+          TOO MUCH .SH
         </h1>
 
         <p class="fade-up mt-4 font-mono text-lg font-medium text-slate-500 sm:text-xl" style="animation-delay: 200ms">

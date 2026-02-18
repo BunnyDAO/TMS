@@ -1,19 +1,8 @@
 import { useState, useMemo, useEffect } from 'react';
 import Fuse from 'fuse.js';
-
-interface Listing {
-  name: string;
-  slug: string;
-  tagline: string;
-  description: string;
-  category: string;
-  subcategory: string;
-  pricing: string;
-  status: string;
-  tags: string[];
-  website?: string;
-  github?: string;
-}
+import type { Listing } from '../types/listing';
+import { statusBadges, pricingBadges } from '../data/badges';
+import { cardColors, initBgMap, catBadgeColors } from '../data/cardStyles';
 
 interface CategoryInfo {
   name: string;
@@ -26,38 +15,6 @@ interface Props {
   categories: Record<string, CategoryInfo>;
   initialQuery?: string;
 }
-
-const statusBadges: Record<string, { label: string; className: string; dot: string }> = {
-  hot: { label: 'HOT', className: 'border-red-500/20 text-red-400', dot: 'bg-red-500' },
-  trending: { label: 'TRENDING', className: 'border-amber-400/20 text-amber-400', dot: 'bg-amber-400' },
-  new: { label: 'NEW', className: 'border-green-400/20 text-green-400', dot: 'bg-green-400' },
-  stable: { label: '', className: '', dot: '' },
-};
-
-const pricingBadges: Record<string, { label: string; className: string }> = {
-  free: { label: 'free', className: 'border-green-500/20 text-green-500/60' },
-  freemium: { label: 'freemium', className: 'border-blue-500/20 text-blue-500/60' },
-  paid: { label: 'paid', className: 'border-orange-500/20 text-orange-500/60' },
-  'open-source': { label: 'oss', className: 'border-purple-500/20 text-purple-500/60' },
-};
-
-const cardColors: Record<string, { border: string; borderHover: string; shadow: string; glow: string; text: string; dot: string }> = {
-  violet: { border: 'border-violet-500/10', borderHover: 'hover:border-violet-500/30', shadow: 'hover:shadow-violet-500/10', glow: 'bg-violet-500', text: 'text-violet-400', dot: 'bg-violet-500' },
-  orange: { border: 'border-orange-500/10', borderHover: 'hover:border-orange-500/30', shadow: 'hover:shadow-orange-500/10', glow: 'bg-orange-500', text: 'text-orange-400', dot: 'bg-orange-500' },
-  blue: { border: 'border-blue-500/10', borderHover: 'hover:border-blue-500/30', shadow: 'hover:shadow-blue-500/10', glow: 'bg-blue-500', text: 'text-blue-400', dot: 'bg-blue-500' },
-  teal: { border: 'border-teal-400/10', borderHover: 'hover:border-teal-400/30', shadow: 'hover:shadow-teal-400/10', glow: 'bg-teal-400', text: 'text-teal-400', dot: 'bg-teal-400' },
-  emerald: { border: 'border-emerald-500/10', borderHover: 'hover:border-emerald-500/30', shadow: 'hover:shadow-emerald-500/10', glow: 'bg-emerald-500', text: 'text-emerald-400', dot: 'bg-emerald-500' },
-  cyan: { border: 'border-cyan-500/10', borderHover: 'hover:border-cyan-500/30', shadow: 'hover:shadow-cyan-500/10', glow: 'bg-cyan-500', text: 'text-cyan-400', dot: 'bg-cyan-500' },
-};
-
-const catBadgeColors: Record<string, string> = {
-  violet: 'border-violet-500/30 text-violet-400',
-  orange: 'border-orange-500/30 text-orange-400',
-  blue: 'border-blue-500/30 text-blue-400',
-  teal: 'border-teal-400/30 text-teal-400',
-  emerald: 'border-emerald-500/30 text-emerald-400',
-  cyan: 'border-cyan-500/30 text-cyan-400',
-};
 
 function getDomain(url?: string): string {
   if (!url) return '';
@@ -80,7 +37,7 @@ function LogoImg({ name, website, initClass }: { name: string; website?: string;
     <span className="relative h-5 w-5 shrink-0">
       <img
         src={faviconUrl}
-        alt=""
+        alt={`${name} logo`}
         className="h-5 w-5 rounded"
         loading="lazy"
         onError={(e) => {
@@ -95,15 +52,6 @@ function LogoImg({ name, website, initClass }: { name: string; website?: string;
     </span>
   );
 }
-
-const initBgMap: Record<string, string> = {
-  violet: 'bg-violet-500/20 text-violet-400',
-  orange: 'bg-orange-500/20 text-orange-400',
-  blue: 'bg-blue-500/20 text-blue-400',
-  teal: 'bg-teal-400/20 text-teal-400',
-  emerald: 'bg-emerald-500/20 text-emerald-400',
-  cyan: 'bg-cyan-500/20 text-cyan-400',
-};
 
 export default function SearchApp({ listings, categories, initialQuery = '' }: Props) {
   const [query, setQuery] = useState(initialQuery);

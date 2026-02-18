@@ -13,7 +13,7 @@ const existingTools = listings
   .sort((a, b) => a.name.localeCompare(b.name));
 ---
 
-<Layout title="Submit a Tool — TMS" description="Submit a tool to be listed on TMS. Tell us what it does and how it connects to the ecosystem.">
+<Layout title="Submit a Tool — toomuch.sh" description="Submit a tool to be listed on toomuch.sh. Tell us what it does and how it connects to the ecosystem.">
   <div class="mx-auto max-w-2xl px-4 py-8 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="mb-8">
@@ -24,14 +24,14 @@ const existingTools = listings
         Know something we don't?
       </h1>
       <p class="mt-2 font-mono text-xs leading-relaxed text-slate-500">
-        Submit a tool to be listed on TMS. Tell us what it does, which category it belongs to,
+        Submit a tool to be listed on toomuch.sh. Tell us what it does, which category it belongs to,
         and what other tools it connects to. Submissions open as GitHub issues for review.
       </p>
     </div>
 
     <!-- Form -->
     <SubmitToolForm
-      client:load
+      client:idle
       existingTools={existingTools}
       repoOwner="BunnyDAO"
       repoName="toomuchshit"

@@ -25,7 +25,7 @@ const gridListings = listings.map((l) => ({
 }));
 ---
 
-<Layout title="Ecosystem Map — TMS" description="Interactive visualization of how tools connect across AI, Bitcoin, Ethereum, Solana, RWA, and Infrastructure ecosystems.">
+<Layout title="Ecosystem Map — toomuch.sh" description="Interactive visualization of how tools connect across AI, Bitcoin, Ethereum, Solana, RWA, and Infrastructure ecosystems.">
   <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="mb-8">
@@ -43,7 +43,7 @@ const gridListings = listings.map((l) => ({
 
     <!-- Map / Grid -->
     <EcosystemContainer
-      client:load
+      client:idle
       validSlugs={validSlugs}
       domainMap={websiteMap}
       gridListings={gridListings}

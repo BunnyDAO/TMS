@@ -6,7 +6,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "scout": "tsx scripts/automation/scout.ts",
+    "updater": "tsx scripts/automation/updater.ts"
   },
   "dependencies": {
     "@astrojs/react": "^4.2.1",
@@ -24,12 +26,15 @@
     "tailwindcss": "^4.1.3"
   },
   "devDependencies": {
+    "@anthropic-ai/sdk": "^0.75.0",
     "@types/d3-drag": "^3.0.7",
     "@types/d3-force": "^3.0.10",
     "@types/d3-scale": "^4.0.9",
     "@types/d3-selection": "^3.0.11",
     "@types/d3-zoom": "^3.0.8",
     "@types/react": "^19.1.0",
-    "@types/react-dom": "^19.1.0"
+    "@types/react-dom": "^19.1.0",
+    "fast-xml-parser": "^5.3.6",
+    "tsx": "^4.21.0"
   }
 }
