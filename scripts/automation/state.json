@@ -1,5 +1,5 @@
 {
-  "lastRun": "2026-02-18T00:17:40.158Z",
+  "lastRun": "2026-02-18T00:21:23.148Z",
   "githubStars": {
     "paul-gauthier/aider": 40703,
     "stackblitz/bolt.new": 16194,
@@ -35,7 +35,7 @@
   "protocolTvl": {
     "flux": 3034.8852658058618,
     "gemini": 5209188792.1445,
-    "lightning-network": 346617040.8267356,
+    "lightning-network": 344932486.64354956,
     "arbitrum": 0,
     "ens": 0,
     "lido": 18877675342.790825,
@@ -46,7 +46,7 @@
     "stargate": 10093340.664793078,
     "blackrock-buidl": 2412823898.470449,
     "maple": 2089358469.8185148,
-    "paxos-gold": 2246083629.521181,
+    "paxos-gold": 2238654718.988109,
     "anchor": 0,
     "backpack": 321796060.4304417,
     "magic-eden": 117012.75092677228,
