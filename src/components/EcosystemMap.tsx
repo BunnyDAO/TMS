@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import { nodes as allNodes, edges as allEdges } from '../data/ecosystemGraph';
 import type { CategoryKey } from '../data/categories';
 import type { SimNode, SimEdge } from './ecosystem/types';
-import { TIER_SIZES, CONNECTION_STYLES, CATEGORY_COLORS } from './ecosystem/types';
+import { TIER_SIZES, CONNECTION_STYLES, CATEGORY_COLORS, CATEGORY_CLUSTER_POSITIONS } from './ecosystem/types';
 import { useForceSimulation } from './ecosystem/useForceSimulation';
 import { useZoomPan } from './ecosystem/useZoomPan';
 import { EcosystemControls } from './ecosystem/EcosystemControls';
@@ -76,8 +76,32 @@ export default function EcosystemMap({ validSlugs, domainMap }: Props) {
       activeCategories,
     });
 
-  // Zoom/pan — hook returns a callback ref setter
-  const { transform: zoomTransform, zoomIn, zoomOut, resetZoom, setSvgEl } = useZoomPan();
+  // Compute expected bounds from cluster positions so initial zoom fits all content
+  const expectedBounds = useMemo(() => {
+    if (dimensions.width === 0 || dimensions.height === 0) return null;
+    const { width: w, height: h } = dimensions;
+    const cx = w / 2;
+    const cy = h / 2;
+    // Node spread (~120px) + hull padding (45px) + text labels (20px) + extra breathing room
+    const margin = 250;
+    let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+    for (const pos of Object.values(CATEGORY_CLUSTER_POSITIONS)) {
+      const x = cx + pos.x * w * 0.35;
+      const y = cy + pos.y * h * 0.35;
+      if (x - margin < minX) minX = x - margin;
+      if (x + margin > maxX) maxX = x + margin;
+      if (y - margin < minY) minY = y - margin;
+      if (y + margin + 20 > maxY) maxY = y + margin + 20; // extra for bottom labels
+    }
+    return { minX, minY, maxX, maxY };
+  }, [dimensions]);
+
+  // Zoom/pan — initial transform pre-fitted to expected bounds
+  const { transform: zoomTransform, zoomIn, zoomOut, resetZoom, fitToView, setSvgEl } = useZoomPan({
+    initialBounds: expectedBounds,
+    viewportWidth: dimensions.width,
+    viewportHeight: dimensions.height,
+  });
 
   // Store SVG element for coordinate conversion
   const svgElRef = useRef<SVGSVGElement | null>(null);
