@@ -9,7 +9,7 @@ tags: ["video", "text-to-video", "image-to-video", "bytedance", "generative-ai",
 website: "https://seedance.io"
 docs: "https://seed.bytedance.com/en/seedance2_0"
 pricing: "free"
-status: "trending"
+status: "new"
 dateAdded: 2026-02-15
 featured: false
 ---

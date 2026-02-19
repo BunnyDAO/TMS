@@ -10,7 +10,7 @@ website: "https://chain.link"
 github: "https://github.com/smartcontractkit/chainlink"
 docs: "https://docs.chain.link"
 pricing: "open-source"
-status: "trending"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

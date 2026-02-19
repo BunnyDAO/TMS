@@ -30,3 +30,4 @@ featured: false
 - **Automatic quantization** optimizes models for your hardware, running efficiently on consumer GPUs and Apple Silicon.
 - **Modelfile customization** lets you create custom model configurations with system prompts, parameters, and templates.
 - **Cross-platform support** runs natively on macOS (Apple Silicon), Linux (NVIDIA/AMD), and Windows.
+- **Latest release** — Updated February 2026 with expanded model support and performance improvements.

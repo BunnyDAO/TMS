@@ -30,3 +30,4 @@ featured: false
 - **Extensive integrations** connect to 100+ LLM providers, vector stores, document loaders, and embedding models.
 - **RAG support** includes built-in tools for document ingestion, chunking, embedding, and retrieval-augmented generation.
 - **Python and JavaScript** available in both Python and TypeScript/JavaScript with feature parity across both libraries.
+- **Latest release** — Updated February 2026 with continued improvements to LangGraph and core integrations.

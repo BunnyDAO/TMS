@@ -30,3 +30,4 @@ featured: false
 - **E-commerce integrations** plugins available for WooCommerce, Shopify, PrestaShop, Drupal, and other major platforms.
 - **Point-of-sale terminal** built-in POS interface for brick-and-mortar businesses to accept Bitcoin in person.
 - **Invoicing and accounting** generate payment requests, track invoices, and export data for accounting purposes.
+- **Latest release** — Updated February 2026 with new features and stability improvements.

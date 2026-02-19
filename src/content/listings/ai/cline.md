@@ -9,7 +9,7 @@ tags: ["coding-agent", "vscode", "autonomous", "open-source", "agentic", "mcp", 
 website: "https://cline.bot"
 github: "https://github.com/cline/cline"
 pricing: "open-source"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
@@ -31,3 +31,4 @@ featured: false
 - **Terminal command execution** — Runs builds, tests, installations, linters, and any CLI tools within your VS Code terminal.
 - **Custom instructions** — Configure project-specific instructions that guide Cline's behavior, coding style, and preferences.
 - **Fully open-source** — MIT licensed with a large active community contributing features, providers, and MCP tool integrations.
+- **Latest release** — Updated February 2026 with continued improvements to agent capabilities and provider integrations.
