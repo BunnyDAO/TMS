@@ -10,7 +10,7 @@ website: "https://aave.com"
 github: "https://github.com/aave"
 docs: "https://docs.aave.com"
 pricing: "open-source"
-status: "trending"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

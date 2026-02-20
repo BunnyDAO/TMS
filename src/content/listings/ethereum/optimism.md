@@ -10,7 +10,7 @@ website: "https://optimism.io"
 github: "https://github.com/ethereum-optimism/optimism"
 docs: "https://docs.optimism.io"
 pricing: "open-source"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
@@ -30,3 +30,4 @@ featured: false
 - **Low transaction fees** with EIP-4844 blob support, transactions cost fractions of a cent.
 - **Full EVM equivalence** supports all Ethereum smart contracts, tools, and libraries without modification.
 - **Decentralized governance** through the Token House and Citizens' House bicameral governance structure.
+- **Latest release** — Updated February 2026 with continued Superchain interoperability improvements and OP Stack refinements.

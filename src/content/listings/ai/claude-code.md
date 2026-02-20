@@ -10,7 +10,7 @@ website: "https://docs.anthropic.com/en/docs/claude-code"
 docs: "https://code.claude.com/docs/en/setup"
 github: "https://github.com/anthropics/claude-code"
 pricing: "paid"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
@@ -46,3 +46,4 @@ featured: false
 - **Multi-file refactoring** — Performs complex changes across dozens of files simultaneously with awareness of imports, types, cross-file dependencies, and test coverage.
 - **Subagent architecture** — Spawns specialized sub-agents for parallel research, exploration, and task execution within a single session.
 - **Auto-memory** — Automatically saves patterns, debugging insights, and project-specific knowledge to a persistent memory directory for use across sessions.
+- **Latest release** — Updated February 2026 with continued improvements to agentic reliability, hook configurability, and MCP server compatibility.
