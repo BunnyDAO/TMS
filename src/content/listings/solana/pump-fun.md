@@ -23,7 +23,7 @@ featured: false
 ## How pump.fun Connects to the Ecosystem
 
 - **Bonding curve → Raydium graduation** — Tokens start on pump.fun's internal bonding curve. When a token reaches ~$69K market cap and the bonding curve fills, it automatically migrates to a Raydium pool with locked liquidity. This is the most important handoff in the Solana meme ecosystem.
-- **Jupiter aggregation** — Once a token graduates to Raydium, it becomes instantly tradeable through Jupiter, meaning every Solana wallet and trading interface can access it.
+- **Jupiter aggregation** — Once a token graduates to Raydium, it becomes instantly tradeable through Jupiter, meaning every Solana wallet and trading interface can access it — including [WenRWA](https://app.wenrwa.com), where you can trade graduated tokens with AI-powered strategies.
 - **Phantom integration** — Phantom wallet users can see pump.fun token balances, and Phantom's built-in swap (powered by Jupiter) can trade graduated tokens.
 - **Jito MEV** — Active pump.fun traders often use Jito bundles for priority transaction inclusion, especially for early buys on new launches.
 - **Helius tracking** — Developers use Helius webhooks to monitor pump.fun token launches, bonding curve progress, and graduation events in real-time.
