@@ -10,7 +10,7 @@ website: "https://orca.so"
 github: "https://github.com/orca-so"
 docs: "https://docs.orca.so"
 pricing: "open-source"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
