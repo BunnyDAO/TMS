@@ -10,7 +10,7 @@ website: "https://docs.anthropic.com/en/docs/claude-code"
 docs: "https://code.claude.com/docs/en/setup"
 github: "https://github.com/anthropics/claude-code"
 pricing: "paid"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
@@ -35,6 +35,7 @@ featured: false
 ## Key Features
 
 - **Powered by Opus 4** — Uses the most capable Claude model for deep codebase understanding, multi-step reasoning, and complex autonomous coding tasks.
+- **Latest release (February 2026)** — The most recent release brings continued improvements to agent reliability, hook stability, and MCP server compatibility.
 - **Agentic tool use** — Reads and edits files, runs terminal commands (builds, tests, linters), searches with glob/grep, and fetches web content — all autonomously chained together.
 - **Git-native workflow** — Creates branches, stages files, writes commit messages following your repo's conventions, opens PRs via `gh`, and handles merge conflicts.
 - **CLAUDE.md project memory** — Persistent project instructions that teach Claude your stack, conventions, testing patterns, and preferences across sessions.

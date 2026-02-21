@@ -10,7 +10,7 @@ website: "https://jup.ag"
 github: "https://github.com/jup-ag"
 docs: "https://station.jup.ag/docs"
 pricing: "free"
-status: "trending"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---

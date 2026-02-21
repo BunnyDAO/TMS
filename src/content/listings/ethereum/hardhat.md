@@ -30,3 +30,4 @@ featured: false
 - **Hardhat Ignition** declarative deployment system for reproducible, verifiable smart contract deployments.
 - **Mainnet forking** test against real chain state by forking Ethereum mainnet or any EVM chain locally.
 - **Solidity debugging** provides clear error messages, stack traces, and console.log support within smart contracts.
+- **Actively maintained** with the latest release in February 2026, bringing continued improvements to Ignition and Solidity compiler support.

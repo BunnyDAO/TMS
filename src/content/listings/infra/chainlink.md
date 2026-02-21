@@ -10,7 +10,7 @@ website: "https://chain.link"
 github: "https://github.com/smartcontractkit/chainlink"
 docs: "https://docs.chain.link"
 pricing: "open-source"
-status: "trending"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---
@@ -30,3 +30,4 @@ featured: false
 - **CCIP (Cross-Chain Interoperability Protocol)** enables secure cross-chain token transfers and messaging.
 - **Proof of Reserve** verifies that tokenized assets and stablecoins are properly backed by their claimed reserves.
 - **Multi-chain deployment** operates across Ethereum, Arbitrum, Polygon, Solana, Avalanche, BNB Chain, and dozens more.
+- **Actively maintained** with the latest release in February 2026, continuing to expand CCIP coverage and data feed availability.

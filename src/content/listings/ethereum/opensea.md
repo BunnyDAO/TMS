@@ -9,7 +9,7 @@ tags: ["nft", "marketplace", "collectibles", "trading", "multi-chain"]
 website: "https://opensea.io"
 docs: "https://docs.opensea.io"
 pricing: "freemium"
-status: "stable"
+status: "new"
 dateAdded: 2026-02-17
 featured: false
 ---

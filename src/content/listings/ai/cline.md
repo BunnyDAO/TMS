@@ -9,7 +9,7 @@ tags: ["coding-agent", "vscode", "autonomous", "open-source", "agentic", "mcp", 
 website: "https://cline.bot"
 github: "https://github.com/cline/cline"
 pricing: "open-source"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
@@ -24,6 +24,7 @@ featured: false
 ## Key Features
 
 - **Human-in-the-loop by default** — Every file edit, terminal command, and browser action is shown for your approval before execution. You stay in control.
+- **Latest release (February 2026)** — The most recent release includes continued improvements to MCP reliability, provider compatibility, and agent task execution.
 - **MCP server support** — Connect to external tools and services via the Model Context Protocol. Add databases, APIs, and custom tooling directly to Cline's capabilities.
 - **Browser integration** — Can launch a headless browser to navigate websites, click elements, fill forms, and extract information for research and testing.
 - **Multi-provider support** — Works with Claude, GPT-4, o3, Gemini, DeepSeek, Qwen, local models via Ollama, and 20+ providers via OpenRouter.
