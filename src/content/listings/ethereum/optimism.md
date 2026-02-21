@@ -30,3 +30,4 @@ featured: false
 - **Low transaction fees** with EIP-4844 blob support, transactions cost fractions of a cent.
 - **Full EVM equivalence** supports all Ethereum smart contracts, tools, and libraries without modification.
 - **Decentralized governance** through the Token House and Citizens' House bicameral governance structure.
+- **Actively developed** with the latest OP Stack release in February 2026, continuing to advance Superchain interoperability and fault proof infrastructure.

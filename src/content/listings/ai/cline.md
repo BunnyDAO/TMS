@@ -24,6 +24,7 @@ featured: false
 ## Key Features
 
 - **Human-in-the-loop by default** — Every file edit, terminal command, and browser action is shown for your approval before execution. You stay in control.
+- **Latest release (February 2026)** — The most recent release includes continued improvements to MCP reliability, provider compatibility, and agent task execution.
 - **MCP server support** — Connect to external tools and services via the Model Context Protocol. Add databases, APIs, and custom tooling directly to Cline's capabilities.
 - **Browser integration** — Can launch a headless browser to navigate websites, click elements, fill forms, and extract information for research and testing.
 - **Multi-provider support** — Works with Claude, GPT-4, o3, Gemini, DeepSeek, Qwen, local models via Ollama, and 20+ providers via OpenRouter.
@@ -31,4 +32,3 @@ featured: false
 - **Terminal command execution** — Runs builds, tests, installations, linters, and any CLI tools within your VS Code terminal.
 - **Custom instructions** — Configure project-specific instructions that guide Cline's behavior, coding style, and preferences.
 - **Fully open-source** — MIT licensed with a large active community contributing features, providers, and MCP tool integrations.
-- **Latest release** — Updated February 2026 with ongoing improvements to agent reliability, provider support, and MCP integrations.

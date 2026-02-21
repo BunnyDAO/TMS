@@ -35,6 +35,7 @@ featured: false
 ## Key Features
 
 - **Powered by Opus 4** — Uses the most capable Claude model for deep codebase understanding, multi-step reasoning, and complex autonomous coding tasks.
+- **Latest release (February 2026)** — The most recent release brings continued improvements to agent reliability, hook stability, and MCP server compatibility.
 - **Agentic tool use** — Reads and edits files, runs terminal commands (builds, tests, linters), searches with glob/grep, and fetches web content — all autonomously chained together.
 - **Git-native workflow** — Creates branches, stages files, writes commit messages following your repo's conventions, opens PRs via `gh`, and handles merge conflicts.
 - **CLAUDE.md project memory** — Persistent project instructions that teach Claude your stack, conventions, testing patterns, and preferences across sessions.
@@ -46,4 +47,3 @@ featured: false
 - **Multi-file refactoring** — Performs complex changes across dozens of files simultaneously with awareness of imports, types, cross-file dependencies, and test coverage.
 - **Subagent architecture** — Spawns specialized sub-agents for parallel research, exploration, and task execution within a single session.
 - **Auto-memory** — Automatically saves patterns, debugging insights, and project-specific knowledge to a persistent memory directory for use across sessions.
-- **Latest release** — Updated February 2026 with continued improvements to agentic reliability, hook configurability, and MCP server compatibility.

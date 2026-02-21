@@ -30,3 +30,4 @@ featured: false
 - **CCIP (Cross-Chain Interoperability Protocol)** enables secure cross-chain token transfers and messaging.
 - **Proof of Reserve** verifies that tokenized assets and stablecoins are properly backed by their claimed reserves.
 - **Multi-chain deployment** operates across Ethereum, Arbitrum, Polygon, Solana, Avalanche, BNB Chain, and dozens more.
+- **Actively maintained** with the latest release in February 2026, continuing to expand CCIP coverage and data feed availability.

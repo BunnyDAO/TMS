@@ -30,4 +30,3 @@ featured: false
 - **Privacy enhancements** payment routing through multiple nodes provides better privacy than on-chain transactions.
 - **Micropayment support** enables streaming payments, pay-per-second services, and sub-dollar transactions.
 - **Growing adoption** supported by major exchanges, payment processors, and merchants worldwide for instant BTC payments.
-- **Latest release** — LND updated February 2026 with continued improvements to routing reliability and channel management.
