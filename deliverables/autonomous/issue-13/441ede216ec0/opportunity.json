@@ -1,0 +1,18 @@
+{
+  "headline": "GitHub[BunnyDAO/TMS]: 🔍 Discovery Report — 2026-02-22",
+  "url": "https://github.com/BunnyDAO/TMS/issues/13",
+  "expected_usd": 692.0,
+  "strategy": "锁定明码 bounty；交付代码+run_log+sample_data，并准备自动交割链接。",
+  "raw_expected": "692.00 USD",
+  "bounty_literal": "$692",
+  "source_line": "## 🚨 发现新商机：GitHub[BunnyDAO/TMS]: 🔍 Discovery Report — 2026-02-22",
+  "kind": "generic_automation",
+  "difficulty": 1.0,
+  "score": 692.0,
+  "oid": "e3bd192676251f3363fef3fac012784cae82b4d05fbff5994cebd511c73d7eb7",
+  "payout": {
+    "asset": "USDT",
+    "chain": "EVM",
+    "wallet": "0xF57503F99fA20b912200ed90D26d945093136ef5"
+  }
+}
