@@ -30,3 +30,4 @@ featured: false
 - **EVM compatibility** supports Solidity and Vyper smart contracts with the zkSync compiler for easy migration.
 - **ZK Stack** enables launching custom ZK-powered chains (Hyperchains) with shared liquidity and interoperability.
 - **Low fees** transactions cost a fraction of Ethereum mainnet while inheriting its full security guarantees.
+- **Actively maintained** with the latest release in late February 2026, continuing to advance ZK proof performance and ecosystem tooling.

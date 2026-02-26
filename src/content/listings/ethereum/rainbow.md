@@ -29,3 +29,4 @@ featured: false
 - **NFT gallery** beautifully displays your NFT collection with detailed metadata and collection organization.
 - **Built-in swaps** swap tokens across chains with an integrated DEX aggregator for the best prices.
 - **Open-source** the mobile app is fully open-source, allowing community review and contributions.
+- **Actively maintained** with the latest release in late February 2026, bringing continued improvements to the mobile experience and chain support.
