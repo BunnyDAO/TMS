@@ -25,6 +25,7 @@ featured: false
 ## Key Features
 
 - **Zero-knowledge proofs** provide cryptographic verification of every transaction, offering stronger security than optimistic rollups.
+- **Latest release (February 25, 2026)** — The most recent release brings continued improvements to EVM compatibility, ZK Stack tooling, and network performance.
 - **No withdrawal delays** ZK proofs enable instant finality without the 7-day challenge period of optimistic rollups.
 - **Native account abstraction** built-in support for smart contract wallets, enabling gasless transactions and social recovery.
 - **EVM compatibility** supports Solidity and Vyper smart contracts with the zkSync compiler for easy migration.
