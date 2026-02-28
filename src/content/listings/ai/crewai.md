@@ -25,6 +25,7 @@ featured: false
 ## Key Features
 
 - **Role-based agents** let you define specialized team members with distinct expertise, goals, and behavioral guidelines.
+- **Latest release (February 27, 2026)** — the most recent release brings continued refinements to agent orchestration, tool compatibility, and workflow reliability.
 - **Task delegation** allows agents to autonomously delegate subtasks to other agents in the crew when needed.
 - **Sequential and hierarchical processes** support both linear pipelines and manager-orchestrated team structures.
 - **Built-in tool integration** provides agents with web search, file operations, code execution, and custom tool access.
