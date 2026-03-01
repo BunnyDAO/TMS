@@ -24,6 +24,7 @@ featured: false
 ## Key Features
 
 - **Beautiful design** a polished, intuitive interface that makes managing crypto assets a pleasant experience.
+- **Latest release (late February 2026)** — The most recent update brings continued improvements to performance, multi-chain support, and the overall user experience.
 - **ENS integration** native support for Ethereum Name Service names for sending, receiving, and displaying your identity.
 - **Multi-chain support** works with Ethereum, Arbitrum, Optimism, Base, Polygon, Zora, and other EVM chains.
 - **NFT gallery** beautifully displays your NFT collection with detailed metadata and collection organization.
