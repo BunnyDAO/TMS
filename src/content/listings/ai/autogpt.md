@@ -25,6 +25,7 @@ featured: false
 ## Key Features
 
 - **Autonomous agents** — Agents can break down goals into subtasks and execute them independently without step-by-step human input.
+- **Latest release (late February 2026)** — The most recent release brings continued improvements to agent reliability, platform stability, and self-hosting setup.
 - **Visual workflow builder** — Compose multi-step agent pipelines through a graphical interface rather than writing custom orchestration code.
 - **Self-hostable** — Run the entire platform on your own hardware using Docker Compose, keeping data and API keys under your control.
 - **Multi-LLM support** — Connect agents to various LLM backends, not limited to a single provider.
