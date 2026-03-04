@@ -10,7 +10,7 @@ website: "https://lightning.network"
 github: "https://github.com/lightningnetwork/lnd"
 docs: "https://docs.lightning.engineering"
 pricing: "open-source"
-status: "trending"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---
