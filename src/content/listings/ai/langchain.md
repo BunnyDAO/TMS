@@ -10,7 +10,7 @@ website: "https://langchain.com"
 github: "https://github.com/langchain-ai/langchain"
 docs: "https://python.langchain.com/docs"
 pricing: "open-source"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
@@ -30,4 +30,4 @@ featured: false
 - **Extensive integrations** connect to 100+ LLM providers, vector stores, document loaders, and embedding models.
 - **RAG support** includes built-in tools for document ingestion, chunking, embedding, and retrieval-augmented generation.
 - **Python and JavaScript** available in both Python and TypeScript/JavaScript with feature parity across both libraries.
-- **Active development** with frequent releases — the latest dropped in late February 2026, continuing to refine agent primitives and LangGraph capabilities.
+- **Active development** with frequent releases — the latest dropped in early March 2026, continuing to refine agent primitives and LangGraph capabilities.
