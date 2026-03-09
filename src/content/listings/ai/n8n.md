@@ -30,4 +30,4 @@ featured: false
 - **Self-hostable** run on your own infrastructure for complete data control and privacy compliance.
 - **Code when needed** supports custom JavaScript and Python nodes for logic that goes beyond visual building blocks.
 - **Active community** with thousands of shared workflow templates and an engaged open-source contributor base.
-- **Frequent releases** with the latest update in late February 2026, continuing to expand AI node capabilities and integration coverage.
+- **Frequent releases** with the latest update in early March 2026, continuing to expand AI node capabilities and integration coverage.
