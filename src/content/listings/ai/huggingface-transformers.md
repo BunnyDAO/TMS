@@ -30,3 +30,4 @@ featured: false
 - **Fine-tuning tools** — Includes a `Trainer` class and integration with PEFT, making it straightforward to fine-tune large models with minimal memory overhead.
 - **Broad modality coverage** — Supports text, vision, audio, video, and multimodal models under a single consistent API.
 - **Local and private inference** — Models run entirely on your own hardware with no data sent to external servers, suitable for sensitive or offline workloads.
+- **Latest release (early March 2026)** — The most recent release continues to expand model compatibility, hardware optimizations, and support for the latest architectures on the Hub.
