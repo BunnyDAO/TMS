@@ -10,7 +10,7 @@ website: "https://jan.ai"
 github: "https://github.com/janhq/jan"
 docs: "https://jan.ai/docs"
 pricing: "open-source"
-status: "trending"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---
@@ -30,3 +30,4 @@ featured: false
 - **Extension system** adds functionality through plugins for RAG, remote models, TensorRT acceleration, and more.
 - **OpenAI-compatible API** serves your local models through a familiar API interface for application integration.
 - **Cross-platform and open-source** available on all major desktop platforms with fully open-source code under AGPLv3.
+- **Latest release (mid-March 2026)** — The most recent release brings continued improvements to model compatibility, UI stability, and hardware support.
