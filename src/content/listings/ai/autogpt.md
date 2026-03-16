@@ -30,3 +30,4 @@ featured: false
 - **Multi-LLM support** — Connect agents to various LLM backends, not limited to a single provider.
 - **Cloud-hosted option** — A managed cloud version is available via waitlist for teams who prefer not to self-host.
 - **Active community** — Large open-source community with thousands of members on Discord and ongoing contributions on GitHub.
+- **Latest release (March 2026)** — The most recent release brings continued improvements to agent reliability, workflow stability, and platform performance.
