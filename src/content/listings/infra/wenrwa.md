@@ -8,7 +8,7 @@ subcategory: "bridges"
 tags: ["rwa", "infrastructure", "solana", "tokenization", "real-world-assets", "ai-agents", "agent-marketplace", "escrow", "defi", "jupiter"]
 website: "https://wenrwa.com"
 pricing: "free"
-status: "new"
+status: "stable"
 dateAdded: 2026-02-15
 featured: true
 ---
