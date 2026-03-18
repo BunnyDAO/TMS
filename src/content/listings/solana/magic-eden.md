@@ -9,7 +9,7 @@ tags: ["nft", "marketplace", "multi-chain", "ordinals", "trading"]
 website: "https://magiceden.io"
 docs: "https://docs.magiceden.io"
 pricing: "freemium"
-status: "trending"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---
