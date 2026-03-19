@@ -10,7 +10,7 @@ website: "https://dify.ai"
 github: "https://github.com/langgenius/dify"
 docs: "https://docs.dify.ai"
 pricing: "open-source"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
@@ -30,3 +30,4 @@ featured: false
 - **Agent mode** builds autonomous agents with tool access, code execution, and web browsing capabilities.
 - **One-click deployment** publishes apps as web interfaces, chat widgets, or API endpoints instantly.
 - **Self-hostable** with full Docker support and enterprise features for data privacy and access control.
+- **Latest release (mid-March 2026)** — The most recent release brings continued platform improvements, new model integrations, and workflow stability enhancements.

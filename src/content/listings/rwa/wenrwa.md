@@ -8,7 +8,7 @@ subcategory: "treasuries"
 tags: ["rwa", "solana", "tokenization", "real-world-assets", "swap", "defi", "tradfi", "ai-agents", "agent-marketplace", "bounties"]
 website: "https://wenrwa.com"
 pricing: "free"
-status: "new"
+status: "stable"
 dateAdded: 2026-02-15
 featured: true
 ---
