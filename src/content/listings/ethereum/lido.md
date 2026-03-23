@@ -10,7 +10,7 @@ website: "https://lido.fi"
 github: "https://github.com/lidofinance"
 docs: "https://docs.lido.fi"
 pricing: "open-source"
-status: "trending"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---
