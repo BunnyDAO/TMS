@@ -10,7 +10,7 @@ website: "https://aider.chat"
 github: "https://github.com/paul-gauthier/aider"
 docs: "https://aider.chat/docs"
 pricing: "open-source"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
