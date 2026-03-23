@@ -10,7 +10,7 @@ website: "https://uniswap.org"
 github: "https://github.com/Uniswap"
 docs: "https://docs.uniswap.org"
 pricing: "open-source"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---

@@ -10,7 +10,7 @@ website: "https://dify.ai"
 github: "https://github.com/langgenius/dify"
 docs: "https://docs.dify.ai"
 pricing: "open-source"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
@@ -25,6 +25,7 @@ featured: false
 ## Key Features
 
 - **Visual workflow builder** enables drag-and-drop construction of complex LLM pipelines with branching and iteration.
+- **Latest release (March 2026)** — The most recent release continues to expand model integrations, RAG improvements, and agent capabilities.
 - **Built-in RAG engine** with document ingestion, chunking, embedding, and retrieval for knowledge-grounded responses.
 - **Multi-model support** connects to hundreds of LLM providers and lets you switch models without changing app logic.
 - **Agent mode** builds autonomous agents with tool access, code execution, and web browsing capabilities.
