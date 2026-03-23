@@ -25,10 +25,9 @@ featured: false
 ## Key Features
 
 - **Visual workflow builder** enables drag-and-drop construction of complex LLM pipelines with branching and iteration.
-- **Latest release (March 2026)** — The most recent release continues to expand model integrations, RAG improvements, and agent capabilities.
+- **Latest release (March 18, 2026)** — The most recent release continues to expand model integrations, RAG improvements, workflow capabilities, and agent capabilities.
 - **Built-in RAG engine** with document ingestion, chunking, embedding, and retrieval for knowledge-grounded responses.
 - **Multi-model support** connects to hundreds of LLM providers and lets you switch models without changing app logic.
 - **Agent mode** builds autonomous agents with tool access, code execution, and web browsing capabilities.
 - **One-click deployment** publishes apps as web interfaces, chat widgets, or API endpoints instantly.
 - **Self-hostable** with full Docker support and enterprise features for data privacy and access control.
-- **Latest release (March 2026)** — The most recent release continues to expand model integrations, workflow capabilities, and platform stability.
