@@ -10,7 +10,7 @@ website: "https://getfoundry.sh"
 github: "https://github.com/foundry-rs/foundry"
 docs: "https://book.getfoundry.sh"
 pricing: "open-source"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
