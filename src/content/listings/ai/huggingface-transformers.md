@@ -25,7 +25,7 @@ featured: false
 ## Key Features
 
 - **Unified Model Hub** — Access over 500,000 pretrained model checkpoints directly from the Hugging Face Hub with a single line of code.
-- **Latest release (early March 2026)** — The most recent release continues to expand model support, hardware compatibility, and inference performance.
+- **Latest release (early March 2026)** — The most recent release adds support for new model architectures, hardware backends, and continued refinements to the pipeline API.
 - **Multi-framework support** — Works seamlessly with PyTorch, TensorFlow, and JAX, with easy model conversion between backends.
 - **Pipeline API** — High-level `pipeline()` abstraction lets you run inference for text generation, classification, summarization, translation, image recognition, and more without boilerplate.
 - **Fine-tuning tools** — Includes a `Trainer` class and integration with PEFT, making it straightforward to fine-tune large models with minimal memory overhead.
