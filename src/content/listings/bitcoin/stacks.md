@@ -30,3 +30,4 @@ featured: false
 - **BTC yield through Stacking** lock STX tokens to earn Bitcoin rewards, providing native BTC yield.
 - **Nakamoto upgrade** brings fast block times and Bitcoin finality to Stacks transactions.
 - **Growing DeFi ecosystem** supports DEXs, lending protocols, NFT marketplaces, and social applications built on Bitcoin.
+- **Latest release (mid-March 2026)** — The most recent stacks-core release brings continued improvements to node stability, sBTC reliability, and network performance.
