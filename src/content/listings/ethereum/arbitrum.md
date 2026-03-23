@@ -31,4 +31,4 @@ featured: false
 - **Arbitrum Orbit** enables teams to launch custom L3 chains that settle on Arbitrum for application-specific scaling.
 - **Stylus support** allows smart contracts written in Rust, C, and C++ alongside Solidity for broader developer access.
 - **ARB governance token** enables decentralized governance of the protocol through the Arbitrum DAO.
-- **Active development** with the latest protocol release in early March 2026, continuing to improve performance and developer tooling.
+- **Latest release (early March 2026)** — the most recent update brings continued improvements to Nitro node performance, Orbit tooling, and Stylus compatibility.
