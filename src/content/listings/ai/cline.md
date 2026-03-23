@@ -9,7 +9,7 @@ tags: ["coding-agent", "vscode", "autonomous", "open-source", "agentic", "mcp", 
 website: "https://cline.bot"
 github: "https://github.com/cline/cline"
 pricing: "open-source"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
