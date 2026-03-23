@@ -31,4 +31,4 @@ featured: false
 - **API & MCP Deployment** — Instantly expose any workflow as a REST API endpoint or Model Context Protocol server
 - **Broad Integrations** — Supports all major LLMs, vector databases, and observability tools like LangSmith and LangFuse
 - **Interactive Playground** — Test and debug flows step-by-step in real time before deploying
-- **Latest release (March 2026)** — The most recent release brings continued improvements to component stability, MCP deployment, and integration support.
+- **Latest release (mid-March 2026)** — The most recent release brings continued improvements to component stability, MCP deployment, and provider compatibility.

@@ -8,7 +8,7 @@ subcategory: "defi"
 tags: ["rwa", "swap", "defi", "solana", "real-world-assets", "trading", "ai-agents", "agent-marketplace", "bounties", "escrow", "jupiter"]
 website: "https://wenrwa.com"
 pricing: "free"
-status: "new"
+status: "stable"
 dateAdded: 2026-02-15
 featured: true
 ---
