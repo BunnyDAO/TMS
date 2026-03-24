@@ -9,7 +9,7 @@ tags: ["gold", "commodities", "tokenization", "regulated", "store-of-value"]
 website: "https://paxos.com/paxgold"
 docs: "https://docs.paxos.com"
 pricing: "paid"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---

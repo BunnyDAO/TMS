@@ -10,7 +10,7 @@ website: "https://ollama.com"
 github: "https://github.com/ollama/ollama"
 docs: "https://github.com/ollama/ollama/blob/main/docs/README.md"
 pricing: "open-source"
-status: "trending"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---
@@ -30,4 +30,4 @@ featured: false
 - **Automatic quantization** optimizes models for your hardware, running efficiently on consumer GPUs and Apple Silicon.
 - **Modelfile customization** lets you create custom model configurations with system prompts, parameters, and templates.
 - **Cross-platform support** runs natively on macOS (Apple Silicon), Linux (NVIDIA/AMD), and Windows.
-- **Actively maintained** with the latest release in March 2026, adding support for new models and hardware improvements.
+- **Actively maintained** with the latest release on March 18, 2026, adding support for new models and hardware improvements.
