@@ -27,8 +27,7 @@ featured: false
 - **100% offline operation** runs entirely on your local machine with no internet connection required after model download.
 - **Privacy-first design** ensures no conversation data is ever sent to external servers or telemetry services.
 - **Built-in model hub** provides one-click downloads of popular models optimized for various hardware configurations.
-- **Latest release (mid-March 2026)** — The most recent release brings continued improvements to model compatibility, UI polish, and performance on Apple Silicon and consumer GPUs.
+- **Latest release (March 23, 2026)** — The most recent release brings continued improvements to model compatibility, UI polish, and performance on Apple Silicon and consumer GPUs.
 - **Extension system** adds functionality through plugins for RAG, remote models, TensorRT acceleration, and more.
 - **OpenAI-compatible API** serves your local models through a familiar API interface for application integration.
 - **Cross-platform and open-source** available on all major desktop platforms with fully open-source code under AGPLv3.
-- **Latest release (mid-March 2026)** — The most recent release brings continued improvements to model compatibility, hardware support, and the desktop experience.
