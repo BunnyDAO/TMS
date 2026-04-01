@@ -10,7 +10,7 @@ website: "https://agpt.co"
 github: "https://github.com/Significant-Gravitas/AutoGPT"
 docs: "https://agpt.co/docs/platform/getting-started/getting-started"
 pricing: "open-source"
-status: "new"
+status: "stable"
 dateAdded: 2026-03-01
 featured: false
 ---
@@ -25,12 +25,9 @@ featured: false
 ## Key Features
 
 - **Autonomous agents** — Agents can break down goals into subtasks and execute them independently without step-by-step human input.
-- **Latest release (late February 2026)** — The most recent release brings continued improvements to agent reliability, platform stability, and self-hosting setup.
+- **Latest release (late March 2026)** — The most recent release brings continued improvements to agent reliability, platform stability, and self-hosting setup.
 - **Visual workflow builder** — Compose multi-step agent pipelines through a graphical interface rather than writing custom orchestration code.
-- **Latest release (March 2026)** — The most recent release continues to improve agent reliability, platform stability, and the visual workflow editor.
 - **Self-hostable** — Run the entire platform on your own hardware using Docker Compose, keeping data and API keys under your control.
 - **Multi-LLM support** — Connect agents to various LLM backends, not limited to a single provider.
 - **Cloud-hosted option** — A managed cloud version is available via waitlist for teams who prefer not to self-host.
-- **Latest release (mid-March 2026)** — The most recent release continues to improve agent reliability, workflow stability, and platform performance.
 - **Active community** — Large open-source community with thousands of members on Discord and ongoing contributions on GitHub.
-- **Latest release (March 2026)** — The most recent release brings continued improvements to agent reliability, workflow stability, and platform performance.
