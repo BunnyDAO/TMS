@@ -9,7 +9,7 @@ tags: ["wallet", "browser-extension", "mobile", "multi-chain", "nfts"]
 website: "https://phantom.app"
 docs: "https://docs.phantom.app"
 pricing: "free"
-status: "trending"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---
