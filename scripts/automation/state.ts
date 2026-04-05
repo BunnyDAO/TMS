@@ -40,10 +40,25 @@ export function loadState(): AutomationState {
     return { ...DEFAULT_STATE };
   }
 }
-
 export function saveState(state: AutomationState): void {
+  if (!state || typeof state !== 'object') {
+    throw new Error('Invalid state object');
+  }
   state.lastRun = new Date().toISOString();
-  writeFileSync(OUTPUT.stateFile, JSON.stringify(state, null, 2));
+  try {
+    if (existsSync(OUTPUT.stateFile)) {
+      const currentFileContent = readFileSync(OUTPUT.stateFile, 'utf-8');
+      const currentState: AutomationState = JSON.parse(currentFileContent);
+      const newState = mergeStateDelta(currentState, state);
+      writeFileSync(OUTPUT.stateFile, JSON.stringify(newState, null, 2));
+    } else {
+      writeFileSync(OUTPUT.stateFile, JSON.stringify(state, null, 2));
+    }
+  } catch (error) {
+    console.error('Error saving state:', error);
+    throw error;
+  }
+}
 }
 
 /**
