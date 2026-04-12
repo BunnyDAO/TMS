@@ -10,7 +10,7 @@ website: "https://anchor-lang.com"
 github: "https://github.com/coral-xyz/anchor"
 docs: "https://www.anchor-lang.com/docs"
 pricing: "open-source"
-status: "trending"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---
