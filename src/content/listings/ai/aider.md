@@ -2,7 +2,7 @@
 name: "Aider"
 slug: "aider"
 tagline: "Terminal-based AI pair programmer that edits code in your git repo"
-description: "Aider is an open-source AI pair programming tool that runs in your terminal and makes real changes to your local git repository. It supports multiple LLMs, understands your codebase structure, and creates well-formatted git commits for each set of changes."
+description: "Aider is an open-source AI pair programming tool that runs in your terminal and makes real changes to your local git repository. It supports a wide range of LLMs, understands your codebase structure, and creates well-formatted git commits for each set of changes. It consistently ranks among the top tools on the SWE-bench software engineering benchmark."
 category: "ai"
 subcategory: "coding"
 tags: ["pair-programming", "terminal", "git", "open-source", "cli"]
@@ -10,7 +10,7 @@ website: "https://aider.chat"
 github: "https://github.com/paul-gauthier/aider"
 docs: "https://aider.chat/docs"
 pricing: "open-source"
-status: "trending"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---
@@ -26,7 +26,7 @@ featured: false
 
 - **Direct git integration** automatically creates meaningful commits for each set of AI-generated changes.
 - **Repository map** builds an understanding of your entire codebase structure for contextually relevant edits.
-- **Multi-model support** works with Claude, GPT-4, Gemini, DeepSeek, local models, and dozens of other providers.
+- **Multi-model support** works with Claude, GPT-4, Gemini, DeepSeek, local models via Ollama, and dozens of other providers.
 - **Architect mode** uses a strong model for planning and a fast model for execution, optimizing cost and quality.
 - **Voice coding** supports voice input for hands-free pair programming sessions via speech-to-text.
-- **Benchmarked and tested** consistently ranks among the top AI coding tools on the SWE-bench software engineering benchmark.
+- **Proven benchmark performance** consistently ranks among the top AI coding tools on the SWE-bench software engineering benchmark.

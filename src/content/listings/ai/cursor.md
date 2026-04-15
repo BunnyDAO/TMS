@@ -2,7 +2,7 @@
 name: "Cursor"
 slug: "cursor"
 tagline: "The AI-first code editor — Tab prediction, Composer, and Agent mode for full codebase edits"
-description: "Cursor is the most popular AI-native code editor, forked from VS Code. It features predictive Tab completion that anticipates your next edit, Composer for multi-file changes from natural language, Agent mode for autonomous task completion, and support for Claude, GPT-4, and other models. Full VS Code extension compatibility means zero switching cost."
+description: "Cursor is a leading AI-native code editor, forked from VS Code. It features predictive Tab completion that anticipates your next edit, Composer for multi-file changes from natural language, Agent mode for autonomous task completion, and support for Claude, GPT-4, and other models. Full VS Code extension compatibility means zero switching cost."
 category: "ai"
 subcategory: "coding"
 tags: ["code-editor", "ide", "autocomplete", "ai-coding", "vscode", "composer", "agent", "multi-model"]

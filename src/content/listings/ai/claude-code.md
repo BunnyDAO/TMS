@@ -2,7 +2,7 @@
 name: "Claude Code"
 slug: "claude-code"
 tagline: "Anthropic's agentic coding CLI — lives in your terminal, understands your entire codebase"
-description: "Claude Code is Anthropic's official command-line tool that brings Claude directly into your terminal. Powered by Opus 4, it autonomously explores codebases, edits files, runs commands, manages git, and handles complex multi-file refactors. It features slash commands, hooks, MCP server integration, IDE extensions, and a powerful agent SDK for building custom workflows."
+description: "Claude Code is Anthropic's official command-line tool that brings Claude directly into your terminal. Powered by Claude's most capable models, it autonomously explores codebases, edits files, runs commands, manages git, and handles complex multi-file refactors. It features slash commands, hooks, MCP server integration, IDE extensions, and a powerful agent SDK for building custom workflows."
 category: "ai"
 subcategory: "coding"
 tags: ["coding-assistant", "terminal", "agentic", "anthropic", "cli", "opus", "mcp", "hooks", "agent-sdk", "developer-tools"]
@@ -10,7 +10,7 @@ website: "https://docs.anthropic.com/en/docs/claude-code"
 docs: "https://code.claude.com/docs/en/setup"
 github: "https://github.com/anthropics/claude-code"
 pricing: "paid"
-status: "trending"
+status: "hot"
 dateAdded: 2026-01-15
 featured: false
 ---
@@ -34,8 +34,8 @@ featured: false
 
 ## Key Features
 
-- **Powered by Opus 4** — Uses the most capable Claude model for deep codebase understanding, multi-step reasoning, and complex autonomous coding tasks.
-- **Latest release (March 2026)** — The most recent release brings continued improvements to agent reliability, hook stability, and MCP server compatibility.
+- **Powered by Anthropic's top models** — Uses Claude's most capable models for deep codebase understanding, multi-step reasoning, and complex autonomous coding tasks.
+- **Latest release (April 2026)** — The most recent release brings continued improvements to agent reliability, hook stability, and MCP server compatibility.
 - **Agentic tool use** — Reads and edits files, runs terminal commands (builds, tests, linters), searches with glob/grep, and fetches web content — all autonomously chained together.
 - **Git-native workflow** — Creates branches, stages files, writes commit messages following your repo's conventions, opens PRs via `gh`, and handles merge conflicts.
 - **CLAUDE.md project memory** — Persistent project instructions that teach Claude your stack, conventions, testing patterns, and preferences across sessions.
