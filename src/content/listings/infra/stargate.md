@@ -10,7 +10,7 @@ website: "https://stargate.finance"
 github: "https://github.com/stargate-protocol"
 docs: "https://docs.layerzero.network"
 pricing: "open-source"
-status: "trending"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---
