@@ -8,7 +8,7 @@ subcategory: "treasuries"
 tags: ["rwa", "tokenized-treasuries", "us-treasuries", "circle", "yield", "institutional", "defi"]
 website: "https://www.circle.com/usyc"
 pricing: "free"
-status: "new"
+status: "stable"
 dateAdded: 2026-03-01
 featured: false
 ---
