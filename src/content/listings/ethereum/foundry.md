@@ -25,6 +25,7 @@ featured: false
 ## Key Features
 
 - **Blazing fast compilation and testing** written in Rust for speed that is orders of magnitude faster than JavaScript-based tools.
+- **Latest release (early May 2026)** — The most recent release brings continued improvements to Forge, Cast, and Anvil tooling.
 - **Solidity-native testing** write tests in Solidity alongside your contracts for a natural, efficient testing workflow.
 - **Fuzz testing** built-in property-based fuzzing automatically generates test inputs to find edge cases and bugs.
 - **Forking mode** fork any EVM chain state for testing against real deployed contracts and data.
