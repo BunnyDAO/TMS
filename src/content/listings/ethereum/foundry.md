@@ -30,3 +30,4 @@ featured: false
 - **Forking mode** fork any EVM chain state for testing against real deployed contracts and data.
 - **Cast CLI** interact with deployed contracts, send transactions, and query chain data from the command line.
 - **Anvil local node** spin up a local Ethereum node for development with configurable block times and account state.
+- **Actively maintained** with the latest release in early May 2026, bringing continued improvements to Forge, Anvil, and Solidity compiler support.
