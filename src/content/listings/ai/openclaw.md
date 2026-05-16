@@ -2,7 +2,7 @@
 name: "OpenClaw"
 slug: "openclaw"
 tagline: "Open-source AI agent that works from your chat apps — WhatsApp, Telegram, Discord, Slack"
-description: "OpenClaw is a free, open-source autonomous AI agent created by Peter Steinberger that executes tasks through the messaging apps you already use. Connect it to WhatsApp, Telegram, Discord, Slack, or Teams and it acts as a personal AI assistant that can access your email, calendar, and other services to automate workflows. With over 100K GitHub stars and 2 million visitors in a single week, OpenClaw went viral in late January 2026. Baidu has integrated it into their search app (700M users), Kimi has made it native in their browser, and creator Peter Steinberger has since joined OpenAI."
+description: "OpenClaw is a free, open-source autonomous AI agent created by Peter Steinberger that executes tasks through the messaging apps you already use. Connect it to WhatsApp, Telegram, Discord, Slack, or Teams and it acts as a personal AI assistant that can access your email, calendar, and other services to automate workflows. OpenClaw gained widespread attention after going viral in early 2026, accumulating over 100K GitHub stars. It has since seen broad third-party adoption, with integrations into major platforms and an active open-source contributor community."
 category: "ai"
 subcategory: "agents"
 tags: ["agent", "open-source", "automation", "whatsapp", "telegram", "discord", "slack", "chat", "assistant"]
@@ -35,4 +35,4 @@ featured: false
 - Uses **Claude**, **GPT**, and other LLMs as its reasoning backbone
 - Integrates with **LangChain** for tool orchestration
 - Works with **n8n** for workflow automation
-- Baidu embedded it into their search app for 700M users
+- Broadly adopted across third-party platforms and applications
