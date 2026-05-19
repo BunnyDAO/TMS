@@ -25,7 +25,7 @@ featured: false
 ## Key Features
 
 - **Visual Builder** — Drag-and-drop canvas lets you compose AI workflows without writing boilerplate code
-- **Latest release (late April 2026)** — The most recent release brings continued improvements to component stability, MCP server deployment, and provider integrations.
+- **Latest release (mid-May 2026)** — The most recent release brings continued improvements to component stability, MCP server deployment, and provider integrations.
 - **Source Code Access** — Every component can be customized with Python for full flexibility
 - **Multi-Agent Orchestration** — Build and manage multiple agents with conversation history and retrieval support
 - **API & MCP Deployment** — Instantly expose any workflow as a REST API endpoint or Model Context Protocol server
