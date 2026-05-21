@@ -10,7 +10,7 @@ website: "https://www.hyperlane.xyz/"
 github: "https://github.com/hyperlane-xyz/hyperlane-monorepo"
 docs: "https://docs.hyperlane.xyz/"
 pricing: "open-source"
-status: "stable"
+status: "hot"
 dateAdded: 2026-03-01
 featured: false
 ---
