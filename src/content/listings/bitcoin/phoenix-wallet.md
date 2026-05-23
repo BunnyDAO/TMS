@@ -29,3 +29,4 @@ featured: false
 - **On-chain and Lightning** supports both regular Bitcoin transactions and Lightning payments in a unified interface.
 - **Splicing technology** uses channel splicing to resize channels on-the-fly without closing and reopening.
 - **Simple backup** a single seed phrase backs up your entire wallet including Lightning channel state.
+- **Latest release (May 2026)** — The most recent release brings continued improvements to reliability, performance, and user experience.
