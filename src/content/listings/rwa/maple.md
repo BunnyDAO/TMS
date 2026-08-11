@@ -10,7 +10,7 @@ website: "https://maple.finance"
 github: "https://github.com/maple-labs"
 docs: "https://docs.maple.finance"
 pricing: "paid"
-status: "stable"
+status: "hot"
 dateAdded: 2026-01-15
 featured: false
 ---
