@@ -10,7 +10,7 @@ website: "https://arbitrum.io"
 github: "https://github.com/OffchainLabs/nitro"
 docs: "https://docs.arbitrum.io"
 pricing: "open-source"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
