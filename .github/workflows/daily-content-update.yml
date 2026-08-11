@@ -2,8 +2,8 @@ name: Daily Content Update
 
 on:
   schedule:
-    # Run daily at 8:00 AM UTC
-    - cron: '0 8 * * *'
+    # Run weekly on Monday at 8:00 AM UTC
+    - cron: '0 8 * * 1'
   workflow_dispatch: # Allow manual trigger
 
 permissions:
