@@ -2,7 +2,7 @@
 name: "Lightning Network"
 slug: "lightning-network"
 tagline: "Bitcoin's Layer 2 for instant, low-cost payments"
-description: "The Lightning Network is Bitcoin's primary Layer 2 scaling solution, enabling instant payments with fees of fractions of a cent. By creating payment channels between nodes, it allows millions of transactions per second while inheriting Bitcoin's security for final settlement."
+description: "The Lightning Network is Bitcoin's primary Layer 2 scaling solution, enabling instant payments with fees of fractions of a cent. By creating payment channels between nodes, it allows millions of transactions per second while inheriting Bitcoin's security for final settlement. The network continues to mature with improved routing reliability, broader wallet support, and growing merchant adoption."
 category: "bitcoin"
 subcategory: "lightning"
 tags: ["layer2", "payments", "scaling", "instant", "micropayments"]
@@ -17,7 +17,7 @@ featured: false
 
 ## Getting Started
 
-1. Choose a Lightning wallet — Phoenix, Breez, or Muun for mobile; Alby for browser; or run your own node with LND or CLN.
+1. Choose a Lightning wallet — Phoenix, Breez, or Wallet of Satoshi for mobile; Alby for browser; or run your own node with LND or CLN.
 2. Fund your Lightning wallet by sending on-chain Bitcoin or receiving a Lightning payment from another user.
 3. Make your first Lightning payment by scanning a Lightning invoice QR code or paying a Lightning address.
 4. For advanced users, run your own Lightning node with Umbrel or Start9 to participate in routing and earn fees.
