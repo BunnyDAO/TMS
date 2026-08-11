@@ -25,10 +25,9 @@ featured: false
 ## Key Features
 
 - **Largest L2 ecosystem** with the highest total value locked and hundreds of deployed DeFi, gaming, and NFT applications.
-- **Latest release (early March 2026)** — The most recent release brings continued improvements to the Nitro stack, node stability, and developer tooling.
+- **Latest release (mid-May 2026)** — The most recent release brings continued improvements to the Nitro stack, node stability, and developer tooling.
 - **Low transaction costs** fees are typically 10-50x cheaper than Ethereum mainnet while inheriting its security.
 - **Ethereum compatibility** full EVM equivalence means existing Solidity contracts deploy without modification.
 - **Arbitrum Orbit** enables teams to launch custom L3 chains that settle on Arbitrum for application-specific scaling.
 - **Stylus support** allows smart contracts written in Rust, C, and C++ alongside Solidity for broader developer access.
 - **ARB governance token** enables decentralized governance of the protocol through the Arbitrum DAO.
-- **Latest release (early March 2026)** — the most recent update brings continued improvements to Nitro node performance, Orbit tooling, and Stylus compatibility.
