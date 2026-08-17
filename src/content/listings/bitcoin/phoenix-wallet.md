@@ -26,6 +26,7 @@ featured: false
 - **Automatic channel management** handles Lightning channel opening, closing, and liquidity without any manual intervention.
 - **Non-custodial design** you hold your own keys at all times, maintaining full sovereignty over your Bitcoin.
 - **Instant payments** send and receive Bitcoin via Lightning in seconds with minimal fees.
+- **Latest release (late May 2026)** — The most recent release brings continued improvements to channel reliability, payment success rates, and app stability.
 - **On-chain and Lightning** supports both regular Bitcoin transactions and Lightning payments in a unified interface.
 - **Splicing technology** uses channel splicing to resize channels on-the-fly without closing and reopening.
 - **Simple backup** a single seed phrase backs up your entire wallet including Lightning channel state.
