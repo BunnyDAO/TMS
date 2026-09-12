@@ -10,7 +10,7 @@ website: "https://raydium.io"
 github: "https://github.com/raydium-io"
 docs: "https://docs.raydium.io"
 pricing: "open-source"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
