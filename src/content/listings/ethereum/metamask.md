@@ -10,7 +10,7 @@ website: "https://metamask.io"
 github: "https://github.com/MetaMask"
 docs: "https://docs.metamask.io"
 pricing: "free"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
