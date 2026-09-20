@@ -10,7 +10,7 @@ website: "https://backpack.app"
 github: "https://github.com/nickarashiofficial/backpack"
 docs: "https://docs.backpack.app"
 pricing: "free"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
