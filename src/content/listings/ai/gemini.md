@@ -9,7 +9,7 @@ tags: ["llm", "multimodal", "google", "long-context", "gemini-2.5", "deep-resear
 website: "https://gemini.google.com"
 docs: "https://ai.google.dev/docs"
 pricing: "freemium"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
