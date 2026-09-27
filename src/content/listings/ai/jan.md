@@ -10,7 +10,7 @@ website: "https://jan.ai"
 github: "https://github.com/janhq/jan"
 docs: "https://jan.ai/docs"
 pricing: "open-source"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
