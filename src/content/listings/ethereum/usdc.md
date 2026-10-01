@@ -9,7 +9,7 @@ tags: ["stablecoin", "usd", "circle", "payments", "defi"]
 website: "https://circle.com/usdc"
 docs: "https://developers.circle.com/stablecoins/docs"
 pricing: "free"
-status: "trending"
+status: "stable"
 dateAdded: 2026-01-15
 featured: false
 ---
