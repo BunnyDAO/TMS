@@ -10,7 +10,7 @@ website: "https://wormhole.com"
 github: "https://github.com/wormhole-foundation/wormhole"
 docs: "https://docs.wormhole.com"
 pricing: "open-source"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
