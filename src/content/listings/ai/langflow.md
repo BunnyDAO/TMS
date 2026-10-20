@@ -10,7 +10,7 @@ website: "https://langflow.org"
 github: "https://github.com/langflow-ai/langflow"
 docs: "https://docs.langflow.org"
 pricing: "open-source"
-status: "stable"
+status: "hot"
 dateAdded: 2026-03-01
 featured: false
 ---
