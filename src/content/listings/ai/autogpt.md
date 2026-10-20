@@ -10,7 +10,7 @@ website: "https://agpt.co"
 github: "https://github.com/Significant-Gravitas/AutoGPT"
 docs: "https://agpt.co/docs/platform/getting-started/getting-started"
 pricing: "open-source"
-status: "stable"
+status: "trending"
 dateAdded: 2026-03-01
 featured: false
 ---
