@@ -10,7 +10,7 @@ website: "https://langchain.com"
 github: "https://github.com/langchain-ai/langchain"
 docs: "https://python.langchain.com/docs"
 pricing: "open-source"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
