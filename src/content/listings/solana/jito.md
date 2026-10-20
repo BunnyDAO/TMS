@@ -10,7 +10,7 @@ website: "https://jito.network"
 github: "https://github.com/jito-foundation"
 docs: "https://docs.jito.network"
 pricing: "open-source"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
