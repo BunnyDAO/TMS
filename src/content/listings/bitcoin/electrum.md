@@ -10,7 +10,7 @@ website: "https://electrum.org"
 github: "https://github.com/spesmilo/electrum"
 docs: "https://electrum.readthedocs.io"
 pricing: "open-source"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
