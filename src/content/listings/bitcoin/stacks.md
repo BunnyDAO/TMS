@@ -10,7 +10,7 @@ website: "https://stacks.co"
 github: "https://github.com/stacks-network/stacks-core"
 docs: "https://docs.stacks.co"
 pricing: "open-source"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
