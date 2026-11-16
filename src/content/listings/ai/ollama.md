@@ -10,7 +10,7 @@ website: "https://ollama.com"
 github: "https://github.com/ollama/ollama"
 docs: "https://github.com/ollama/ollama/blob/main/docs/README.md"
 pricing: "open-source"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
