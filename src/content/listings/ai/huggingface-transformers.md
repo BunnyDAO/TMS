@@ -10,7 +10,7 @@ website: "https://huggingface.co/docs/transformers"
 github: "https://github.com/huggingface/transformers"
 docs: "https://huggingface.co/docs/transformers/index"
 pricing: "open-source"
-status: "stable"
+status: "trending"
 dateAdded: 2026-03-01
 featured: false
 ---

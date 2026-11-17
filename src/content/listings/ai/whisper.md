@@ -10,7 +10,7 @@ website: "https://github.com/openai/whisper"
 github: "https://github.com/openai/whisper"
 docs: "https://platform.openai.com/docs/guides/speech-to-text"
 pricing: "open-source"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
