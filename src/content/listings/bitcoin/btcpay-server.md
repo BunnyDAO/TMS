@@ -10,7 +10,7 @@ website: "https://btcpayserver.org"
 github: "https://github.com/btcpayserver/btcpayserver"
 docs: "https://docs.btcpayserver.org"
 pricing: "open-source"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
