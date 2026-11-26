@@ -10,7 +10,7 @@ website: "https://defillama.com"
 github: "https://github.com/DefiLlama"
 docs: "https://defillama.com/docs/api"
 pricing: "open-source"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
