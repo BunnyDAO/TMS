@@ -10,7 +10,7 @@ website: "https://snapshot.org"
 github: "https://github.com/snapshot-labs"
 docs: "https://docs.snapshot.org"
 pricing: "open-source"
-status: "stable"
+status: "trending"
 dateAdded: 2026-01-15
 featured: false
 ---
